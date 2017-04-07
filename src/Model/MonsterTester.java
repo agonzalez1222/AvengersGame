@@ -8,6 +8,7 @@ public class MonsterTester
 		
 		Monster m1 = new Monster("Insane Crew Person", (int)(Math.random() * 5 + 1), 10);
 		
+		
 	}
 
 }
