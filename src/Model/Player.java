@@ -12,7 +12,7 @@ public class Player {
 	private String[] invItems;
 	private String[] equippedItems;
 	
-	private Player(int health, int baseAtk, int baseDef) {
+	protected Player(int health, int baseAtk, int baseDef) {
 		this.baseAtk = baseAtk;
 		this.baseDef = baseDef;
 		this.health = health;
