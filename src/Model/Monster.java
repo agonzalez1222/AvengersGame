@@ -37,18 +37,18 @@ public class Monster
 	monsterArray.add(m7);
 	
 	}
-	public String getHealthPoints()
+	public int getHealth()
 	{
-		return (name + "  HP is " + healthPoints);
+		return (healthPoints);
 	}
 	
-	protected String attackPoints()
+	public int getAttack()
 	{
-		return (name + "  AttackPoints are " + attack);
+		return  attack;
 	}
 	
-	protected String name()
+	public String getName()
 	{
-		return (name);
+		return name;
 	}
 }
