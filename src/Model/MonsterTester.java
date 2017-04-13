@@ -8,10 +8,12 @@ public class MonsterTester
 
 	public static void main(String[] args) 
 	{
+		
 		System.out.println("Please Enter The Item Name.");
 		Scanner input = new Scanner(System.in);
 		String item = input.nextLine();
 		Player aj = new Player(25,25,25);
+		aj.Fight();
 		if(item.equalsIgnoreCase("Green Herb") || item.equalsIgnoreCase("Red Herb"))
 		{
 			System.out.println("Would you like to combine the green and red herbs? \nEnter Yes or No.");

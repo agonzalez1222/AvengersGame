@@ -16,7 +16,7 @@ public class Monster
 		this.healthPoints = healthPoints;		
 	}
 	//new ArrayList that will hold the Monsters
-	private static ArrayList<Monster> monsterArray = new ArrayList<Monster>(); {
+	public static ArrayList<Monster> monsterArray = new ArrayList<Monster>(); {
 	
 	Monster m1 = new Monster("Insane Crew Person", (int)(Math.random() * 5 + 1), 10);
 	Monster m2 = new Monster("Cultist", (int)(Math.random() * 4 + 5), 15);
@@ -36,5 +36,19 @@ public class Monster
 	monsterArray.add(m6);
 	monsterArray.add(m7);
 	
+	}
+	public String getHealthPoints()
+	{
+		return (name + "  HP is " + healthPoints);
+	}
+	
+	protected String attackPoints()
+	{
+		return (name + "  AttackPoints are " + attack);
+	}
+	
+	protected String name()
+	{
+		return (name);
 	}
 }

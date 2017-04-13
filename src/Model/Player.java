@@ -8,28 +8,44 @@ public class Player {
 	private int baseAtk;
 	private int baseDef;
 	private static String playerCmd;
-	
+	public static Monster monster;
 	private String[] invItems;
 	private String[] equippedItems;
-	
+	static int monsterHealth = monster.getHealth();
+	static int monsterAttack = monster.getAttack();
+	static String monsterName = monster.getName();
 	protected Player(int health, int baseAtk, int baseDef) {
 		this.baseAtk = baseAtk;
 		this.baseDef = baseDef;
 		this.health = health;
 	}
 	
-	public static void Fight(){
+	public static void Fight()
+	{
 		Scanner input = new Scanner(System.in);
-		
-//		do {
-//			System.out.print("What would you like to do?" + "/nAttack, Use Item, Run:");
-//			playerCmd = input.next();
-//			System.out.println("");
-//			
-//			if (playerCmd.equalsIgnoreCase("Attack")) {
-//			
-//			}
-//		}
+		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
+		String userInput = input.nextLine();
+		if(userInput.equalsIgnoreCase("Attack"))
+		{
+			System.out.println("You have chosen to attack: " + monsterName);
+			monsterHealth = monsterHealth 
+			
+			
+		}
+		if(userInput.equalsIgnoreCase("Run"))
+		{
+			
+		}
+		if(userInput.equalsIgnoreCase("Use Item"))
+		{
+			
+		}
+		else 
+		{	
+			System.out.println("That action was not recognized, please try to enter another option");	
+			Player.Fight();
+		}
+
 	}
 	
 	
