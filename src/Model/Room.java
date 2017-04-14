@@ -44,5 +44,15 @@ public class Room {
 //	}
 //
 	
+	//Magda:attempt at switch statement
 	
+	/*
+	 *int user =  ;
+	 *switch (user){
+	 *case 1;
+	 *System.out.println(" ");
+	 *break; 
+	 * 
+	 */
+	 
 }

@@ -20,7 +20,7 @@ public class Game  implements Serializable {
 
 	//R: The current game is closed and the player is returned to the opening screen.
 	public static void exitGame(){
-
+		System.exit();
 	}
 
 	//S: The player selects the Load Game option from the main menu.
