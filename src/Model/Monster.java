@@ -7,6 +7,7 @@ public class Monster
 	private int healthPoints;
 	private int attack;
 	private String name;
+	private Boolean isFrozen = false;
 	
 	//Monster Constructor with variables
 	protected Monster(String name, int attack, int healthPoints)

@@ -27,7 +27,7 @@ public class MonsterTester
 					String health = aj.currentHealth();
 					String[] healthNum = health.split(" ");
 					int hp = Integer.parseInt(healthNum[2]);
-					System.out.print("Your new health is : " + (hp + 30));
+					System.out.print("Your new health is : " + (hp + Items.healthRegen));
 				}
 				if(answer2.equalsIgnoreCase("no"))
 				{
