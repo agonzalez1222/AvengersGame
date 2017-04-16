@@ -1,4 +1,5 @@
 package Model;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Player {
@@ -11,6 +12,7 @@ public class Player {
 	public  Monster monster;
 	private String[] invItems;
 	private String[] equippedItems;
+	static Random rand = new Random();
 	
 	protected Player(int health, int baseAtk, int baseDef) {
 		this.baseAtk = baseAtk;
@@ -31,7 +33,11 @@ public class Player {
 		}
 		if(userInput.equalsIgnoreCase("Run"))
 		{
-			
+			escapeRoll();
+			if (escapeRoll() > 5) {
+				System.out.println("You managed to escape.");
+				// Add code to exit the fight here.
+			}
 		}
 		if(userInput.equalsIgnoreCase("Use Item"))
 		{
@@ -64,6 +70,11 @@ public class Player {
 	// Will be used to display the players current Defense Power
 	public String currentDef() {
 		return "Current Defense Power: " + baseDef;
+	}
+	
+	public static int escapeRoll() {
+		int diceRoll = rand.nextInt((10 - 1) + 1) + 1;
+		return diceRoll;
 	}
 	
 }
