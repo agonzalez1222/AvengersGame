@@ -1,11 +1,25 @@
 package Model;
 import java.io.Serializable;
 
+/**
+ * Class: Game
+ * 
+ * @author Magdalena Ledezma Course : ITEC 3860, Spring, 2017 Written: April 3, 
+ *         2017
+ * 
+ * 
+ *         This class will 
+ * 
+ *         Purpose: The class will 
+ *
+ */
+
+
 public class Game  implements Serializable {
 
-	private int puzzlesCompleted;
-	private int currentRoom;
-	private int currentScore;
+	private static int puzzlesCompleted;
+	private static int currentRoom;
+	private static int currentScore;
 
 	//public string Story. put story in there start game
 	String story = "Story: The exploratory ship Legacy becomes"
@@ -20,7 +34,10 @@ public class Game  implements Serializable {
 
 	//R: The current game is closed and the player is returned to the opening screen.
 	public static void exitGame(){
-		System.exit();
+		System.exit(currentRoom);
+		System.exit(puzzlesCompleted);
+		System.exit(currentScore);
+		
 	}
 
 	//S: The player selects the Load Game option from the main menu.
@@ -53,7 +70,6 @@ public class Game  implements Serializable {
 
 
 	//S: The player selects the View Inventory option from the main menu.
-
 	//R: The player can see a list of their current inventory with numbers 
 	//indicating how many of each
 
@@ -61,7 +77,6 @@ public class Game  implements Serializable {
 
 	}
 	//S: The player selects the View Map option from the main menu.
-
 	//R: The player is shown a map of the entire area as well as a marker
 	//for their current location and floor.
 	public static void viewMap(){
