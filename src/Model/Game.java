@@ -1,6 +1,20 @@
 package Model;
 import java.io.Serializable;
 
+/**
+ * Class: Game
+ * 
+ * @author Magdalena Ledezma Course : ITEC 3860, Spring, 2017 Written: April 3, 
+ *         2017
+ * 
+ * 
+ *         This class will 
+ * 
+ *         Purpose: The class will 
+ *
+ */
+
+
 public class Game  implements Serializable {
 
 	private static int puzzlesCompleted;
@@ -56,7 +70,6 @@ public class Game  implements Serializable {
 
 
 	//S: The player selects the View Inventory option from the main menu.
-
 	//R: The player can see a list of their current inventory with numbers 
 	//indicating how many of each
 
@@ -64,7 +77,6 @@ public class Game  implements Serializable {
 
 	}
 	//S: The player selects the View Map option from the main menu.
-
 	//R: The player is shown a map of the entire area as well as a marker
 	//for their current location and floor.
 	public static void viewMap(){
