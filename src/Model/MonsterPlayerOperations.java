@@ -90,7 +90,7 @@ public class MonsterPlayerOperations
 			p1.currentHealth();
 			m1.getAttack();
 			m1.getHealth();
-			m1 = Monster.monsterArray[0];
+			
 			
 			
 		}
