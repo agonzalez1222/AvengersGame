@@ -3,9 +3,9 @@ import java.io.Serializable;
 
 public class Game  implements Serializable {
 
-	private int puzzlesCompleted;
-	private int currentRoom;
-	private int currentScore;
+	private static int puzzlesCompleted;
+	private static int currentRoom;
+	private static int currentScore;
 
 	//public string Story. put story in there start game
 	String story = "Story: The exploratory ship Legacy becomes"
@@ -20,7 +20,10 @@ public class Game  implements Serializable {
 
 	//R: The current game is closed and the player is returned to the opening screen.
 	public static void exitGame(){
-		System.exit();
+		System.exit(currentRoom);
+		System.exit(puzzlesCompleted);
+		System.exit(currentScore);
+		
 	}
 
 	//S: The player selects the Load Game option from the main menu.
