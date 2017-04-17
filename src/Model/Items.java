@@ -47,6 +47,12 @@ public class Items
 				"", 0, 0, true);
 		Items cryoCanister = new Items("I10", "Cryo-Canister", "A container that instantly freezes an area once thrown. Can be used to slow down enemies.", 
 				"Causes a monster to skip it's turn once per use.", 0, 0, false);
+		
+		// Adding the items to the array list here.
+		items.add(medkit); items.add(gasCanister); items.add(plasmaRounds); items.add(greenHerb);
+		items.add(redHerb); items.add(mixedHerb); items.add(captainKey); items.add(flashlight);
+		items.add(labPaper); items.add(cryoCanister);
+		
 	}
 	
 	
