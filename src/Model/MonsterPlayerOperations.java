@@ -17,9 +17,10 @@ import Model.Monster;
 import Model.Items;
 import Model.Player;
 import java.util.Scanner;
-public class MonsterTester 
+public class MonsterPlayerOperations 
 {
-
+	public Player p1;
+	public Monster m1;
 	public static void main(String[] args) 
 	{
 		
@@ -73,8 +74,44 @@ public class MonsterTester
 			item = input.nextLine();
 		}
 		
-		
-		
 	}
-
+	
+	public void Fight()
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
+		String userInput = input.nextLine();
+		if(userInput.equalsIgnoreCase("Attack"))
+		{
+			
+			System.out.println("You have chosen to attack: " + m1.getName());
+			p1.currentHealth();
+			p1.currentAtk();
+			p1.currentHealth();
+			m1.getAttack();
+			m1.getHealth();
+			
+			
+			
+		}
+		if(userInput.equalsIgnoreCase("Run"))
+		{
+			Player.escapeRoll();
+			if (Player.escapeRoll() > 5) {
+				System.out.println("You managed to escape.");
+				// Add code to exit the fight here.
+			}
+		}
+		if(userInput.equalsIgnoreCase("Use Item"))
+		{
+			
+		}
+		else 
+		{	
+			System.out.println("That action was not recognized, please try to enter another option");	
+			Player.Fight();
+		}
+	
+	
+}
 }

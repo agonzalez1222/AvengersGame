@@ -29,7 +29,7 @@ public class Monster
 		this.healthPoints = healthPoints;		
 	}
 	//new ArrayList that will hold the Monsters
-	public static ArrayList<Monster> monsterArray = new ArrayList<Monster>(); {
+	ArrayList<Monster> monsterArray = new ArrayList<Monster>(); {
 	
 	Monster m1 = new Monster("Insane Crew Person", (int)(Math.random() * 5 + 1), 10);
 	Monster m2 = new Monster("Cultist", (int)(Math.random() * 4 + 5), 15);
