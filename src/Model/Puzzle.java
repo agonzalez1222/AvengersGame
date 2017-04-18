@@ -39,6 +39,8 @@ public class Puzzle {
 		Puzzle puzzle4 = new Puzzle(PZ_04, "You Need To Kill M_7 in RM_25 With W_4 Found in Rm_26. M7 Will not die until You Can use W_4 on it. Once complete you are able to Proceed");
 		int PZ_05 = 0;
 		Puzzle puzzle5 = new Puzzle(PZ_05, "You Need to find I_9 in RM_30 So that You Can Activate the Elevator To enter the Bridge.");
+		int PZ_06 = 0;
+		Puzzle puzzle6 = new Puzzle(PZ_06, "You Need to enter the Captains Password found in RM_06 To send the Distress Signal To Get Found and Saved.");
 	}
 	}
 	
