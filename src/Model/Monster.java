@@ -53,7 +53,7 @@ public class Monster
 		monster.add(m7);
 	}
 	
-	public static Boolean isAlive() 
+	public Boolean isAlive() 
 	{
 		return healthPoints > 0;
 	}
