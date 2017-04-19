@@ -29,7 +29,7 @@ public class MonsterPlayerOperations
 		Scanner input = new Scanner(System.in);
 		String item = input.nextLine();
 		Player aj = new Player(25,25,25);
-		aj.Fight();
+		//aj.Fight();
 		if(item.equalsIgnoreCase("Green Herb") || item.equalsIgnoreCase("Red Herb"))
 		{
 			System.out.println("Would you like to combine the green and red herbs? \nEnter Yes or No.");
@@ -43,7 +43,7 @@ public class MonsterPlayerOperations
 					String health = aj.currentHealth();
 					String[] healthNum = health.split(" ");
 					int hp = Integer.parseInt(healthNum[2]);
-					System.out.print("Your new health is : " + (hp + Items.healthRegen));
+				//	System.out.print("Your new health is : " + (hp + Items.healthRegen));
 				}
 				if(answer2.equalsIgnoreCase("no"))
 				{
@@ -114,7 +114,7 @@ public class MonsterPlayerOperations
 		else 
 		{	
 			System.out.println("That action was not recognized, please try to enter another option");	
-			Player.Fight();
+			//Player.Fight();
 		}
 	
 	
