@@ -20,10 +20,10 @@ import java.util.Scanner;
 public class MonsterPlayerOperations 
 {
 	public Player p1;
-	public Monster m1;
+	public static Monster m1;
 	public static void main(String[] args) 
 	{
-		
+		System.out.println(m1);
 		System.out.println("Please Enter The Item Name.");
 		Scanner input = new Scanner(System.in);
 		String item = input.nextLine();
@@ -78,6 +78,10 @@ public class MonsterPlayerOperations
 	
 	public void Fight()
 	{
+		while (Player.isAlive() && Monster.isAlive()) {
+			
+		}
+		
 		Scanner input = new Scanner(System.in);
 		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
 		String userInput = input.nextLine();

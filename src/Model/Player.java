@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class Player {
 	
 	// Player variables
-	private int health = 100;
+	private static int health = 100;
 	private int baseAtk;
 	private  int baseDef;
 	private static String playerCmd;
@@ -66,7 +66,7 @@ public class Player {
 	
 	
 	// Checks if the player is still alive if their health is above 0
-	public Boolean isAlive() {
+	public static Boolean isAlive() {
 		return health > 0;
 	}
 	
