@@ -18,13 +18,14 @@ import java.util.ArrayList;
 public class Items 
 {
 	// Item Variables
-	static String itemID;
-	static String itemName;
-	static String itemDescription;
-	static String itemEffect;
-	static int healthRegen;
-	static int increaseAmmo;
-	static Boolean puzzleItem;
+	protected String itemID;
+	protected String itemName;
+	protected String itemDescription;
+	protected String itemEffect;
+	protected int healthRegen;
+	protected int increaseAmmo;
+	protected Boolean puzzleItem;
+	protected Player player;
 	
 	// 
 	protected Items(String itemID, String itemName, String itemDescription,
