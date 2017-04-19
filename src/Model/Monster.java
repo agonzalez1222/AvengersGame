@@ -20,6 +20,7 @@ public class Monster
 	private int attack;
 	private String name;
 	private Boolean isFrozen = false;
+	protected ArrayList<Monster> monster;
 	
 	//Monster Constructor with variables
 	protected Monster(String name, int attack, int healthPoints)
@@ -29,7 +30,7 @@ public class Monster
 		this.healthPoints = healthPoints;		
 	}
 	//new ArrayList that will hold the Monsters
-	ArrayList<Monster> monsterArray = new ArrayList<Monster>(); {
+	
 	
 	Monster m1 = new Monster("Insane Crew Person", (int)(Math.random() * 5 + 1), 10);
 	Monster m2 = new Monster("Cultist", (int)(Math.random() * 4 + 5), 15);
@@ -41,17 +42,24 @@ public class Monster
 	Monster boss = new Monster("Great Old One", 30, 50);
 	
 	
-	monsterArray.add(m1);
-	monsterArray.add(m2);
-	monsterArray.add(m3);
-	monsterArray.add(m4);
-	monsterArray.add(m5);
-	monsterArray.add(m6);
-	monsterArray.add(m7);
-	
+	protected void addMonsterToArraylist()
+	{
+		monster.add(m1);
+		monster.add(m2);
+		monster.add(m3);
+		monster.add(m4);
+		monster.add(m5);
+		monster.add(m6);
+		monster.add(m7);
 	}
 	
+<<<<<<< HEAD
 	public Boolean isAlive() {
+=======
+	
+	public static Boolean isAlive() 
+	{
+>>>>>>> 127763e6d988b7df2b8f624ed43e823998dd63ac
 		return healthPoints > 0;
 	}
 	
