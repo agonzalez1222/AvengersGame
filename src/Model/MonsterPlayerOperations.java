@@ -23,6 +23,7 @@ public class MonsterPlayerOperations
 	public static Monster m1;
 	public static void main(String[] args) 
 	{
+	
 		System.out.println(m1);
 		System.out.println("Please Enter The Item Name.");
 		Scanner input = new Scanner(System.in);
@@ -74,11 +75,11 @@ public class MonsterPlayerOperations
 			item = input.nextLine();
 		}
 		
-	}
+	} 
 	
-	public void Fight()
+	public MonsterPlayerOperations(Player player, Monster monster)
 	{
-		while (Player.isAlive() && Monster.isAlive()) {
+		while (player.isAlive() && monster.isAlive()) {
 			
 		}
 		

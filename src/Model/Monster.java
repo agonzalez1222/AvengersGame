@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Monster 
 {
 	//Monster Variables
-	private static int healthPoints;
+	private int healthPoints;
 	private int attack;
 	private String name;
 	private Boolean isFrozen = false;
@@ -51,7 +51,7 @@ public class Monster
 	
 	}
 	
-	public static Boolean isAlive() {
+	public Boolean isAlive() {
 		return healthPoints > 0;
 	}
 	

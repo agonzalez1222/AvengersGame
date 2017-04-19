@@ -5,8 +5,8 @@ import java.util.Scanner;
 /**
  * Class: Player
  * 
- * @author  Course : ITEC 3860, Spring, 2017 Written: April , 
- *         2017
+ * @author Team Avengers
+ *   Course : ITEC 3860, Spring, 2017 Written: April 8, 2017
  * 
  * 
  *         This class will 
@@ -18,10 +18,9 @@ import java.util.Scanner;
 public class Player {
 	
 	// Player variables
-	private static int health = 100;
+	private int health = 100;
 	private int baseAtk;
-	private  int baseDef;
-	private static String playerCmd;
+	private int baseDef;
 	public  Monster monster;
 	private String[] invItems;
 	private String[] equippedItems;
@@ -32,41 +31,9 @@ public class Player {
 		this.baseDef = baseDef;
 		this.health = health;
 	}
-	
-	public static void Fight()
-	{
-		Scanner input = new Scanner(System.in);
-		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
-		String userInput = input.nextLine();
-		if(userInput.equalsIgnoreCase("Attack"))
-		{
-			//System.out.println("You have chosen to attack: " + monsterName);
-			
-			
-		}
-		if(userInput.equalsIgnoreCase("Run"))
-		{
-			escapeRoll();
-			if (escapeRoll() > 5) {
-				System.out.println("You managed to escape.");
-				// Add code to exit the fight here.
-			}
-		}
-		if(userInput.equalsIgnoreCase("Use Item"))
-		{
-			
-		}
-		else 
-		{	
-			System.out.println("That action was not recognized, please try to enter another option");	
-			Player.Fight();
-		}
 
-	}
-	
-	
 	// Checks if the player is still alive if their health is above 0
-	public static Boolean isAlive() {
+	public Boolean isAlive() {
 		return health > 0;
 	}
 	
