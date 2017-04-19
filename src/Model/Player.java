@@ -57,4 +57,18 @@ public class Player {
 		return diceRoll;
 	}
 	
+	public void setHealth(int health)
+	{
+		this.health = health;
+	}
+	
+	public void setDefense(int baseDef)
+	{
+		this.baseDef = baseDef;
+	}
+	
+	public void setAttack(int baseAtk)
+	{
+		this.baseAtk = baseAtk;
+	}
 }

@@ -75,7 +75,11 @@ public class Items
 			
 		if(items.equals("greenHerb"))
 		{
-			
+			String playerHealth = player.currentHealth();
+			String[] health = playerHealth.split(" ");
+			int hp = Integer.parseInt(health[2]);
+			player.setHealth(hp);
+			System.out.println("Your new health is:" + player.currentHealth());
 		}
 		else
 		{
