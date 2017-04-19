@@ -22,13 +22,14 @@ public class Game  implements Serializable {
 	private static int currentScore;
 
 	//public string Story. put story in there start game
+	public static void gameStartText(){
 	String story = "Story: The exploratory ship Legacy becomes"
 			+ " stranded in space when a part of the crew, belonging"
 			+ " to a mysterious cult, summons a cosmic being and floods"
 			+ " the ship with horrors beyond imagination.";
 
 	String storyDescription = "Title: Astral Possession Theme: Sci-Fi/Cosmic Horror Player: Un-named engineer";
-
+	}
 
 	//S: The player selects the Exit Game option from the main menu.
 
@@ -99,8 +100,11 @@ public class Game  implements Serializable {
 	public static void saveGame(){
 
 	}
+	
+	
+	}
 
-}
+
 
 
 
