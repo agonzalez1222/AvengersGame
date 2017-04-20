@@ -27,6 +27,7 @@ public class Items
 	protected Boolean puzzleItem;
 	protected Player player;
 	protected ArrayList<Items> items;
+	protected Items a1;
 	// 
 	protected Items(String itemID, String itemName, String itemDescription,
 			String itemEffect, int healthRegen, int increaseAmmo, Boolean puzzleItem) {
@@ -38,15 +39,44 @@ public class Items
 		this.increaseAmmo = increaseAmmo;
 		this.puzzleItem = puzzleItem;
 	}
+	protected String getName()
+	{
+		return itemName;
+	}
 	
-	// Creates items and places them in an Arraylist
+	protected String getID()
+	{
+		return itemID;
+	}
 	
+	protected String getDescription()
+	{
+		return itemDescription;
+	}
 	
-		
-		// Adding the items to the array list here.
-		protected void addItemsToList()
-		{
-		Items medkit = new Items("I1", "MdKit", "A standard first aid kit for treating minor wounds", "Replenish Health by 20", 20, 0, false);
+	protected String getItemEffect()
+	{
+		return itemEffect;
+	}
+	
+	protected int getHealthRegen()
+	{
+		return healthRegen;
+	}
+	protected int getIncreaseAmmo()
+	{
+		return increaseAmmo;
+	}
+	
+	protected boolean getIsPuzzelItem()
+	{
+		return puzzleItem;
+	}
+	
+	protected Items()
+	{
+		this.items = new ArrayList<Items>();
+		Items medkit = new Items("I1", "MedKit", "A standard first aid kit for treating minor wounds", "Replenish Health by 20", 20, 0, false);
 		Items gasCanister = new Items("I2", "Gas Canister", "A refill canister for a gas torch. Highly flammable", "Increases gas torch ammo by 50%", 0, 50, false);
 		Items plasmaRounds = new Items("I3", "Plasma Rounds", "Ammunition for a plasma pistol", "Increase plasma pistol ammo by 6", 0, 6, false);
 		Items greenHerb = new Items("I4", "Green Herb", "An edible herb found in the greenhouse. Eat it to restore health.",  "Replenishes Health by 15", 15, 0, false);
@@ -66,30 +96,56 @@ public class Items
 		items.add(flashlight);
 		items.add(labPaper); 
 		items.add(cryoCanister);
-		}
+	}
 	
+	
+	
+	// Creates items and places them in an Arraylist
+	
+	
+		
+		// Adding the items to the array list here.
+		protected void addItemsToList()
+		{
+		
+		}
+		
+		protected ArrayList<Items> getList()
+		{
+			return items;
+		}
 		public Items getItems(int i)
 		{
 			return items.get(i);
 		}
 	
 	
-	public void useHealthRegenItem(Items a1) {
-			
+	public void useHealthRegenItem(Items a1)
+	{
+		this.a1 = a1;
+			String greenHerb = items.get(3).getName();
+			String itemName = a1.getName();
 		if(items.get(3).equals(a1))
 		{
-			String playerHealth = player.currentHealth();
-			String[] health = playerHealth.split(" ");
-			int hp = Integer.parseInt(health[2]);
-			hp = hp + 30;
-			player.setHealth(hp);
-			System.out.println("Your new health is:" + player.currentHealth());
+			int playerHealth = player.getHealth() + 30;
+			player.setHealth(playerHealth);
+			System.out.println("Your new health is:" + player.getHealth());
 		}
 		else
 		{
 			System.out.println("error");
 		}
-	}
+	} 
 	
+	public void setItems(Items a1)
+	{
+		this.itemDescription = a1.getDescription();
+		this.itemID = a1.getID();
+		this.itemName = a1.getName();
+		this.itemEffect = a1.getItemEffect();
+		this.healthRegen = a1.getHealthRegen();
+		this.increaseAmmo = a1.getIncreaseAmmo();
+		this.puzzleItem = a1.getIsPuzzelItem();
+		}
 	
 }

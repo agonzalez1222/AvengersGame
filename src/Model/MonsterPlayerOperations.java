@@ -121,6 +121,6 @@ public class MonsterPlayerOperations
 			System.out.println("You have slain: " + gameMonster.getName());
 		}
 		input.close();
+
 		} 
-    }	
-  
+}
