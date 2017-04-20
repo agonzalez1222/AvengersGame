@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class Player extends Character {
 	
 	// Player variables
-	private ArrayList<Items> invItems;
+	ArrayList<Items> invItems;
 	private Artifacts currentWeapon;
 	private Artifacts currentArmor;
 	static Random rand = new Random();
@@ -29,6 +29,12 @@ public class Player extends Character {
 		currentWeapon = Artifacts.artifacts.get(0);
 		currentArmor = Artifacts.artifacts.get(7);
 		invItems = new ArrayList<>();
+	}
+	
+	public void useItem(Items item) {
+		System.out.println("What item would you like to use?");
+		System.out.println(getInvItems());
+		invItems.add(item.getItems(0));
 	}
 	
 	public ArrayList<Items> getInvItems() {
@@ -55,5 +61,4 @@ public class Player extends Character {
 	{
 		this.health = health;
 	}
-	
 }
