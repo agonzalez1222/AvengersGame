@@ -54,6 +54,24 @@ public class Items
 		return itemDescription;
 	}
 	
+	protected String getItemEffect()
+	{
+		return itemEffect;
+	}
+	
+	protected int getHealthRegen()
+	{
+		return healthRegen;
+	}
+	protected int getIncreaseAmmo()
+	{
+		return increaseAmmo;
+	}
+	
+	protected boolean getIsPuzzelItem()
+	{
+		return puzzleItem;
+	}
 	
 	protected Items()
 	{
@@ -79,10 +97,7 @@ public class Items
 		items.add(labPaper); 
 		items.add(cryoCanister);
 	}
-	protected Items(Items a1)
-	{
-		this.a1 = a1;
-	}
+	
 	
 	
 	// Creates items and places them in an Arraylist
@@ -124,7 +139,13 @@ public class Items
 	
 	public void setItems(Items a1)
 	{
-		this.a1 = a1;
-	}
+		this.itemDescription = a1.getDescription();
+		this.itemID = a1.getID();
+		this.itemName = a1.getName();
+		this.itemEffect = a1.getItemEffect();
+		this.healthRegen = a1.getHealthRegen();
+		this.increaseAmmo = a1.getIncreaseAmmo();
+		this.puzzleItem = a1.getIsPuzzelItem();
+		}
 	
 }

@@ -13,11 +13,11 @@ public class GameTester {
 		System.out.println(p1.getHealth());
 		test.useHealthRegenItem(test);
 		p1.getHealth();
-		System.out.println(test.getName());
-		for(int i = 0; i < 6; i++)
+		
+		/*for(int i = 0; i < 6; i++)
 		{
 			System.out.println(test.getItems(i).getName());
-		}
+		}*/
 		
 	}
 
