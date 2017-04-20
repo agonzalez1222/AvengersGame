@@ -27,6 +27,7 @@ public class Items
 	protected Boolean puzzleItem;
 	protected Player player;
 	protected ArrayList<Items> items;
+	protected Items a1;
 	// 
 	protected Items(String itemID, String itemName, String itemDescription,
 			String itemEffect, int healthRegen, int increaseAmmo, Boolean puzzleItem) {
@@ -39,13 +40,9 @@ public class Items
 		this.puzzleItem = puzzleItem;
 	}
 	
-	// Creates items and places them in an Arraylist
-	
-	
-		
-		// Adding the items to the array list here.
-		protected void addItemsToList()
-		{
+	protected Items()
+	{
+		items = new ArrayList<Items>();
 		Items medkit = new Items("I1", "MdKit", "A standard first aid kit for treating minor wounds", "Replenish Health by 20", 20, 0, false);
 		Items gasCanister = new Items("I2", "Gas Canister", "A refill canister for a gas torch. Highly flammable", "Increases gas torch ammo by 50%", 0, 50, false);
 		Items plasmaRounds = new Items("I3", "Plasma Rounds", "Ammunition for a plasma pistol", "Increase plasma pistol ammo by 6", 0, 6, false);
@@ -66,8 +63,27 @@ public class Items
 		items.add(flashlight);
 		items.add(labPaper); 
 		items.add(cryoCanister);
-		}
+	}
+	protected Items(Items a1)
+	{
+		this.a1 = a1;
+	}
 	
+	
+	// Creates items and places them in an Arraylist
+	
+	
+		
+		// Adding the items to the array list here.
+		protected void addItemsToList()
+		{
+		
+		}
+		
+		protected ArrayList<Items> getList()
+		{
+			return items;
+		}
 		public Items getItems(int i)
 		{
 			return items.get(i);
@@ -89,5 +105,9 @@ public class Items
 		}
 	} 
 	
+	public void setItems(Items a1)
+	{
+		this.a1 = a1;
+	}
 	
 }
