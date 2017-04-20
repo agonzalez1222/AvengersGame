@@ -39,11 +39,26 @@ public class Items
 		this.increaseAmmo = increaseAmmo;
 		this.puzzleItem = puzzleItem;
 	}
+	protected String getName()
+	{
+		return itemName;
+	}
+	
+	protected String getID()
+	{
+		return itemID;
+	}
+	
+	protected String getDescription()
+	{
+		return itemDescription;
+	}
+	
 	
 	protected Items()
 	{
-		items = new ArrayList<Items>();
-		Items medkit = new Items("I1", "MdKit", "A standard first aid kit for treating minor wounds", "Replenish Health by 20", 20, 0, false);
+		this.items = new ArrayList<Items>();
+		Items medkit = new Items("I1", "MedKit", "A standard first aid kit for treating minor wounds", "Replenish Health by 20", 20, 0, false);
 		Items gasCanister = new Items("I2", "Gas Canister", "A refill canister for a gas torch. Highly flammable", "Increases gas torch ammo by 50%", 0, 50, false);
 		Items plasmaRounds = new Items("I3", "Plasma Rounds", "Ammunition for a plasma pistol", "Increase plasma pistol ammo by 6", 0, 6, false);
 		Items greenHerb = new Items("I4", "Green Herb", "An edible herb found in the greenhouse. Eat it to restore health.",  "Replenishes Health by 15", 15, 0, false);
@@ -92,7 +107,9 @@ public class Items
 	
 	public void useHealthRegenItem(Items a1)
 	{
-			
+		this.a1 = a1;
+			String greenHerb = items.get(3).getName();
+			String itemName = a1.getName();
 		if(items.get(3).equals(a1))
 		{
 			int playerHealth = player.getHealth() + 30;

@@ -26,9 +26,9 @@ public class Player extends Character {
 	
 	protected Player() {
 		super(100, 1, 5);
-		currentWeapon = Artifacts.artifacts.get(0);
-		currentArmor = Artifacts.artifacts.get(7);
-		invItems = new ArrayList<>();
+		//currentWeapon = Artifacts.artifacts.get(0);
+		//currentArmor = Artifacts.artifacts.get(7);
+		//invItems = new ArrayList<>();
 	}
 	
 	public ArrayList<Items> getInvItems() {
