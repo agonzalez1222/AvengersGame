@@ -56,40 +56,5 @@ public class Player extends Character {
 		this.health = health;
 	}
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public void setDefense(int baseDef)
-	{
-		this.baseDef = baseDef;
-	}
-	
-	public void setAttack(int baseAtk)
-	{
-		this.baseAtk = baseAtk;
-	}
 	
 }

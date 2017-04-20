@@ -79,12 +79,9 @@ public class Items
 			
 		if(items.get(3).equals(a1))
 		{
-			String playerHealth = player.currentHealth();
-			String[] health = playerHealth.split(" ");
-			int hp = Integer.parseInt(health[2]);
-			hp = hp + 30;
-			player.setHealth(hp);
-			System.out.println("Your new health is:" + player.currentHealth());
+			int playerHealth = player.getHealth() + 30;
+			player.setHealth(playerHealth);
+			System.out.println("Your new health is:" + player.getHealth());
 		}
 		else
 		{

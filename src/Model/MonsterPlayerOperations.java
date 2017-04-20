@@ -128,7 +128,7 @@ public class MonsterPlayerOperations
 	
 	public void useItem() {
 		System.out.println("What item would you like to use?");
-		System.out.println(Player.invItems[]);
+	//	System.out.println(Player.invItems[]);
 	}
 	
   }
