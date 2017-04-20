@@ -74,7 +74,8 @@ public class Items
 		}
 	
 	
-	public void useHealthRegenItem(Items a1) {
+	public void useHealthRegenItem(Items a1)
+	{
 			
 		if(items.get(3).equals(a1))
 		{
@@ -89,7 +90,7 @@ public class Items
 		{
 			System.out.println("error");
 		}
-	}
+	} 
 	
 	
 }

@@ -6,7 +6,7 @@ public class GameTester {
 	{
 		Player p1 = new Player(100, 1, 5);
 		
-		p1.useHealthRegenItem(hi);
+		//p1.useHealthRegenItem(hi);
 		
 	}
 

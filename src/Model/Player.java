@@ -71,4 +71,5 @@ public class Player {
 	{
 		this.baseAtk = baseAtk;
 	}
+	
 }
