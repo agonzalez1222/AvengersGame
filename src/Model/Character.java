@@ -13,11 +13,28 @@ package Model;
  *
  */
 
-public class Character {
-	private int healthpoints;
-	private int defensepoints;
+public abstract class Character {
+	protected int health;
+	protected int atk;
+	protected int def;
+	protected Room currentRoom;
 	
-	private  int damageDealt;
-	private int damageTaken;
+	protected Character(int health, int atk, int def) {
+		this.health = health;
+		this.atk = atk;
+		this.def = def;
+	}
+	
+	public int getAtk() {
+		return this.atk;
+	}
+	
+	public int getDef() {
+		return this.def;
+	}
+	
+	public int getHealth() {
+		return this.health;
+	}
 	
 }
