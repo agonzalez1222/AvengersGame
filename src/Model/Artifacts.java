@@ -35,6 +35,7 @@ public class Artifacts
 	
 	protected static ArrayList<Artifacts> artifacts = new ArrayList<Artifacts>();
 	{
+		Artifacts none = new Artifacts("None", "You need to hurry and find a weapon", 1, 0, 0);
 		Artifacts pipe = new Artifacts("Pipe", "A piece of piping. You're not sure what it belongs to, but it can't be too important.", 2, 1000, 0);
 		Artifacts knife = new Artifacts("Knife", "A knife found in the Galley. Slightly dull from frequent use.", 6, 1000, 0);
 		Artifacts wrentch = new Artifacts("Wrentch", "A standard wrench. Used for maintaining equipment on the ship." , 8, 1000, 0);
@@ -45,6 +46,7 @@ public class Artifacts
 		Artifacts spaceSuit = new Artifacts("Space Suit", "A space suit that allows the user to exist in the vacuum of space. Well insulated but not great against slashing or piercing damage." ,0, 1, 15);
 		Artifacts armor = new Artifacts("ASM4 Series Gaurd Armor", "Armor that protects the user from extraterrestrial threats and medium gunfire" ,0, 1, 20);
 		
+		artifacts.add(none);
 		artifacts.add(pipe);
 		artifacts.add(knife);
 		artifacts.add(wrentch);

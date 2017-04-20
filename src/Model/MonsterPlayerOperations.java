@@ -16,12 +16,14 @@ import Model.Monster;
 
 import Model.Items;
 import Model.Player;
+
+import java.io.IOException;
 import java.util.Scanner;
 public class MonsterPlayerOperations 
 {
 	public Player p1;
 	public static Monster m1;
-	public static void main(String[] args) 
+	/*public static void main(String[] args) 
 	{
 	
 		System.out.println(m1);
@@ -75,26 +77,23 @@ public class MonsterPlayerOperations
 			item = input.nextLine();
 		}
 		
-	} 
+	} */
 	
-	public MonsterPlayerOperations(Player player, Monster monster)
+	public MonsterPlayerOperations(Player player, Monster monster) throws IOException
 	{
 		while (player.isAlive() && monster.isAlive()) {
-			
-		}
-		
+			System.out.println("You have encountered a(n)" + monster.getName() + ": " + monster.getDescription());
+			System.out.println("Player Health: " + player.getHealth() + "\n");
+			System.out.println(monster.getName() + "Health: " + monster.getHealth());
+	
 		Scanner input = new Scanner(System.in);
 		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
 		String userInput = input.nextLine();
 		if(userInput.equalsIgnoreCase("Attack"))
 		{
 			
-			System.out.println("You have chosen to attack: " + m1.getName());
-			p1.currentHealth();
-			p1.currentAtk();
-			p1.currentHealth();
-			m1.getAttack();
-			m1.getHealth();
+			System.out.println("You have chosen to attack: " + monster.getName());
+			
 			
 			
 			
@@ -109,14 +108,27 @@ public class MonsterPlayerOperations
 		}
 		if(userInput.equalsIgnoreCase("Use Item"))
 		{
-			
+			useItem();
 		}
 		else 
 		{	
 			System.out.println("That action was not recognized, please try to enter another option");	
 			//Player.Fight();
 		}
+		
+		if (player.getHealth() < 0) {
+			System.out.println("You died.");
+			// System.exit(0);
+		} else if (monster.getHealth() < 0) {
+			System.out.println("You have slain: " + monster.getName());
+		}
+		input.close();
+	  }
+	}	
 	
+	public void useItem() {
+		System.out.println("What item would you like to use?");
+		System.out.println(Player.invItems[]);
+	}
 	
-}
-}
+  }
