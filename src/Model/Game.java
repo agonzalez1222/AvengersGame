@@ -28,7 +28,8 @@ public class Game  implements Serializable {
 			+ " to a mysterious cult, summons a cosmic being and floods"
 			+ " the ship with horrors beyond imagination.";
 
-	String storyDescription = "Title: Astral Possession Theme: Sci-Fi/Cosmic Horror Player: Un-named engineer";
+	String storyDescription = "Title: Astral Possession " + "Theme: Sci-Fi/Cosmic Horror " 
+	+ " Player: Un-named engineer";
 	}
 
 	//S: The player selects the Exit Game option from the main menu.
@@ -38,6 +39,7 @@ public class Game  implements Serializable {
 		System.exit(currentRoom);
 		System.exit(puzzlesCompleted);
 		System.exit(currentScore);
+		System.exit(0);
 		
 	}
 
@@ -74,8 +76,10 @@ public class Game  implements Serializable {
 	//R: The player can see a list of their current inventory with numbers 
 	//indicating how many of each
 
-	public static void viewInventory(){
-
+	public static void viewInventory(Player player){
+		System.out.println("You open your bag and search through your belongings.");
+		//System.out.println(player.invItems.get());
+		// for loop here or get ArrayList differently later
 	}
 	//S: The player selects the View Map option from the main menu.
 	//R: The player is shown a map of the entire area as well as a marker
