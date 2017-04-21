@@ -1,8 +1,8 @@
 package Model;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+
 
 import java.awt.*;
 import java.awt.event.*;
@@ -14,7 +14,7 @@ import javax.swing.*;
 /**
  * This class demonstrates how to load an Image from an external file
  */
-public class GameTester extends Component {
+public class MapView extends Component {
            
     BufferedImage img;
  
@@ -22,7 +22,7 @@ public class GameTester extends Component {
         g.drawImage(img, 0, 0, null);
     }
  
-    public GameTester() {
+    public MapView() {
        try {
            img = ImageIO.read(new File("Map.png"));
        } catch (IOException e) {
@@ -48,26 +48,8 @@ public class GameTester extends Component {
                 }
             });
  
-        f.add(new GameTester());
+        f.add(new MapView());
         f.pack();
         f.setVisible(true);
     }
 }
-		
-/*
-		Items test = new Items();
-		Items test1 = new Items();
-		ArrayList<Items> list = test.getList();
-		test = list.get(5);
-		test1 = list.get(3);
-		System.out.println(test1.getName());
-		Player p1 = new Player();
-		System.out.println(p1.getHealth());
-		p1.useHealthRegenItem(test);
-		p1.getHealth();
-		
-	}
-	
-	
-
-}*/
