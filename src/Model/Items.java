@@ -120,23 +120,6 @@ public class Items
 		}
 	
 	
-	public void useHealthRegenItem(Items a1)
-	{
-		this.a1 = a1;
-			String greenHerb = items.get(3).getName();
-			String itemName = a1.getName();
-		if(items.get(3).equals(a1))
-		{
-			int playerHealth = player.getHealth() + 30;
-			player.setHealth(playerHealth);
-			System.out.println("Your new health is:" + player.getHealth());
-		}
-		else
-		{
-			System.out.println("error");
-		}
-	} 
-	
 	public void setItems(Items a1)
 	{
 		this.itemDescription = a1.getDescription();

@@ -6,24 +6,18 @@ public class GameTester {
 	public static void main(String[] args) throws IOException
 	{
 
-		//Player p1 = new Player(100, 1, 5);
 
 		Items test = new Items();
+		Items test1 = new Items();
 		ArrayList<Items> list = test.getList();
-		//Items touch = list.get(3);
-		test.setItems(list.get(3));
+		test = list.get(5);
+		test1 = list.get(3);
+		System.out.println(test1.getName());
 		Player p1 = new Player();
 		System.out.println(p1.getHealth());
-		test.useHealthRegenItem(test);
+		p1.useHealthRegenItem(test);
 		p1.getHealth();
 		
-		/*for(int i = 0; i < 6; i++)
-		{
-			System.out.println(test.getItems(i).getName());
-		}*/
-		
-		//p1.useHealthRegenItem(hi);
-		//System.out.println(M.useItem());
 	}
 
 }

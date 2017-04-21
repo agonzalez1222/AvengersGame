@@ -2,7 +2,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
+import Model.Items;
 /**
  * Class: Player
  * 
@@ -23,6 +23,10 @@ public class Player extends Character {
 	private Artifacts currentWeapon;
 	private Artifacts currentArmor;
 	static Random rand = new Random();
+	Items a1 = new Items();
+	ArrayList<Items> list1 = new ArrayList<>();
+	
+	
 	
 	protected Player() {
 		super(100, 1, 5);
@@ -60,5 +64,60 @@ public class Player extends Character {
 	public void setHealth(int health)
 	{
 		this.health = health;
+	}
+	
+	public void useHealthRegenItem(Items a1)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter the name of the item that you wish to use, or type 0 to exit");
+		String nameGiven = input.nextLine();
+		if(nameGiven.equalsIgnoreCase("green herb"))
+		{
+			if(a1.getName().equalsIgnoreCase(nameGiven))
+			{
+				System.out.println("Are you sure that you want to use the Green Herb? (yes/no)");
+				String answer = input.nextLine();
+				if(answer.equalsIgnoreCase("yes"))
+				{
+					this.health = health + 15;
+					setHealth(this.health);
+					System.out.println("The Green Herb heals you. \nYour new health is " + this.health + '.');
+				}
+				else
+				{
+					System.out.println("Ok, lets try again.");
+					useHealthRegenItem(a1);
+				}
+			 }
+		}	
+		if(nameGiven.equalsIgnoreCase("mixed herbs"))
+		{
+			if(a1.getName().equalsIgnoreCase(nameGiven))
+			{
+				System.out.println("Are you sure that you want to use the Mixed Herbs? (yes/no)");
+				String answer = input.nextLine();
+				if(answer.equalsIgnoreCase("yes"))
+				{
+					this.health = health + 30;
+					setHealth(this.health);
+					System.out.println("The Mixed Herbs heal you. \nYour new health is " + this.health + '.');
+				}
+				else
+				{
+					System.out.println("Ok, lets try again.\n");
+					useHealthRegenItem(a1);
+				}
+			 }
+		}
+		else if(nameGiven.equalsIgnoreCase("0"))
+		{
+			System.exit(0);
+		}
+		else
+		{
+			System.out.println("Invalid entry, please try again.");
+			System.out.print("\n");
+			useHealthRegenItem(a1);
+		}
 	}
 }

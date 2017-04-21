@@ -54,7 +54,8 @@ public class Monster extends Character
 	monsters.add(boss);
 	}
 	
-	public void placeMonsters() {
+	public void placeMonsters()
+	{
 		// We'll use this method to place the monsters in rooms via room_id later on
 	}
 	
