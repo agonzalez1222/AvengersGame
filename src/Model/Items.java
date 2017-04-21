@@ -118,17 +118,6 @@ public class Items
 		{
 			return items.get(i);
 		}
-	
-	
-	public void setItems(Items a1)
-	{
-		this.itemDescription = a1.getDescription();
-		this.itemID = a1.getID();
-		this.itemName = a1.getName();
-		this.itemEffect = a1.getItemEffect();
-		this.healthRegen = a1.getHealthRegen();
-		this.increaseAmmo = a1.getIncreaseAmmo();
-		this.puzzleItem = a1.getIsPuzzelItem();
-		}
+
 	
 }

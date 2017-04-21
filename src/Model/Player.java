@@ -65,7 +65,8 @@ public class Player extends Character {
 	{
 		this.health = health;
 	}
-	
+	// The method below uses either the green herb or the mixed herbs to heal the player
+	// We need to add the part where it takes it out of inventory delete this when added
 	public void useHealthRegenItem(Items a1)
 	{
 		Scanner input = new Scanner(System.in);
@@ -101,6 +102,25 @@ public class Player extends Character {
 					this.health = health + 30;
 					setHealth(this.health);
 					System.out.println("The Mixed Herbs heal you. \nYour new health is " + this.health + '.');
+				}
+				else
+				{
+					System.out.println("Ok, lets try again.\n");
+					useHealthRegenItem(a1);
+				}
+			 }
+		}
+		if(nameGiven.equalsIgnoreCase("medkit"))
+		{
+			if(a1.getName().equalsIgnoreCase(nameGiven))
+			{
+				System.out.println("Are you sure that you want to use the MedKit? (yes/no)");
+				String answer = input.nextLine();
+				if(answer.equalsIgnoreCase("yes"))
+				{
+					this.health = health + 20;
+					setHealth(this.health);
+					System.out.println("The MedKit heals you. \nYour new health is " + this.health + '.');
 				}
 				else
 				{
