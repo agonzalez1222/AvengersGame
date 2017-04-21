@@ -99,21 +99,11 @@ public class Items
 	}
 	
 	
-	
-	// Creates items and places them in an Arraylist
-	
-	
-		
-		// Adding the items to the array list here.
-		protected void addItemsToList()
-		{
-		
-		}
-		
 		protected ArrayList<Items> getList()
 		{
 			return items;
 		}
+		
 		public Items getItems(int i)
 		{
 			return items.get(i);
