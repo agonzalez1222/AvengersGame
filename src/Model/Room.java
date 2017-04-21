@@ -1,6 +1,10 @@
 package Model;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 /**
  * Class: Room
@@ -20,6 +24,11 @@ public class Room {
 	private Boolean isPuzzleRoom;
 	private Boolean isBossRoom;
 	private Monster monster;
+	private final static Random random = new Random();
+    private final static Set<Integer> roomsSeen = new HashSet<Integer>();
+    private final static int NUM_ROOMS = 31;
+
+	
 	
 	
 	private Room(String description, Monster monster, Boolean isPuzzleRoom, Boolean isBossRoom) {
@@ -42,206 +51,144 @@ public class Room {
 		return isPuzzleRoom;
 	}
 	
-//ArrayList<Integer> doorNumber = new ArrayList<Integer>();
-//	int[] doors = new int[40];{
-//	
-//	doors[0] = 1;
-//	doors[1] = 1;
-//	doors[2] = 1;
-//	doors[3] = 1;
-//	
-//	for (int i=0; i<doors.length; i++)
-//	{
-//	  System.out.println(doors[i]);
-//	}
-//
-	
-	//Magda:attempt at switch statement
-	
-	/* 
-	 *int user =  ;
-	 *
-	 *switch (user){
-	 *case 1;
-	 *System.out.println(" ");
-	 *break; 
-	 * case 2;
-	 * System.out.println(" ");
-	 * break;
-	 * case 3;
-	 * System.out.println(" ");
-	 * break;
-	 * case 4;
-	 * System.out.println(" ");
-	 * break;
-	 * case 5;
-	 * System.out.println(" ");
-	 * break;
-	 * case 6;
-	 * System.out.println(" ");
-	 * break;
-	 * case 7;
-	 * System.out.println(" ");
-	 * break;
-	 * case 8;
-	 * System.out.println(" ");
-	 * break;
-	 * case 9;
-	 * System.out.println(" ");
-	 * break;
-	 * case 10;
-	 * System.out.println(" ");
-	 * break;
-	 * case 11;
-	 * System.out.println(" ");
-	 * break;
-	 * case 12;
-	 * System.out.println(" ");
-	 * break;
-	 * case 13;
-	 * System.out.println(" ");
-	 * break;
-	 * case 14;
-	 * System.out.println(" ");
-	 * break;
-	 * case 15;
-	 * System.out.println(" ");
-	 * break;
-	 * case 16;
-	 * System.out.println(" ");
-	 * break;
-	 * case 17;
-	 * System.out.println(" ");
-	 * break;
-	 * case 18;
-	 * System.out.println(" ");
-	 * break;
-	 * case 19;
-	 * System.out.println(" ");
-	 * break;
-	 * case 20;
-	 * System.out.println(" ");
-	 * break;
-	 * case 21;
-	 * System.out.println(" ");
-	 * break;
-	 * case 22;
-	 * System.out.println(" ");
-	 * break;
-	 * case 23;
-	 * System.out.println(" ");
-	 * break;
-	 * case 24;
-	 * System.out.println(" ");
-	 * break;
-	 * case 25;
-	 * System.out.println(" ");
-	 * break;
-	 * case 26;
-	 * System.out.println(" ");
-	 * break;
-	 * case 27;
-	 * System.out.println(" ");
-	 * break;
-	 * case 28;
-	 * System.out.println(" ");
-	 * break;
-	 * case 29;
-	 * System.out.println(" ");
-	 * break;
-	 * case 30;
-	 * System.out.println(" ");
-	 * break;
-	 * case 31;
-	 * System.out.println(" ");
-	 * break;
-	 * case 32;
-	 * System.out.println(" ");
-	 * break;
-	 * case 33;
-	 * System.out.println(" ");
-	 * break;
-	 * case 34;
-	 * System.out.println(" ");
-	 * break;
-	 * case 35;
-	 * System.out.println(" ");
-	 * break;
-	 * case 36;
-	 * System.out.println(" ");
-	 * break;
-	 * case 37;
-	 * System.out.println(" ");
-	 * break;
-	 * case 38;
-	 * System.out.println(" ");
-	 * break;
-	 * case 39;
-	 * System.out.println(" ");
-	 * break;
-	 * case 40;
-	 * System.out.println(" ");
-	 * break;
-	 * case 41;
-	 * System.out.println(" ");
-	 * break;
-	 * case 42;
-	 * System.out.println(" ");
-	 * break;
-	 * case 43;
-	 * System.out.println(" ");
-	 * break;
-	 * case 44;
-	 * System.out.println(" ");
-	 * break;
-	 * case 45;
-	 * System.out.println(" ");
-	 * break;
-	 * case 46;
-	 * System.out.println(" ");
-	 * break;
-	 * case 47;
-	 * System.out.println(" ");
-	 * break;
-	 * case 48;
-	 * System.out.println(" ");
-	 * break;
-	 * case 49;
-	 * System.out.println(" ");
-	 * break;
-	 * case 50;
-	 * System.out.println(" ");
-	 * break;
-	 * case 51;
-	 * System.out.println(" ");
-	 * break;
-	 * case 52;
-	 * System.out.println(" ");
-	 * break;
-	 * case 53;
-	 * System.out.println(" ");
-	 * break;
-	 * case 54;
-	 * System.out.println(" ");
-	 * break;
-	 * case 55;
-	 * System.out.println(" ");
-	 * break;
-	 * case 56;
-	 * System.out.println(" ");
-	 * break;
-	 * case 57;
-	 * System.out.println(" ");
-	 * break;
-	 * case 58;
-	 * System.out.println(" ");
-	 * break;
-	 * case 59;
-	 * System.out.println(" ");
-	 * break;
-	 * case 60;
-	 * System.out.println(" ");
-	 * break;
-	 */
-	 
+
+    public static Room newRegularInstance() {
+        if (roomsSeen.size() == NUM_ROOMS) {
+            roomsSeen.clear();
+        }
+        int i;
+        do {
+            i = random.nextInt(NUM_ROOMS);
+        } while (roomsSeen.contains(i));
+        roomsSeen.add(i);
+
+        String roomDescription = null;
+        if (i == 0) {
+            roomDescription = "You wake up with a throbbing headache. Disoriented and Floating, you look around in the void and you see a dim red light."
+            		+ " As your eyes adjust to the light you see a sign that says Emergency Power. Should you go for the light and push the Button?";
+        } else if (i == 1) {
+            roomDescription = "You Stumble through the door as your body becomes re acclimated to the artificial gravity. You look to your right and you see a computer terminal."
+            		+ " To your right you see a bunch of dried food goods. Across the room in front of you, you see a set of double doors that has Mess Hall written above it. "
+            		+ "You See M_1. You see W_1";
+            
+        } else if (i == 2) {
+            roomDescription = "You step into the mess hall and see a trashed room. There are tables and chairs flipped and rotting food littering the ground. "
+            		+ "To your right you See the kitchen. Across the room you see another set of double doors that is Labeled Barracks.";
+            
+        } else if (i == 3) {
+            roomDescription = "Your step into the Kitchen. The Floors are covered with pots and pans. You see No other Exits in the room. You Do see M_2. You See W_2";
+            
+        } else if (i == 4) {
+            roomDescription = "You Stare down the long Empty Barracks Hall. You see 5 Clearly lobed rooms, Captains Room, Officer's Room, Barracks 1, Barracks 2, and Stairs";
+            
+        } else if (i == 5) {
+            roomDescription = "You Walk into the captain’s room and you are confronted by M_2";
+            
+        } else if (i == 6) {
+            roomDescription = "You walk into the officer's room. It is quiet and you don’t observe anything.";
+        } 
+         else if (i == 7) {
+            roomDescription = "To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. There is nothing items in this room.";
+        } 
+         else if (i == 8) {
+             roomDescription = "To walk into Barak 2. The room is filled with Bunk Beds. A M_1 attacks you. There is nothing items in this room.";
+         } 
+         else if (i == 9) {
+             roomDescription = "You Walk into the Stairs from Barracks Hall and at the top of the Stairs is a door labeled ForeBay.";
+         } 
+         else if (i == 10) {
+             roomDescription = "You Walk into the Stairs from Aftbay and at the top of the Stairs is a door labeled Botany.";
+         } 
+         else if (i == 11) {
+             roomDescription = "You walk into the brig and you are immediately attacked by M_1.";
+         } 
+         else if (i == 12) {
+             roomDescription = "The room is a huge empty Room. There is a huge hole in the Side of the ship and you are exposed to the Cruel Vacuums of space."
+             		+ " M_6 guards the Door Labeled Stairs";             
+         } 
+         else if (i == 13) {
+             roomDescription = "You walk into the storage bay and see Nothing of Worth. It is just a room Filled with what looks like Mining supplies.";
+         } 
+         else if (i == 14) {
+             roomDescription = "You Walk into the Floor Level Airlock and Hear it seal behind you stabilizing the environment around you."
+             		+ " You look out the door labeled ForeBay has a green light on it. Then you look at the door labeled Aft Bay and it is clearly marked with a red light."
+             		+ " You should probably have a Space Suit before you enter.";             
+         } 
+         else if (i == 15) {
+             roomDescription = "You Walk into a huge Bay with pallets littering the floor space you see the Stairs behind you, The infirmary to you Left, "
+             		+ "and the floor level airlock and Storage to your right.";
+         } 
+         else if (i == 16) {
+             roomDescription = "You walk in and see 2 buttons floor level and Bridge. There is a card key that is requested to swipe first.";
+         } 
+         else if (i == 17) {
+             roomDescription = "You walk into the infirmary and see charts and paper work thrown everywhere. At the rear of the Room you see a storage closet."
+             		+ " To the right you see a door lobbed Lab. ";
+         } 
+         else if (i == 18) {
+             roomDescription = "You walk into the small Room and see a W_5 laying on the table before you. Do you pick it up?";
+         } 
+         else if (i == 19) {
+             roomDescription = "You walk into the lab and you see a closet on the other side of the room. As you are scanning the room a M_1 Attacks you out of nowhere.";
+         } 
+         else if (i == 20) {
+             roomDescription = "In the Small Room you see lab supplies and a Spacesuit laid out before you.";
+         } 
+         else if (i == 21) {
+             roomDescription = "As you enter the botany room you feel at home with the smell of earth around you. The feeling is brought to a quick halt when an M_5 approaches you.";
+         } 
+         else if (i == 22) {
+             roomDescription = "You enter the Small closet and you see an I_3.";
+         } 
+         else if (i == 23) {
+             roomDescription = "You step onto a narrow catwalk with a door labeled botany on side and airlock on the opposite. "
+             		+ "You look down and recognize the aft bay that you have already been through.";
+         } 
+         else if (i == 24) {
+             roomDescription = "You walk into the Bridge airlock and see an M_7. You can't use that door Until you Remove him. ";
+         } 
+         else if (i == 25) {
+             roomDescription = "You walk into the water treatment plant and see a tool bench. On the tool bench you see A W_4. You Might be able to use this to get rid of M_7";
+         } 
+         else if (i == 26) {
+             roomDescription = "You step onto a narrow catwalk with a door labeled Weapons Room on side and airlock on the opposite."
+             		+ " You look down and recognize the Fore bay that you have already been through.";
+         } 
+         else if (i == 27) {
+             roomDescription = "You walk into the Weapons Room and you See some W_5 to your Right you see a room marked Server Room.";
+         } 
+         else if (i == 28) {
+             roomDescription = "You enter the Server room. You are immediately attacked by M_6. ";
+         } 
+         else if (i == 29) {
+             roomDescription = "In the Small Room you see I_9. You could probably use this in the Elevator.";
+         } 
+         else if (i == 30) {
+             roomDescription = "You are Confronted by B_1";
+         } 
+        // else if (i == 31) {
+        //     roomDescription = "You have Overcome the boss now enter the passcode to send the distress signal.";
+       //  } 
+        
+         else {         
+        }
+      //  return new Room(roomDescription, Monster.newRandomInstance(), false);
+		return null;
+    }
+
+    
+    public boolean isComplete() {
+        return !monster.isAlive();
+    }
+
+    @Override
+    public String toString() {
+        return description;
+    }
+
+    public void enter(Player player) throws IOException {
+        System.out.println("You are in " + description);
+       
+    }
+
 }
