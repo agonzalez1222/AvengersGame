@@ -31,7 +31,7 @@ public class Player extends Character {
 	
 	protected Player() {
 		super(100, 1, 5);
-<<<<<<< HEAD
+
 		currentWeapon = Artifacts.artifacts.get(0);
 		currentArmor = Artifacts.artifacts.get(7);
 		invItems = new ArrayList<>();
@@ -41,11 +41,11 @@ public class Player extends Character {
 		System.out.println("What item would you like to use?");
 		System.out.println(getInvItems());
 		invItems.add(item.getItems(0));
-=======
+
 		//currentWeapon = Artifacts.artifacts.get(0);
 		//currentArmor = Artifacts.artifacts.get(7);
 		invItems = new ArrayList<>();
->>>>>>> 4f54e7b1da660753112f5362eda365db4da52726
+
 	}
 	
 	public ArrayList<Items> getInvItems() {
