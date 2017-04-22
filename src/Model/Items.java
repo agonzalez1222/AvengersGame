@@ -73,6 +73,11 @@ public class Items
 		return puzzleItem;
 	}
 	
+	
+	public void setIncreaseAmmo(int increaseAmmo) {
+		this.increaseAmmo = increaseAmmo;
+	}
+	
 	protected Items()
 	{
 		this.items = new ArrayList<Items>();

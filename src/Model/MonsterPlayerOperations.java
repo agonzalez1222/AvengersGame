@@ -108,7 +108,7 @@ public class MonsterPlayerOperations
 		
 		if(userInput.equalsIgnoreCase("Use Item"))
 		{
-			gamePlayer.useItem(gameItem);
+			gamePlayer.useHealthRegenItem(gameItem);
 		} else {	
 			System.out.println("That action was not recognized, please try to enter another option");	
 			//Player.Fight();

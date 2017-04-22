@@ -33,13 +33,7 @@ public class Player extends Character {
 		super(100, 1, 5);
 		//currentWeapon = Artifacts.artifacts.get(0);
 		//currentArmor = Artifacts.artifacts.get(7);
-		//invItems = new ArrayList<>();
-	}
-	
-	public void useItem(Items item) {
-		System.out.println("What item would you like to use?");
-		System.out.println(getInvItems());
-		invItems.add(item.getItems(0));
+		invItems = new ArrayList<>();
 	}
 	
 	public ArrayList<Items> getInvItems() {
@@ -71,6 +65,28 @@ public class Player extends Character {
 	public void PlayerMove() {
 		// Code for player movement goes here
 		currentScore -= 10;
+	}
+	
+	/**
+	 * This method adds items to the players inventory.
+	 * 
+	 * @param item
+	 */
+	public void addToInv(Items item) {
+		for (Items i: invItems) {
+			invItems.add(i);
+		}
+	}
+	
+	/**
+	 * This method removes items from the players inventory.
+	 * 
+	 * @param item
+	 */
+	public void removeFromInv(Items item) {
+		for (Items i: invItems) {
+			invItems.remove(i);
+		}
 	}
 	
 	// The method below uses either the green herb or the mixed herbs to heal the player
