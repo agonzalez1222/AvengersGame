@@ -31,9 +31,9 @@ public class Player extends Character {
 	
 	protected Player() {
 		super(100, 1, 5);
-		//currentWeapon = Artifacts.artifacts.get(0);
-		//currentArmor = Artifacts.artifacts.get(7);
-		//invItems = new ArrayList<>();
+		currentWeapon = Artifacts.artifacts.get(0);
+		currentArmor = Artifacts.artifacts.get(7);
+		invItems = new ArrayList<>();
 	}
 	
 	public void useItem(Items item) {
@@ -117,6 +117,7 @@ public class Player extends Character {
 					useHealthRegenItem(a1);
 				}
 			 }
+			input.close();
 		}
 		if(nameGiven.equalsIgnoreCase("medkit"))
 		{
@@ -199,6 +200,7 @@ public class Player extends Character {
 			System.out.println("Please enter a valid Item entry.");
 			System.exit(0);
 		}
+		input.close();
 	}
 	
 	protected void combineHerbs(Items a1)
@@ -245,8 +247,15 @@ public class Player extends Character {
 			System.out.println("Please enter a valid item name.");
 			System.exit(0);
 		}
+		input.close();
 	}		
 		
+	
+	protected void increaseDefense()
+	{
+		
+	}
+	
 } 
 
 
