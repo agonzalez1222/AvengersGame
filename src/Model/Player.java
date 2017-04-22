@@ -20,6 +20,7 @@ public class Player extends Character {
 	
 	// Player variables
 	ArrayList<Items> invItems;
+	private int currentScore = 1000;
 	private Artifacts currentWeapon;
 	private Artifacts currentArmor;
 	static Random rand = new Random();
@@ -65,6 +66,13 @@ public class Player extends Character {
 	{
 		this.health = health;
 	}
+	
+	
+	public void PlayerMove() {
+		// Code for player movement goes here
+		currentScore -= 10;
+	}
+	
 	// The method below uses either the green herb or the mixed herbs to heal the player
 	// We need to add the part where it takes it out of inventory delete this when added
 	public void useHealthRegenItem(Items a1)
