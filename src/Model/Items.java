@@ -108,6 +108,11 @@ public class Items
 		{
 			return items.get(i);
 		}
+		
+		protected void setIncreaseAmmo(int i)
+		{
+			this.increaseAmmo = i;
+		}
 
 	
 }

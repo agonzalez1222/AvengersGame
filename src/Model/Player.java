@@ -148,16 +148,14 @@ public class Player extends Character {
 			useHealthRegenItem(a1);
 		}
 	}
-	
+	//This method replenishes data based on the item being used
 	public void ammoReplenish(Items a1)
 	{
 		Scanner input = new Scanner(System.in);
-		System.out.println("Are you sure that you want to use " + a1.getName() + "? (yes or no");
+		System.out.println("Are you sure that you want to use " + a1.getName() + "? (yes or no)");
 		String response = input.nextLine();
 		if(response.equalsIgnoreCase("yes") && a1.getName().equalsIgnoreCase("gas canister"))
 		{
-			if(a1.getIncreaseAmmo() < 100)
-			{
 			int newGasAmmo = a1.getIncreaseAmmo() + 50;
 			a1.setIncreaseAmmo(newGasAmmo);
 				if(a1.getIncreaseAmmo() >= 100)
@@ -168,27 +166,25 @@ public class Player extends Character {
 				}
 				else
 				{
-					System.out.println("The new ammo for the gas canister is " + a1.getIncreaseAmmo());
+					System.out.println("The new ammo for the gas canister is hi" + a1.getIncreaseAmmo());
 				}
-			}
+			
 			
 		}
-		else if(response.equalsIgnoreCase("yes") && a1.getName().equalsIgnoreCase("plasma pistol"))
+		else if(response.equalsIgnoreCase("yes") && a1.getName().equalsIgnoreCase("plasma rounds"))
 		{
-			if(a1.getIncreaseAmmo() < 12)
+			int pistolAmmo = a1.getIncreaseAmmo() + 6;
+			a1.setIncreaseAmmo(pistolAmmo);
+			if(a1.getIncreaseAmmo() >= 12)
 			{
-				int pistolAmmo = a1.getIncreaseAmmo() + 6;
+				pistolAmmo = 12;
 				a1.setIncreaseAmmo(pistolAmmo);
-				if(a1.getIncreaseAmmo() >= 12)
-				{
-					pistolAmmo = 12;
-					a1.setIncreaseAmmo(pistolAmmo);
-					System.out.println("The new ammo for the Plasma Pistol is " + a1.getIncreaseAmmo());
-				}
-				else
-				{
-					System.out.println("The new ammo for the gas canister is " + a1.getIncreaseAmmo());
-				}
+				System.out.println("The new ammo for the Plasma Pistol is " + a1.getIncreaseAmmo());
+			}
+			else
+			{
+			
+				System.out.println("The new ammo for the Plasma Pistol is " + a1.getIncreaseAmmo());
 			}
 		}
 		else
