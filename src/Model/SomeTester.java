@@ -6,10 +6,10 @@ public class SomeTester {
 		Player p1 = new Player();
 		Items item = new Items();
 		ArrayList<Items> list = item.getList();
-		item = list.get(2);
+		item = list.get(3);
 		item.setIncreaseAmmo(2);
 		System.out.println(item.getIncreaseAmmo());
-		p1.ammoReplenish(item);
+		p1.combineHerbs(item);
 		
 
 	}

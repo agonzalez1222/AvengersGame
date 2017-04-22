@@ -152,12 +152,15 @@ public class Player extends Character {
 	public void ammoReplenish(Items a1)
 	{
 		Scanner input = new Scanner(System.in);
-		System.out.println("Are you sure that you want to use " + a1.getName() + "? (yes or no)");
-		String response = input.nextLine();
-		if(response.equalsIgnoreCase("yes") && a1.getName().equalsIgnoreCase("gas canister"))
+		
+		if(a1.getName().equalsIgnoreCase("gas canister"))
 		{
-			int newGasAmmo = a1.getIncreaseAmmo() + 50;
-			a1.setIncreaseAmmo(newGasAmmo);
+			System.out.println("Are you sure that you want to use " + a1.getName() + "? (yes or no)");
+			String response = input.nextLine();
+			if(response.equalsIgnoreCase("yes"))
+			{
+				int newGasAmmo = a1.getIncreaseAmmo() + 50;
+				a1.setIncreaseAmmo(newGasAmmo);
 				if(a1.getIncreaseAmmo() >= 100)
 				{
 					newGasAmmo = 100;
@@ -166,20 +169,24 @@ public class Player extends Character {
 				}
 				else
 				{
-					System.out.println("The new ammo for the gas canister is hi" + a1.getIncreaseAmmo());
+					System.out.println("The new ammo for the gas canister is " + a1.getIncreaseAmmo());
 				}
-			
-			
+			}
 		}
-		else if(response.equalsIgnoreCase("yes") && a1.getName().equalsIgnoreCase("plasma rounds"))
+		else if(a1.getName().equalsIgnoreCase("plasma rounds"))
 		{
-			int pistolAmmo = a1.getIncreaseAmmo() + 6;
-			a1.setIncreaseAmmo(pistolAmmo);
-			if(a1.getIncreaseAmmo() >= 12)
+			System.out.println("Are you sure that you want to use " + a1.getName() + "? (yes or no)");
+			String response = input.nextLine();
+			if(response.equalsIgnoreCase("yes"))
 			{
-				pistolAmmo = 12;
+				int pistolAmmo = a1.getIncreaseAmmo() + 6;
 				a1.setIncreaseAmmo(pistolAmmo);
-				System.out.println("The new ammo for the Plasma Pistol is " + a1.getIncreaseAmmo());
+				if(a1.getIncreaseAmmo() >= 12)
+				{
+					pistolAmmo = 12;
+					a1.setIncreaseAmmo(pistolAmmo);
+					System.out.println("The new ammo for the Plasma Pistol is " + a1.getIncreaseAmmo());
+				}
 			}
 			else
 			{
@@ -190,7 +197,57 @@ public class Player extends Character {
 		else
 		{
 			System.out.println("Please enter a valid Item entry.");
-			ammoReplenish(a1);
+			System.exit(0);
 		}
 	}
-}
+	
+	protected void combineHerbs(Items a1)
+	{
+		Scanner input = new Scanner(System.in);
+		if(a1.getName().equalsIgnoreCase("Green Herb") || a1.getName().equalsIgnoreCase("Red Herb"))
+		{
+			System.out.println("Would you like to combine the green and red herbs? \nEnter Yes or No.");
+			String answer = input.nextLine();
+			if(answer.equalsIgnoreCase("Yes"))
+			{
+				System.out.println("You have combined the red and green herb. \nWould you like to use the new combined herb? Enter Yes or No.");
+				String answer2 = input.nextLine();
+				if(answer2.equalsIgnoreCase("Yes"))
+				{
+					this.health = this.health + 30;
+					System.out.print("Your new health is : " + health);
+				}
+				if(answer2.equalsIgnoreCase("no"))
+				{
+					System.out.println("Item is now stored in your inventory.");
+					System.exit(0);
+				}
+			}
+			else
+			{
+				System.out.println("Would you like to use only the Green Herb? \nEnter Yes or No.");
+				String answer3 = input.nextLine();
+				if(answer3.equalsIgnoreCase("Yes"))
+				{
+					this.health = this.health + 15;
+					System.out.println("Your new health is : " + health);
+				}
+				else
+				{
+					System.out.println("Okay, your item is back in inventory.");
+					System.exit(0);
+				}
+			}
+	
+		}
+		else
+		{
+			System.out.println("Please enter a valid item name.");
+			System.exit(0);
+		}
+	}		
+		
+} 
+
+
+
