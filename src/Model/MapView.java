@@ -38,7 +38,7 @@ public class MapView extends Component {
        }
     }
  
-    public static void main(String[] args) {
+    public static void ViewMap() {
  
         JFrame f = new JFrame("Game Map");
              
