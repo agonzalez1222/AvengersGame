@@ -67,6 +67,7 @@ public class Game  implements Serializable {
 				+ "damage taken from monsters (example: monster hits for+ 20 damage, but player "
 				+ "is wearing shirt so it only does 15 damage). Weapons have an attack stat that "
 				+ "directly equals how much HP monsters lose when hit by the player.";
+		String commands = "openMap" + "";
 	}
 
 
@@ -85,7 +86,7 @@ public class Game  implements Serializable {
 	//R: The player is shown a map of the entire area as well as a marker
 	//for their current location and floor.
 	public static void viewMap(){
-
+        MapView.ViewMap();
 	}
 
 	//S: The player selects the View Score option from the main menu.
