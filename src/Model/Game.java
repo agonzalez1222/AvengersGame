@@ -93,8 +93,7 @@ public class Game  implements Serializable {
 
 	//R: The player sees their current score for the game they are playing.
 	public static void viewScore(){
-		//if the player input = whatever we make the command 4 do that action show current 
-		//if(){
+		System.out.println();
 		
 		}
 	

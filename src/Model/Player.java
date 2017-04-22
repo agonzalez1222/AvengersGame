@@ -89,6 +89,10 @@ public class Player extends Character {
 		}
 	}
 	
+	public int getCurrentScore() {
+		return currentScore;
+	}
+
 	// The method below uses either the green herb or the mixed herbs to heal the player
 	// We need to add the part where it takes it out of inventory delete this when added
 	public void useHealthRegenItem(Items a1)
@@ -163,6 +167,7 @@ public class Player extends Character {
 			System.out.print("\n");
 			useHealthRegenItem(a1);
 		}
+		input.close();
 	}
 	//This method replenishes data based on the item being used
 	public void ammoReplenish(Items a1)
@@ -215,6 +220,7 @@ public class Player extends Character {
 			System.out.println("Please enter a valid Item entry.");
 			System.exit(0);
 		}
+		input.close();
 	}
 	
 	protected void combineHerbs(Items a1)
@@ -261,6 +267,7 @@ public class Player extends Character {
 			System.out.println("Please enter a valid item name.");
 			System.exit(0);
 		}
+		input.close();
 	}		
 		
 } 
