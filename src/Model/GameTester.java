@@ -1,5 +1,6 @@
 package Model;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -17,7 +18,9 @@ import javax.swing.*;
 public class GameTester extends Component {
            
     BufferedImage img;
- 
+    static Scanner input = new Scanner(System.in);
+    static String map = input.nextLine();
+
     public void paint(Graphics g) {
         g.drawImage(img, 0, 0, null);
     }
@@ -40,7 +43,7 @@ public class GameTester extends Component {
  
     public static void main(String[] args) {
  
-        JFrame f = new JFrame("Game Map");
+      /*  JFrame f = new JFrame("Game Map");
              
         f.addWindowListener(new WindowAdapter(){
                 public void windowClosing(WindowEvent e) {
@@ -52,6 +55,16 @@ public class GameTester extends Component {
         f.pack();
         f.setVisible(true);
     }
+    */
+    //when map is typed it displays it   
+   if(map.equalsIgnoreCase("Map")){
+	   
+	   MapView.ViewMap();
+	   
+   }
+	   
+    
+}
 }
 		
 /*
