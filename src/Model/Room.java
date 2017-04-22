@@ -63,6 +63,7 @@ public class Room {
         roomsSeen.add(i);
 
         String roomDescription = null;
+        
         if (i == 0) {
             roomDescription = "You wake up with a throbbing headache. Disoriented and Floating, you look around in the void and you see a dim red light."
             		+ " As your eyes adjust to the light you see a sign that says Emergency Power. Should you go for the light and push the Button?";
