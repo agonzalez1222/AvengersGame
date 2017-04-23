@@ -398,6 +398,8 @@ protected void useCanister(Items item)
 	
 	if(item.getName().equalsIgnoreCase("Cryo-Canister"))
 	{
+		boolean frozen = false;
+		this.m1.setIsFrozen(frozen);
 		
 	}
 }
