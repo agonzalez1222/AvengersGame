@@ -92,10 +92,9 @@ public class Game  implements Serializable {
 	//S: The player selects the View Score option from the main menu.
 
 	//R: The player sees their current score for the game they are playing.
-	public static void viewScore(){
-		System.out.println();
-		
-		}
+	public static void viewScore(Player player){
+		System.out.println(player.getCurrentScore());
+	}
 	
 	//S: The player selects the Save Game option from the main menu.
 
