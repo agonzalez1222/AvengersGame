@@ -21,7 +21,7 @@ public class Artifacts
 	private int attack;
 	private int maxAmmo;
 	private int damageResist;
-	
+	protected ArrayList<Artifacts> artifacts;
 	
 	protected Artifacts(String artifactName, String description, int attack, int maxAmmo, int damageResist)
 	{
@@ -33,8 +33,53 @@ public class Artifacts
 		
 	}
 	
-	protected static ArrayList<Artifacts> artifacts = new ArrayList<Artifacts>();
+	
+	
+	/**
+	 * @return the artifactName
+	 */
+	public String getArtifactName() {
+		return artifactName;
+	}
+	
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	
+	/**
+	 * @return the attack
+	 */
+	public int getAttack() {
+		return attack;
+	}
+	
+	/**
+	 * @return the maxAmmo
+	 */
+	public int getMaxAmmo() {
+		return maxAmmo;
+	}
+	
+	/**
+	 * @return the damageResist
+	 */
+	public int getDamageResist() {
+		return damageResist;
+	}
+	
+	/**
+	 * @return the artifacts
+	 */
+	public  ArrayList<Artifacts> getArtifacts() {
+		return artifacts;
+	}
+	
+	protected Artifacts()
 	{
+		this.artifacts = new ArrayList<>();
 		Artifacts none = new Artifacts("None", "You need to hurry and find a weapon", 1, 0, 0);
 		Artifacts pipe = new Artifacts("Pipe", "A piece of piping. You're not sure what it belongs to, but it can't be too important.", 2, 1000, 0);
 		Artifacts knife = new Artifacts("Knife", "A knife found in the Galley. Slightly dull from frequent use.", 6, 1000, 0);
@@ -57,6 +102,18 @@ public class Artifacts
 		artifacts.add(spaceSuit);
 		artifacts.add(armor);
 		
+	}
+	
+	
+	
+	protected ArrayList<Artifacts> getList()
+	{
+		return this.artifacts;
+	}
+	
+	protected Artifacts getArtifacts(int i)
+	{
+		return artifacts.get(i);
 	}
 	
 }

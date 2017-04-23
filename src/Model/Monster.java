@@ -18,16 +18,16 @@ public class Monster extends Character
 	//Monster Variables
 	private String name;
 	private String description;
-	private Boolean isBoss = false;
+	private Boolean isFrozen = false;
 	protected ArrayList<Monster> monsters;
 	
 	//Monster Constructor with variables
-	protected Monster(int health, int atk, int def, String name, String description, Boolean isBoss)
+	protected Monster(int health, int atk, int def, String name, String description, Boolean isFrozen)
 	{
 		super(health, atk, def);
 		this.name = name;
 		this.description = description;	
-		this.isBoss = isBoss;
+		this.isFrozen = isFrozen;
 	}
 	
 	public void GameMonsters() {
@@ -54,6 +54,18 @@ public class Monster extends Character
 	monsters.add(boss);
 	}
 	
+	/**
+	 * 
+	 * 
+	 * @param monster
+	 */
+	protected int damageMonster(Player player) {
+		int playerAtk = player.getAtk();
+		super.health = super.health - playerAtk;
+		int damage = playerAtk - super.def;
+		return damage;
+	}
+	
 	public void placeMonsters()
 	{
 		// We'll use this method to place the monsters in rooms via room_id later on
@@ -64,10 +76,13 @@ public class Monster extends Character
 		return health > 0;
 	}
 	
-	public Boolean getIsBoss() {
-		return isBoss;
+	/**
+	 * @return the isFrozen
+	 */
+	public Boolean getIsFrozen() {
+		return isFrozen;
 	}
-	
+
 	public int getHealth()
 	{
 		return (health);
@@ -85,5 +100,15 @@ public class Monster extends Character
 	public String getName()
 	{
 		return name;
+	}
+	
+	protected ArrayList<Monster> getList()
+	{
+		return monsters;
+	}
+	
+	protected Monster getMonster(int i)
+	{
+		return monsters.get(i);
 	}
 }
