@@ -68,45 +68,45 @@ protected Artifacts a10;
         a3 = artifact.get(4);
         room [0][0].setArtifact(a3);
         
-        room[0][1].setNumber(2);
-        room[0][1].setName("Food Storage Room");
-        room[0][1].setDescription("You Stumble through the door as your body becomes re acclimated to the artificial gravity."
+        room[1][0].setNumber(2);
+        room[1][0].setName("Food Storage Room");
+        room[1][0].setDescription("You Stumble through the door as your body becomes re acclimated to the artificial gravity."
         		+ " You look to your right and you see a computer terminal. To your right you see a bunch of dried food goods. "
         		+ "Across the room in front of you, you see a set of double doors that has Mess Hall written above it. You See M_1. You see W_1");
         monsters = m1.getList();
         m1 = monsters.get(0);
-        room [0][0].setMonster(m1);
+        room [1][0].setMonster(m1);
 
 
-        room[1][0].setNumber(3);
-        room[1][0].setName("Mess Hall");
-        room[1][0].setDescription("You step into the mess hall and see a trashed room."
+        room[2][0].setNumber(3);
+        room[2][0].setName("Mess Hall");
+        room[2][0].setDescription("You step into the mess hall and see a trashed room."
         		+ " There are tables and chairs flipped and rotting food littering the ground. "
         		+ "To your right you See the kitchen. Across the room you see another set of double doors that is Labeled Barracks.");
     
-        room[1][1].setNumber(4);
-        room[1][1].setName("Kitchen");
-        room[1][1].setDescription("Your step into the Kitchen. The Floors are covered with pots and pans."
+        room[2][-1].setNumber(4);
+        room[2][-1].setName("Kitchen");
+        room[2][-1].setDescription("Your step into the Kitchen. The Floors are covered with pots and pans."
         		+ " You see No other Exits in the room. You Do see M_2. You See W_2");
         
-//        room[1][1].setNumber(5);
-//        room[1][1].setName("Barracks Hall");
-//        room[1][1].setDescription("You Stare down the long Empty Barracks Hall. "
-//        		+ "You see 5 Clearly lobed rooms, Captains Room, Officer's Room, Barracks 1, Barracks 2, and Stairs");
-//        
-//        room[1][1].setNumber(6);
-//        room[1][1].setName("Captains Room");
-//        room[1][1].setDescription("You Walk into the captain’s room and you are confronted by M_2. ");
-//        
-//        room[1][1].setNumber(7);
-//        room[1][1].setName("Officers Room");
-//        room[1][1].setDescription("You walk into the officer's room. It is quiet and you don’t observe anything.");
-//        
-//        room[1][1].setNumber(8);
-//        room[1][1].setName("Barracks 1");
-//        room[1][1].setDescription("To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. "
-//        		+ "There are no items in this room.");
-//        
+        room[3][0].setNumber(5);
+        room[3][0].setName("Barracks Hall");
+        room[3][0].setDescription("You Stare down the long Empty Barracks Hall. "
+        		+ "You see 5 Clearly lobed rooms, Captains Room, Officer's Room, Barracks 1, Barracks 2, and Stairs");
+        
+        room[4][-1].setNumber(6);
+        room[4][-1].setName("Captains Room");
+        room[4][-1].setDescription("You Walk into the captain’s room and you are confronted by M_2. ");
+        
+        room[4][1].setNumber(7);
+        room[4][1].setName("Officers Room");
+        room[4][1].setDescription("You walk into the officer's room. It is quiet and you don’t observe anything.");
+        
+        room[3][-1].setNumber(8);
+        room[3][-1].setName("Barracks 1");
+        room[3][-1].setDescription("To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. "
+        		+ "There are no items in this room.");
+        
 //        room[1][1].setNumber(9);
 //        room[1][1].setName("Barracks 2");
 //        room[1][1].setDescription("To walk into Barak 2. The room is filled with Bunk Beds. A M_1 attacks you. "
