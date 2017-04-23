@@ -14,8 +14,11 @@ import Model.Room;
 import java.util.ArrayList;
 
 class RoomMaker {
+protected Monster m1;
+protected ArrayList<Monster> monsters;
 
-    public static void build(Room[][] room, final int WIDTH, final int HEIGHT) {
+
+    public  void build(Room[][] room, final int WIDTH, final int HEIGHT) {
 
     	// Initialize rooms (a 2D array)
         for (int i = 0; i < WIDTH; i++) {
@@ -31,7 +34,9 @@ class RoomMaker {
         		+ "As your eyes adjust to the light you see a sign that says Emergency Power. "
         		+ "Should you go for the light and push the Button?");
         room[0][0].setItems("");
-       // room [0][0].setMonster(m1);
+        monsters = m1.getList();
+        m1 = monsters.get(0);
+        room [0][0].setMonster(m1);
 
         room[0][1].setNumber(2);
         room[0][1].setName("Food Storage Room");
