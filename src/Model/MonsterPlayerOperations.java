@@ -24,8 +24,8 @@ public class MonsterPlayerOperations
 	// deleted all of the comments 
 	public MonsterPlayerOperations(Player player, Monster monster, Items item) throws IOException
 	{
+		System.out.println("You have encountered a(n)" + monster.getName() + ": " + monster.getDescription());
 		while (player.isAlive() && monster.isAlive()) {
-			System.out.println("You have encountered a(n)" + monster.getName() + ": " + monster.getDescription());
 			System.out.println("Player Health: " + player.getHealth() + "\n");
 			System.out.println(monster.getName() + "Health: " + monster.getHealth());
 			FightSequence(player, monster, item);
@@ -38,7 +38,17 @@ public class MonsterPlayerOperations
 		String userInput = input.nextLine();
 		if(userInput.equalsIgnoreCase("Attack"))
 		{
-			System.out.println("You have chosen to attack: " + gameMonster.getName());
+			System.out.println("You have chosen to attack: " + (gameMonster.getName()) + "for " + (gameMonster.damageMonster(gamePlayer)) + " damage");
+				if (gameMonster.isAlive() == true) {
+					System.out.println("The monster strikes you back and deals " + gamePlayer.damagePlayer(	gameMonster) + " damage");
+				} else if (gamePlayer.isAlive() == false) {
+					System.out.println("You Died.");
+					System.exit(0);
+				} else if (gameMonster.isAlive() && gameMonster.getIsFrozen()) {
+					
+					System.out.println(gameMonster.getName() + " has been slain.");
+				}
+				System.exit(0);
 		}
 		
 		if(userInput.equalsIgnoreCase("Run"))

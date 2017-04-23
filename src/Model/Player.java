@@ -340,6 +340,24 @@ public class Player extends Character {
     
 }
 	
+	/**
+	 * 
+	 * @param monster
+	 * @return
+	 */
+	protected int damagePlayer(Monster monster) {
+		int monsterAtk = monster.getAtk();
+		super.health = super.health - monsterAtk;
+		int damage = monsterAtk - super.def;
+		return damage;
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param player
+	 * @throws IOException
+	 */
     public void movePlayer(Player player) throws IOException {
     boolean northPossible = roomExists(currentX, currentY + 1);
     boolean southPossible = roomExists(currentX, currentY - 1);
