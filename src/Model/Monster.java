@@ -82,6 +82,11 @@ public class Monster extends Character
 	public Boolean getIsFrozen() {
 		return isFrozen;
 	}
+	
+	public void setIsFrozen(boolean frozen)
+	{
+		this.isFrozen = frozen;
+	}
 
 	public int getHealth()
 	{

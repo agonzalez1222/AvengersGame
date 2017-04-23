@@ -8,7 +8,7 @@ import java.io.Serializable;
  *         2017
  * 
  * 
- *         This class will 
+ *         This class will display the name, story, 
  * 
  *         Purpose: The class will 
  *
@@ -23,13 +23,24 @@ public class Game implements Serializable {
 
 	//public string Story. put story in there start game
 	public static void gameStartText(){
+		
+		
+		
+		
 	String story = "Story: The exploratory ship Legacy becomes"
 			+ " stranded in space when a part of the crew, belonging"
 			+ " to a mysterious cult, summons a cosmic being and floods"
 			+ " the ship with horrors beyond imagination.";
 
-	String storyDescription = "Title: Astral Possession " + "Theme: Sci-Fi/Cosmic Horror " 
+	String storyDescription = "Title: Astral Possession " ;
+	String theme =  "Theme: Sci-Fi/Cosmic Horror " 
 	+ " Player: Un-named engineer";
+	
+	System.out.println("*---------------------------------*");
+	System.out.println("|"   + storyDescription +        "|");
+	System.out.println("*---------------------------------*");
+	System.out.println(theme);
+	System.out.println(story);
 	}
 
 	//S: The player selects the Exit Game option from the main menu.
@@ -56,13 +67,33 @@ public class Game implements Serializable {
 	//R: The player is shown a list of all legal text commands as well as basic
 	//instructions on how to navigate the game.
 	public static void openHelp(){
+
 		System.out.println("||||||||||||||||||||||||||||||||||||||||| Help Menu |||||||||||||||||||||||||||||||||||||||||");
 		System.out.println("");
+		String goal = "Goal: Reach the bridge and send a distress signal.";
+
+		String score = "Score: Score starts at 1000. Each move/step made reduces the score by a "
+				+ "certain amount. The fewer moves made, the higher the score."; 
+
+		String stats = "Stats: Player starts with 100 HP, 5 defense from wearing the "
+				+ "shirt armor, and 1 attack. Armor increases defense. Defense decreases "
+				+ "damage taken from monsters (example: monster hits for+ 20 damage, but player "
+				+ "is wearing shirt so it only does 15 damage). Weapons have an attack stat that "
+				+ "directly equals how much HP monsters lose when hit by the player.";
+		
+		String commands = "Open Map" + "Inventory" + "Score" + "load"+ "save";
+		
+		System.out.println(goal);
+		System.out.println(score);
+		System.out.println(stats);
+		System.out.println("||||||||||||||||||||||||||||||||||||||||| Commands |||||||||||||||||||||||||||||||||||||||||");
+		System.out.println("");
+		System.out.println(commands);
+
+		
 		System.out.print("Goal: Reach the bridge and send a distress signal to escape the horrors within the ship.");
 		System.out.println("Score: Score starts at 1000. Each move/step made reduces the score by a "
 				+ "certain amount. The fewer moves made, the higher the score.");
-		System.out.println("");
-		System.out.println("||||||||||||||||||||||||||||||||||||||||| Commands |||||||||||||||||||||||||||||||||||||||||");
 		System.out.println("");
 
 //		String stats = "Stats: Player starts with 100 HP, 5 defense from wearing the "
@@ -71,6 +102,7 @@ public class Game implements Serializable {
 //				+ "is wearing shirt so it only does 15 damage). Weapons have an attack stat that "
 //				+ "directly equals how much HP monsters lose when hit by the player.";
 //		String commands = "openMap" + "";
+
 	}
 
 
@@ -107,14 +139,24 @@ public class Game implements Serializable {
 
 	}
 	
+<<<<<<< HEAD
 	public static void intro() {
     	
+<<<<<<< HEAD
+=======
+		System.out.print("                      	                                 +-------------------------------+\n");
+    	System.out.print("					  		 |       Astral Possession       |\n");
+    	System.out.println("					  		 +-------------------------------+");
+>>>>>>> 1f8bc49eec9427bde86c5a2922ff0bdf537be001
     	
     	System.out.println("");
     	System.out.println("Welcome to Astral Possession, a sci-fi/cosmic horror text based game.");
     	System.out.println("You play an Un-named Engineer aboard the exploratory ship Legacy, which later becomes stranded in space when a part of the crew,");
     	System.out.println("belonging to a mysterious cult, summons a cosmic being and floods the ship with horrors beyond imagination. Your goal is to make");
     	System.out.println("your way through the horrors of the ship to the bridge and send a distress signal for help.");
+=======
+	
+>>>>>>> 364ccf27f36f968becf74e757754ccc0b14eab0a
 	}
 	
 	public static void titletMenu() {
@@ -126,7 +168,7 @@ public class Game implements Serializable {
 	}
 		
 		
-	}
+	
 
 
 
