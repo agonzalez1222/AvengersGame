@@ -90,28 +90,38 @@ protected Artifacts a10;
         		+ " You see No other Exits in the room. You Do see M_2. You See W_2");
         
         room[3][0].setNumber(5);
-        room[3][0].setName("Barracks Hall");
+        room[3][0].setName("Barracks Hall 1");
         room[3][0].setDescription("You Stare down the long Empty Barracks Hall. "
-        		+ "You see 5 Clearly lobed rooms, Captains Room, Officer's Room, Barracks 1, Barracks 2, and Stairs");
+        		+ "You see a Stairwell to your north and a wall to the south, to the east you see more hallway");
         
-        room[4][-1].setNumber(6);
-        room[4][-1].setName("Captains Room");
-        room[4][-1].setDescription("You Walk into the captain’s room and you are confronted by M_2. ");
+        room[4][0].setNumber(5);
+        room[4][0].setName("Barracks Hall 2");
+        room[4][0].setDescription("You Stare down the long Empty Barracks Hall. "
+        		+ "You see Barracks 1 to the north and Barracks 2 to the south, to the east you see more hallway");
         
-        room[4][1].setNumber(7);
-        room[4][1].setName("Officers Room");
-        room[4][1].setDescription("You walk into the officer's room. It is quiet and you don’t observe anything.");
+        room[5][0].setNumber(5);
+        room[5][0].setName("Barracks Hall 3");
+        room[5][0].setDescription("You Stare down the long Empty Barracks Hall. "
+        		+ "You see the Captain's room to the north and the Officer's room to the south,  Barracks 1, to the east you see more hallway");
         
-        room[3][-1].setNumber(8);
-        room[3][-1].setName("Barracks 1");
-        room[3][-1].setDescription("To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. "
+        room[5][-1].setNumber(6);
+        room[5][-1].setName("Captains Room");
+        room[5][-1].setDescription("You Walk into the captain’s room and you are confronted by M_2. ");
+        
+        room[5][1].setNumber(7);
+        room[5][1].setName("Officers Room");
+        room[5][1].setDescription("You walk into the officer's room. It is quiet and you don’t observe anything.");
+        
+        room[4][-1].setNumber(8);
+        room[4][-1].setName("Barracks 1");
+        room[4][-1].setDescription("To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. "
         		+ "There are no items in this room.");
         
-//        room[1][1].setNumber(9);
-//        room[1][1].setName("Barracks 2");
-//        room[1][1].setDescription("To walk into Barak 2. The room is filled with Bunk Beds. A M_1 attacks you. "
-//        		+ "There are no items in this room.");
-//        
+        room[4][1].setNumber(9);
+        room[4][1].setName("Barracks 2");
+        room[4][1].setDescription("To walk into Barak 2. The room is filled with Bunk Beds. A M_1 attacks you. "
+        		+ "There are no items in this room.");
+        
 //        room[1][1].setNumber(10);
 //        room[1][1].setName("Stairs 1");
 //        room[1][1].setDescription("You Walk into the Stairs from Barracks Hall and at the top of the Stairs is a door labeled ForeBay.");
