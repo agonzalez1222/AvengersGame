@@ -42,9 +42,8 @@ public class GameTester extends Component {
     }
  
     public static void main(String[] args) {
-    if (map.equalsIgnoreCase("intro")) {
     	Game.intro();
-    }
+  
       /*  JFrame f = new JFrame("Game Map");
              
         f.addWindowListener(new WindowAdapter(){
@@ -63,10 +62,8 @@ public class GameTester extends Component {
 	   
 	   MapView.ViewMap();
 	   
-   }
-	   
-    
-}
+   } 
+  }
 }
 		
 /*
