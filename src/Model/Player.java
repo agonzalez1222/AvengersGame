@@ -20,6 +20,7 @@ public class Player extends Character {
 	
 	// Player variables
 	ArrayList<Items> invItems;
+	ArrayList<Artifacts> equipment;
 	private int currentScore = 1000;
 	private Artifacts currentWeapon;
 	private Artifacts currentArmor;
@@ -91,6 +92,17 @@ public class Player extends Character {
 	}
 	
 	/**
+	 * This method adds items to the players inventory.
+	 * 
+	 * @param item
+	 */
+	public void addToEquip(Artifacts artifact) {
+		for (Artifacts i: equipment) {
+			equipment.add(i);
+		}
+	}
+	
+	/**
 	 * This method removes items from the players inventory.
 	 * 
 	 * @param item
@@ -110,7 +122,7 @@ public class Player extends Character {
 	public void useHealthRegenItem(Items a1)
 	{
 		Scanner input = new Scanner(System.in);
-		System.out.println("Please enter the name of the item that you wish to use, or type 0 to exit");
+		System.out.println("Please enter the name of the item that you wish to use, or type exit");
 		String nameGiven = input.nextLine();
 		if(nameGiven.equalsIgnoreCase("green herb"))
 		{
@@ -170,7 +182,7 @@ public class Player extends Character {
 				}
 			 }
 		}
-		else if(nameGiven.equalsIgnoreCase("0"))
+		else if(nameGiven.equalsIgnoreCase("exit"))
 		{
 			System.exit(0);
 		}
@@ -284,9 +296,32 @@ public class Player extends Character {
 	}		
 		
 	
-	protected void increaseDefense()
+	protected void increaseAttack(Artifacts artifacts)
 	{
-		
+		super.atk = artifacts.getAttack();
+	}
+	
+	protected void increaseDefense(Artifacts artifacts)
+	{
+		super.def = artifacts.getDamageResist();
+	}
+	
+	/**
+	 * Returns the player's current weapon.
+	 * 
+	 * @return
+	 */
+	public Artifacts getCurrentWeapon() {
+		return currentWeapon;
+	}
+	
+	/**
+	 * Returns the player's current Armor.
+	 * 
+	 * @return
+	 */
+	public Artifacts getCurrentArmor() {
+		return currentArmor;
 	}
 	
 } 

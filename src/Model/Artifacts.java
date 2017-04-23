@@ -34,6 +34,49 @@ public class Artifacts
 	}
 	
 	protected static ArrayList<Artifacts> artifacts = new ArrayList<Artifacts>();
+	
+	/**
+	 * @return the artifactName
+	 */
+	public String getArtifactName() {
+		return artifactName;
+	}
+	
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	
+	/**
+	 * @return the attack
+	 */
+	public int getAttack() {
+		return attack;
+	}
+	
+	/**
+	 * @return the maxAmmo
+	 */
+	public int getMaxAmmo() {
+		return maxAmmo;
+	}
+	
+	/**
+	 * @return the damageResist
+	 */
+	public int getDamageResist() {
+		return damageResist;
+	}
+	
+	/**
+	 * @return the artifacts
+	 */
+	public static ArrayList<Artifacts> getArtifacts() {
+		return artifacts;
+	}
+	
 	{
 		Artifacts none = new Artifacts("None", "You need to hurry and find a weapon", 1, 0, 0);
 		Artifacts pipe = new Artifacts("Pipe", "A piece of piping. You're not sure what it belongs to, but it can't be too important.", 2, 1000, 0);
