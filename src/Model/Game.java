@@ -108,9 +108,7 @@ public class Game implements Serializable {
 	}
 	
 	public static void intro() {
-    	System.out.print("                      	                                 +-------------------------------+\n");
-    	System.out.print("					  		 |       Astral Possession       |\n");
-    	System.out.println("					  		 +-------------------------------+");
+    	
     	
     	System.out.println("");
     	System.out.println("Welcome to Astral Possession, a sci-fi/cosmic horror text based game.");
@@ -119,6 +117,14 @@ public class Game implements Serializable {
     	System.out.println("your way through the horrors of the ship to the bridge and send a distress signal for help.");
 	}
 	
+	public static void titletMenu() {
+		System.out.print("                      	                                 +-------------------------------+\n");
+    	System.out.print("					  		 |       Astral Possession       |\n");
+    	System.out.println("					  		 +-------------------------------+");
+    	System.out.println("");
+    	System.out.println("                 Type a command to begin:");
+	}
+		
 		
 	}
 
