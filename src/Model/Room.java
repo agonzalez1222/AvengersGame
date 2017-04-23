@@ -30,10 +30,12 @@ public class Room {
     private int number;
     private String name;
     private String description;
-    public ArrayList<String> items = new ArrayList<>();
+    
+    public ArrayList<Items> items = new ArrayList<>();
     
     public ArrayList<Monster> monster = new ArrayList<>();
 
+    public ArrayList<Artifacts> artifact = new ArrayList<>();
 	
 	
 	
@@ -62,7 +64,7 @@ public class Room {
 	
 
     public Room(int number, String name, String description,
-            ArrayList<String> items, ArrayList<Monster> monster) {
+            ArrayList<Items> item, ArrayList<Artifacts> artifact, ArrayList<Monster> monster) {
     }
 
     public void setNumber(int number) {
@@ -89,19 +91,23 @@ public class Room {
         return this.description;
     }
 
-    public void setItems(String item) {
+    public void setItems(Items item) {
         this.items.add(item);
     }
     
     public void setMonster(Monster monster) {
         this.monster.add(monster);
     }
+    
+    public void setArtifact(Artifacts artifact) {
+        this.artifact.add(artifact);
+    }
 
-    public void deleteItem(String item) {
+    public void deleteItem(Items item) {
         this.items.remove(item);
     }
 
-    public ArrayList<String> getItems() {
+    public ArrayList<Items> getItems() {
         return this.items;
     }
 

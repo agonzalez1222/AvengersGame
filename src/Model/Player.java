@@ -1,8 +1,12 @@
 package Model;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import Model.Items;
+import Model.Room;
 /**
  * Class: Player
  * 
@@ -28,6 +32,8 @@ public class Player extends Character {
 	Items a1 = new Items();
 	ArrayList<Items> list1 = new ArrayList<>();
 	ArrayList<Artifacts> artifacts = new ArrayList<>();
+	 private int currentX = 0;
+	 private int currentY = 0;
 	
 	
 	
@@ -325,6 +331,48 @@ public class Player extends Character {
 	public Artifacts getCurrentArmor() {
 		return currentArmor;
 	}
+	
+    //test player movement 
+	
+	private boolean roomExists(int x, int y) {
+		return false;
+	 // return true;
+    
+}
+	
+    public void movePlayer(Player player) throws IOException {
+    boolean northPossible = roomExists(currentX, currentY + 1);
+    boolean southPossible = roomExists(currentX, currentY - 1);
+    boolean eastPossible = roomExists(currentX + 1, currentY);
+    boolean westPossible = roomExists(currentX - 1, currentY);
+    System.out.print("Where would you like to go :");
+    if (northPossible) {
+        System.out.print(" North (n)");
+    }
+    if (eastPossible) {
+        System.out.print(" East (e)");
+    }
+    if (southPossible) {
+        System.out.print(" South (s)");
+    }
+    if (westPossible) {
+        System.out.print(" West (w)");
+    }
+    System.out.print(" ? ");
+    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    String direction = in.readLine();
+    if (direction.equals("n") && northPossible) {
+        currentY++;
+    } else if (direction.equals("s") && southPossible) {
+        currentY--;
+    } else if (direction.equals("e") && eastPossible) {
+        currentX++;
+    } else if (direction.equals("w") && westPossible) {
+        currentX--;
+    }
+   // currentRoom = getRoom(currentX, currentY);
+  // currentRoom.enter(player);
+}
 	
 } 
 
