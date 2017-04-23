@@ -27,14 +27,15 @@ public class Player extends Character {
 	static Random rand = new Random();
 	Items a1 = new Items();
 	ArrayList<Items> list1 = new ArrayList<>();
+	ArrayList<Artifacts> artifacts = new ArrayList<>();
 	
 	
 	
 	protected Player() {
 		super(100, 1, 5);
 
-		currentWeapon = Artifacts.artifacts.get(0);
-		currentArmor = Artifacts.artifacts.get(7);
+		//currentWeapon = artifacts.get(0);
+		//currentArmor = artifacts.get(7);
 		invItems = new ArrayList<>();
 	}
 	
@@ -299,6 +300,7 @@ public class Player extends Character {
 	protected void increaseAttack(Artifacts artifacts)
 	{
 		super.atk = artifacts.getAttack();
+		System.out.println(this.atk);
 	}
 	
 	protected void increaseDefense(Artifacts artifacts)

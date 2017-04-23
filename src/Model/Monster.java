@@ -86,4 +86,14 @@ public class Monster extends Character
 	{
 		return name;
 	}
+	
+	protected ArrayList<Monster> getList()
+	{
+		return monsters;
+	}
+	
+	protected Monster getMonster(int i)
+	{
+		return monsters.get(i);
+	}
 }
