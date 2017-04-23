@@ -23,13 +23,24 @@ public class Game  implements Serializable {
 
 	//public string Story. put story in there start game
 	public static void gameStartText(){
+		
+		
+		
+		
 	String story = "Story: The exploratory ship Legacy becomes"
 			+ " stranded in space when a part of the crew, belonging"
 			+ " to a mysterious cult, summons a cosmic being and floods"
 			+ " the ship with horrors beyond imagination.";
 
-	String storyDescription = "Title: Astral Possession " + "Theme: Sci-Fi/Cosmic Horror " 
+	String storyDescription = "Title: Astral Possession " ;
+	String theme =  "Theme: Sci-Fi/Cosmic Horror " 
 	+ " Player: Un-named engineer";
+	
+	System.out.println("+---------------------------------");
+	System.out.println("|"   + storyDescription +        "|");
+	System.out.println("+---------------------------------");
+	System.out.println(theme);
+	System.out.println(story);
 	}
 
 	//S: The player selects the Exit Game option from the main menu.
@@ -67,7 +78,13 @@ public class Game  implements Serializable {
 				+ "damage taken from monsters (example: monster hits for+ 20 damage, but player "
 				+ "is wearing shirt so it only does 15 damage). Weapons have an attack stat that "
 				+ "directly equals how much HP monsters lose when hit by the player.";
-		String commands = "openMap" + "";
+		
+		String commands = "Open Map" + "Inventory" + "Score" + "load"+ "save";
+		
+		System.out.println(goal);
+		System.out.println(score);
+		System.out.println(stats);
+		System.out.println(commands);
 	}
 
 
