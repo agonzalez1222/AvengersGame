@@ -36,9 +36,9 @@ public class Game  implements Serializable {
 	String theme =  "Theme: Sci-Fi/Cosmic Horror " 
 	+ " Player: Un-named engineer";
 	
-	System.out.println("+---------------------------------");
+	System.out.println("*---------------------------------*");
 	System.out.println("|"   + storyDescription +        "|");
-	System.out.println("+---------------------------------");
+	System.out.println("*---------------------------------*");
 	System.out.println(theme);
 	System.out.println(story);
 	}
