@@ -94,52 +94,58 @@ protected Artifacts a10;
         room[3][0].setDescription("You Stare down the long Empty Barracks Hall. "
         		+ "You see a Stairwell to your north and a wall to the south, to the east you see more hallway");
         
-        room[4][0].setNumber(5);
+        room[4][0].setNumber(6);
         room[4][0].setName("Barracks Hall 2");
         room[4][0].setDescription("You Stare down the long Empty Barracks Hall. "
         		+ "You see Barracks 1 to the north and Barracks 2 to the south, to the east you see more hallway");
         
-        room[5][0].setNumber(5);
+        room[5][0].setNumber(7);
         room[5][0].setName("Barracks Hall 3");
         room[5][0].setDescription("You Stare down the long Empty Barracks Hall. "
         		+ "You see the Captain's room to the north and the Officer's room to the south,  Barracks 1, to the east you see more hallway");
         
-        room[5][-1].setNumber(6);
+        room[5][-1].setNumber(8);
         room[5][-1].setName("Captains Room");
         room[5][-1].setDescription("You Walk into the captain’s room and you are confronted by M_2. ");
         
-        room[5][1].setNumber(7);
+        room[5][1].setNumber(9);
         room[5][1].setName("Officers Room");
         room[5][1].setDescription("You walk into the officer's room. It is quiet and you don’t observe anything.");
         
-        room[4][-1].setNumber(8);
+        room[4][-1].setNumber(10);
         room[4][-1].setName("Barracks 1");
         room[4][-1].setDescription("To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. "
         		+ "There are no items in this room.");
         
-        room[4][1].setNumber(9);
+        room[4][1].setNumber(11);
         room[4][1].setName("Barracks 2");
         room[4][1].setDescription("To walk into Barak 2. The room is filled with Bunk Beds. A M_1 attacks you. "
         		+ "There are no items in this room.");
         
-//        room[1][1].setNumber(10);
-//        room[1][1].setName("Stairs 1");
-//        room[1][1].setDescription("You Walk into the Stairs from Barracks Hall and at the top of the Stairs is a door labeled ForeBay.");
-//        
-//        room[1][1].setNumber(11);
-//        room[1][1].setName("Stairs 2");
-//        room[1][1].setDescription("You Walk into the Stairs from Aftbay and at the top of the Stairs is a door labeled Botany.");
-//        
-//        room[1][1].setNumber(12);
-//        room[1][1].setName("Brig");
-//        room[1][1].setDescription("You walk into the brig and you are immediately attacked by M_1.");
-//        
-//        room[1][1].setNumber(13);
-//        room[1][1].setName("Aft Bay");
-//        room[1][1].setDescription("The room is a huge empty Room. "
-//        		+ "There is a huge hole in the Side of the ship and you are exposed to the Cruel Vacuums of space. "
-//        		+ "M_6 guards the Door Labeled Stairs");
-//        
+        room[3][1].setNumber(12);
+        room[3][1].setName("Stairs 1");
+        room[3][1].setDescription("You Walk into the Stairs from Barracks Hall and at the top of the Stairs is a door labeled ForeBay.");
+        
+//        room[0][4].setNumber(13);
+//        room[0][4].setName("Stairs 2");
+//        room[0][4].setDescription("You Walk into the Stairs from Aftbay and at the top of the Stairs is a door labeled Botany.");
+        
+        room[0][4].setNumber(12);
+        room[0][4].setName("Brig");
+        room[0][4].setDescription("You walk into the brig and you are immediately attacked by M_1.");
+        monsters = m1.getList();
+        m1 = monsters.get(0);
+        room [0][4].setMonster(m1);
+        
+        room[1][4].setNumber(13);
+        room[1][4].setName("Aft Bay");
+        room[1][4].setDescription("The room is a huge empty Room. "
+        		+ "There is a huge hole in the Side of the ship and you are exposed to the Cruel Vacuums of space. "
+        		+ "M_6 guards the Door Labeled Stairs");
+        monsters = m6.getList();
+        m6 = monsters.get(5);
+        room [1][4].setMonster(m6);
+        
 //        room[1][1].setNumber(14);
 //        room[1][1].setName("Storage Bay");
 //        room[1][1].setDescription("You walk into the storage bay and see Nothing of Worth. "
