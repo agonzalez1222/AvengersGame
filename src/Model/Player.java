@@ -32,9 +32,9 @@ public class Player extends Character {
 	Items a1 = new Items();
 	ArrayList<Items> list1 = new ArrayList<>();
 	ArrayList<Artifacts> artifacts = new ArrayList<>();
-	 private int currentX = 0;
-	 private int currentY = 0;
-	
+	private int currentX = 0;
+	private int currentY = 0;
+	protected Monster m1;
 	
 	
 	protected Player() {
@@ -391,7 +391,17 @@ public class Player extends Character {
    // currentRoom = getRoom(currentX, currentY);
   // currentRoom.enter(player);
 }
+
+protected void useCanister(Items item)
+{
+	Scanner input = new Scanner(System.in);
 	
+	if(item.getName().equalsIgnoreCase("Cryo-Canister"))
+	{
+		
+	}
+}
+    
 } 
 
 
