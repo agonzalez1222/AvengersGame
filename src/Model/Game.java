@@ -139,24 +139,16 @@ public class Game implements Serializable {
 
 	}
 	
-<<<<<<< HEAD
+
 	public static void intro() {
-    	
-<<<<<<< HEAD
-=======
-		System.out.print("                      	                                 +-------------------------------+\n");
-    	System.out.print("					  		 |       Astral Possession       |\n");
-    	System.out.println("					  		 +-------------------------------+");
->>>>>>> 1f8bc49eec9427bde86c5a2922ff0bdf537be001
-    	
     	System.out.println("");
     	System.out.println("Welcome to Astral Possession, a sci-fi/cosmic horror text based game.");
     	System.out.println("You play an Un-named Engineer aboard the exploratory ship Legacy, which later becomes stranded in space when a part of the crew,");
     	System.out.println("belonging to a mysterious cult, summons a cosmic being and floods the ship with horrors beyond imagination. Your goal is to make");
     	System.out.println("your way through the horrors of the ship to the bridge and send a distress signal for help.");
-=======
+
 	
->>>>>>> 364ccf27f36f968becf74e757754ccc0b14eab0a
+
 	}
 	
 	public static void titletMenu() {
@@ -166,7 +158,7 @@ public class Game implements Serializable {
     	System.out.println("");
     	System.out.println("                 Type a command to begin:");
 	}
-		
+}	
 		
 	
 
