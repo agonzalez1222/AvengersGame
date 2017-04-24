@@ -26,10 +26,15 @@ public class Room {
 	//private Monster monster;
 	private final static Random random = new Random();
     //private final static Set<Integer> roomsSeen = new HashSet<Integer>();
-    private final static int NUM_ROOMS = 31;
+    private final static int NUM_ROOMS = 34;
     private int number;
     private String name;
     private String description;
+    protected Items itemHolder = new Items();
+    protected ArrayList<Items> list2 = itemHolder.getList();
+    
+    protected Monster monsterHolder = new Monster();
+    protected ArrayList<Monster> list3 = monsterHolder.getList1();
     
     public ArrayList<Items> items = new ArrayList<>();
     
@@ -38,7 +43,17 @@ public class Room {
     public ArrayList<Artifacts> artifact = new ArrayList<>();
 	
 	
-	
+	public static void main(String[] args)
+	{
+		Items itemHolder = new Items();
+	    ArrayList<Items> list2 = itemHolder.getList();
+	    ArrayList<Items> items = new ArrayList<>();
+	    for(int i = 0; i < 9; i++)
+	    {
+	      System.out.println(list2.get(i).getName());
+	    }
+		
+	}
 	private Room(String description,  Boolean isPuzzleRoom, Boolean isBossRoom) { //Monster monster,
 		this.description = description;
 		this.isBossRoom = isBossRoom;
@@ -92,11 +107,17 @@ public class Room {
     }
 
     public void setItems(Items item) {
+    	this.itemHolder = item;
         this.items.add(item);
     }
+//    public Monster getMonster(Monster)
+//    {
+//    	return this.monster.get(m1);
+//    }
     
     public void setMonster(Monster monster) {
-        this.monster.add(monster);
+        this.monsterHolder = monster;
+    	this.monster.add(monster);
     }
     
     public void setArtifact(Artifacts artifact) {
@@ -107,8 +128,11 @@ public class Room {
         this.items.remove(item);
     }
 
-    public ArrayList<Items> getItems() {
-        return this.items;
+    public String getItems() {
+        return this.itemHolder.getName();
+    }
+    public String getMonster() {
+        return this.monsterHolder.getName();
     }
 
 //    public static Room newRegularInstance() {

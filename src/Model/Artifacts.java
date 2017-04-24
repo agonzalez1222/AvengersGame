@@ -38,7 +38,7 @@ public class Artifacts
 	/**
 	 * @return the artifactName
 	 */
-	public String getArtifactName() {
+	public String getName() {
 		return artifactName;
 	}
 	
@@ -91,7 +91,7 @@ public class Artifacts
 		Artifacts spaceSuit = new Artifacts("Space Suit", "A space suit that allows the user to exist in the vacuum of space. Well insulated but not great against slashing or piercing damage." ,0, 1, 15);
 		Artifacts armor = new Artifacts("ASM4 Series Gaurd Armor", "Armor that protects the user from extraterrestrial threats and medium gunfire" ,0, 1, 20);
 		
-		artifacts.add(none);
+		
 		artifacts.add(pipe);
 		artifacts.add(knife);
 		artifacts.add(wrentch);
@@ -101,6 +101,7 @@ public class Artifacts
 		artifacts.add(shirt);
 		artifacts.add(spaceSuit);
 		artifacts.add(armor);
+		artifacts.add(none);
 		
 	}
 	
