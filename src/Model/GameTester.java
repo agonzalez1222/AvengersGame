@@ -84,6 +84,14 @@ public class GameTester extends Component {
 	   
    } 
   }
+    Monster m1;
+    ArrayList<Monster> monster = m1.getList();
+    
+    Room room = new Room("hi",false,false);
+    RoomMaker maker1 = new RoomMaker();
+    
+    maker1.build()
+    		
 }
 		
 /*

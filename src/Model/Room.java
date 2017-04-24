@@ -43,6 +43,10 @@ public class Room {
     public ArrayList<Artifacts> artifact = new ArrayList<>();
 	
 	
+<<<<<<< HEAD
+	
+	public Room(String description,  Boolean isPuzzleRoom, Boolean isBossRoom) { //Monster monster,
+=======
 	public static void main(String[] args)
 	{
 		Items itemHolder = new Items();
@@ -55,6 +59,7 @@ public class Room {
 		
 	}
 	private Room(String description,  Boolean isPuzzleRoom, Boolean isBossRoom) { //Monster monster,
+>>>>>>> 55527d4ba405a9a98f3730ee12b7a33408faf9bf
 		this.description = description;
 		this.isBossRoom = isBossRoom;
 		this.isPuzzleRoom = isPuzzleRoom;
