@@ -11,6 +11,7 @@ import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 import javax.swing.*;
+import Model.RoomMaker;
  
 /**
  * This class demonstrates how to load an Image from an external file
@@ -57,7 +58,26 @@ public class GameTester extends Component {
         f.setVisible(true);
     }
     */
-    //when map is typed it displays it   
+    //when map is typed it displays it 
+    	Items test = new Items();
+		Items test1 = new Items();
+		ArrayList<Items> list = test.getList();
+		test = list.get(0);
+    	RoomMaker bs = new RoomMaker();
+    	final int WIDTH = Math.abs(40);
+        final int HEIGHT = Math.abs(40);
+        Room[][] room = new Room[WIDTH][HEIGHT];
+        bs.build(room, WIDTH, HEIGHT,test);
+        int x = 0;
+        int y = 4;
+        bs.print(room, x, y);
+        
+        System.out.println(bs.getClass());
+    	
+    	
+    	
+    	
+    	
    if(map.equalsIgnoreCase("Map")){
 	   
 	   MapView.ViewMap();
