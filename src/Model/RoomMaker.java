@@ -53,7 +53,7 @@ protected Artifacts a9;
 protected Artifacts a10;
 
 protected Room[][] room;
-<<<<<<< HEAD
+
 
 
 	public RoomMaker(Room[][] rooms)
@@ -252,7 +252,7 @@ protected Room[][] room;
     }
 
     public static void print(Room[][] room, int x, int y) {
-=======
+
 
 	public RoomMaker()
 	{
