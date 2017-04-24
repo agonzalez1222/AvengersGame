@@ -70,17 +70,20 @@ public class GameTester extends Component {
     	try
     	{
     		
+    		
     		ArrayList<Items> list = test.getList();
     		test = list.get(0);
         	RoomMaker bs = new RoomMaker();
-        	final int WIDTH = Math.abs(40);
-            final int HEIGHT = Math.abs(40);
+        	final int WIDTH = 40;
+            final int HEIGHT = 40;
             Room[][] room = new Room[WIDTH][HEIGHT];
             bs.build(room, WIDTH, HEIGHT,test);
-            bs.setX(0);
-            bs.setY(4);
             bs.print(room, bs.getX(), bs.getY());
-            p1.movePlayer(p1);
+            
+            bs.movePlayer(p1);
+            bs.print(room, bs.getX(), bs.getY());
+    		
+    		
     		
     	}
     	catch(IOException e)

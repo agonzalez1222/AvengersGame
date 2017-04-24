@@ -343,14 +343,14 @@ public class Player extends Character {
 	
     //test player movement 
 	
-	private boolean roomExists(int x, int y) {
-		this.currentX = x;
-		this.currentY = y;
-		return true;
-		
-	 // return true;
-    
-}
+//	private boolean roomExists(int x, int y) {
+//		this.currentX = x;
+//		this.currentY = y;
+//		return true;
+//		
+//	 // return true;
+//    
+//}
 	
 	/**
 	 * 
@@ -370,42 +370,42 @@ public class Player extends Character {
 	 * @param player
 	 * @throws IOException
 	 */
-    public void movePlayer(Player player) throws IOException {
-    
-    boolean northPossible = roomExists(currentX, currentY + 1);
-    boolean southPossible = roomExists(currentX, currentY - 1);
-    boolean eastPossible = roomExists(currentX + 1, currentY);
-    boolean westPossible = roomExists(currentX - 1, currentY);
-    System.out.print("Where would you like to go :");
-    if (northPossible) {
-        System.out.print(" North (n)");
-    }
-    if (eastPossible) {
-        System.out.print(" East (e)");
-    }
-    if (southPossible) {
-        System.out.print(" South (s)");
-    }
-    if (westPossible) {
-        System.out.print(" West (w)");
-    }
-    System.out.print(" ? ");
-    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    String direction = in.readLine();
-    if (direction.equals("n") && northPossible) {
-       this.currentY = currentY++;
-    } else if (direction.equals("s") && southPossible) {
-        this.currentY = currentY--;
-    } else if (direction.equals("e") && eastPossible) {
-        this.currentX = currentX++;
-    } else if (direction.equals("w") && westPossible) {
-        this.currentX = currentX--;
-    }
-   // currentRoom = getRoom(currentX, currentY);
-  // currentRoom.enter(player);
-    System.out.println(currentX);
-    System.out.println(currentY);
-}
+//    public void movePlayer(Player player) throws IOException {
+//    
+//    boolean northPossible = roomExists(currentX, currentY + 1);
+//    boolean southPossible = roomExists(currentX, currentY - 1);
+//    boolean eastPossible = roomExists(currentX + 1, currentY);
+//    boolean westPossible = roomExists(currentX - 1, currentY);
+//    System.out.print("Where would you like to go :");
+//    if (northPossible) {
+//        System.out.print(" North (n)");
+//    }
+//    if (eastPossible) {
+//        System.out.print(" East (e)");
+//    }
+//    if (southPossible) {
+//        System.out.print(" South (s)");
+//    }
+//    if (westPossible) {
+//        System.out.print(" West (w)");
+//    }
+//    System.out.print(" ? ");
+//    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+//    String direction = in.readLine();
+//    if (direction.equals("n") && northPossible) {
+//       this.currentY = currentY++;
+//    } else if (direction.equals("s") && southPossible) {
+//        this.currentY = currentY--;
+//    } else if (direction.equals("e") && eastPossible) {
+//        this.currentX = currentX++;
+//    } else if (direction.equals("w") && westPossible) {
+//        this.currentX = currentX--;
+//    }
+//   // currentRoom = getRoom(currentX, currentY);
+//  // currentRoom.enter(player);
+//    System.out.println(currentX);
+//    System.out.println(currentY);
+//}
 
 protected void useCanister(Items item)
 {
@@ -418,6 +418,14 @@ protected void useCanister(Items item)
 		
 	}
 }
+
+protected boolean isFighting()
+{
+	
+	return false;
+}
+
+
     
 } 
 

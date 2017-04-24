@@ -1,6 +1,12 @@
 package Model;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+import java.util.Scanner;
+
 //import java.util.HashMap;
 //import java.util.Map;
 //import java.util.Random;
@@ -52,8 +58,8 @@ protected Artifacts w10 = artifact.get(9);
 
 protected Room[][] room;
 protected Player p1 = new Player();
-protected int x = p1.getCurrentX();
-protected int y = p1.getCurrentY();
+protected static int x = 0;
+protected static int y = 4;
 
 	public RoomMaker()
 	{
@@ -301,5 +307,83 @@ protected int y = p1.getCurrentY();
     public static void removeItem(Room[][] room, int x, int y, Items item) {
     	
     	room[x][y].deleteItem(item);
+    }
+   
+    private boolean roomExists(int x, int y) {
+		if(x >= 0 && y >= 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+    	
+		
+	 // return true;
+    
+}
+    
+    public void movePlayer(Player player) throws IOException {
+        while(!player.isFighting())
+        {
+      boolean northPossible = roomExists(x, y + 1);
+      boolean southPossible = roomExists(x, y - 1);
+      boolean eastPossible = roomExists(x + 1, y);
+      boolean westPossible = roomExists(x - 1, y);
+        System.out.print("Where would you like to go :");
+        if (northPossible) {
+            System.out.print(" North (n)");
+        }
+       if (eastPossible) {
+            System.out.print(" East (e)");
+       }
+        if (southPossible) {
+            System.out.print(" South (s)");
+        }
+        if (westPossible) {
+            System.out.print(" West (w)");
+       }
+        System.out.print(" ? ");
+        Scanner input = new Scanner(System.in);
+        String direction = input.nextLine();
+        if (direction.equalsIgnoreCase("n") && northPossible) {
+            y++;
+        } else if (direction.equalsIgnoreCase("s") && southPossible) {
+           y--;
+        } else if (direction.equalsIgnoreCase("e") && eastPossible) {
+            x++;
+        } else if (direction.equalsIgnoreCase("w") && westPossible) {
+             x--;
+        }
+        else
+        {
+        	System.out.println("Not recognized");
+        }
+       // currentRoom = getRoom(x, y);
+      // currentRoom.enter(player);
+        System.out.println(x);
+        System.out.println(y);
+        getInfo();
+        }
+        
+    }
+    
+    protected void getInfo()
+    {
+    	
+    		
+    		
+//    		ArrayList<Items> list = test.getList();
+//    		test = list.get(0);
+        	RoomMaker bs = new RoomMaker();
+            bs.print(room, bs.getX(), bs.getY());
+            
+           
+    		
+    		
+    		
+    	
+    	
     }
 }
