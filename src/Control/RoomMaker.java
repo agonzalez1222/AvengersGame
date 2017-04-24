@@ -107,6 +107,41 @@ protected int z = 0;
 			
 			return ui;
 		}
+		
+		public static void startGame (){
+		 	
+		 	Scanner input = new Scanner(System.in);
+		 	String ui = input.nextLine();
+
+			if(ui.equalsIgnoreCase("start") || ui.equalsIgnoreCase("help menu")){
+		    //when map is typed it displays it 
+		    	Items test = new Items();
+			//	Items test1 = new Items();
+		    	
+		    	Player p1 = new Player();
+		    	try
+		    	{
+		    		
+		        	RoomMaker bs = new RoomMaker();
+		        	final int WIDTH = 40;
+		            final int HEIGHT = 40;
+		            Room[][] room = new Room[WIDTH][HEIGHT];
+		            bs.build(room, WIDTH, HEIGHT);
+		            System.out.println();
+		            bs.print(room, bs.getX(), bs.getY());
+		            
+		            bs.movePlayer(p1);
+		            bs.print(room, bs.getX(), bs.getY());
+		    		
+		    		
+		    		
+		    	}
+		    	catch(IOException e)
+		    	{
+		    		System.out.println("cant move");
+		    	}
+			}
+		}
 	
     public void build(Room[][] room, final int WIDTH, final int HEIGHT) {
 
