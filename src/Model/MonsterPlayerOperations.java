@@ -57,6 +57,7 @@ public class MonsterPlayerOperations
 			if (Player.escapeRoll() > 5) {
 				System.out.println("You managed to escape.");
 				// Add code to exit the fight here.
+				
 			}
 		}
 		

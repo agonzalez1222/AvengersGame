@@ -1,6 +1,6 @@
 package Control;
 import java.util.Scanner;
-
+import Model.*;
 import Model.Game;
 
 import java.io.*;
@@ -19,6 +19,9 @@ import java.io.*;
 
 public class ControlClass 
 {
+	protected static Player p1 = new Player();
+	
+	
 	public static Scanner input = new Scanner(System.in);
 	public static String getInput() throws IOException
 	{
@@ -36,6 +39,7 @@ public class ControlClass
 			if(ui.equalsIgnoreCase("start") || ui.equalsIgnoreCase("start game"))
 			{
 				Game.gameStartText();
+				RoomMaker.movePlayer(p1);
 			}
 			if(ui.equalsIgnoreCase("Save") || ui.equalsIgnoreCase("save game"))
 			{
@@ -44,7 +48,7 @@ public class ControlClass
 			
 			return ui;
 		}
-		catch(Exception e)
+		catch(IOException e)
 		{
 			System.out.println();
 			throw new IOException();

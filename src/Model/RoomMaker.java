@@ -18,7 +18,7 @@ import Model.Room;
 import Model.Monster;
 
 
-class RoomMaker {
+public class RoomMaker {
 Monster allMonsters = new Monster();
 protected ArrayList<Monster> monsters = allMonsters.getList();
 protected Monster m1 = monsters.get(0);
@@ -56,7 +56,7 @@ protected Artifacts w8 = artifact.get(7);
 protected Artifacts w9 = artifact.get(8);
 protected Artifacts w10 = artifact.get(9);
 
-protected Room[][] room;
+protected static Room[][] room;
 protected Player p1 = new Player();
 protected static int x = 0;
 protected static int y = 4;
@@ -309,7 +309,7 @@ protected static int y = 4;
     	room[x][y].deleteItem(item);
     }
    
-    private boolean roomExists(int x, int y) {
+    private static boolean roomExists(int x, int y) {
 		if(x >= 0 && y >= 0)
 		{
 			return true;
@@ -324,7 +324,7 @@ protected static int y = 4;
     
 }
     
-    public void movePlayer(Player player) throws IOException {
+    public static void movePlayer(Player player) throws IOException {
         while(!player.isFighting())
         {
       boolean northPossible = roomExists(x, y + 1);
@@ -369,7 +369,7 @@ protected static int y = 4;
         
     }
     
-    protected void getInfo()
+    protected  static void getInfo()
     {
     	
     		

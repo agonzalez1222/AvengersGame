@@ -78,6 +78,7 @@ public class GameTester extends Component {
             final int HEIGHT = 40;
             Room[][] room = new Room[WIDTH][HEIGHT];
             bs.build(room, WIDTH, HEIGHT,test);
+            System.out.println();
             bs.print(room, bs.getX(), bs.getY());
             
             bs.movePlayer(p1);

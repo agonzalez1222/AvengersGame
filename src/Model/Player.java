@@ -36,7 +36,7 @@ public class Player extends Character {
 	private int currentX = 0;
 	private int currentY = 4;
 	
-	protected Player() {
+	public Player() {
 		super(100, 1, 5);
 
 		//currentWeapon = artifacts.get(0);
