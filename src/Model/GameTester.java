@@ -11,6 +11,7 @@ import java.awt.*;
 //import java.awt.event.*;
 import java.awt.image.*;
 import java.io.*;
+import Control.RoomMaker;
  
 /**
  * This class demonstrates how to load an Image from an external file

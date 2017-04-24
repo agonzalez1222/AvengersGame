@@ -19,6 +19,7 @@ import Model.Artifacts;
 import Model.Items;
 import Model.Monster;
 import Model.Player;
+import Model.GameTester;
 
 
 public class RoomMaker {
@@ -75,8 +76,8 @@ public class RoomMaker {
 
 protected Room[][] room;
 protected Player p1 = new Player();
-protected int x = 0;
-protected int y = 4;
+protected static int x = 0;
+protected static int y = 4;
 
 	public RoomMaker()
 	{
@@ -462,7 +463,7 @@ protected int y = 4;
         System.out.println(x);
         System.out.println(y);
         getInfo();
-        input.close();
+        //input.close();
         }
       
     }
