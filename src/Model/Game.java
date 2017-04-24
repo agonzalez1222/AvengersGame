@@ -15,9 +15,10 @@ import java.util.ArrayList;
  *         2017
  * 
  * 
- *         This class will display the name, story, 
+ *         This class will display the name and the details of the story. It also displays the 
+ *         menu. 
  * 
- *         Purpose: The class will 
+ *         Purpose: The class shows the information of the game and pulls up the menu.
  *
  */
 
@@ -121,35 +122,49 @@ public class Game implements Serializable {
 	}
 
 
-
-
-	//S: The player selects the View Inventory option from the main menu.
-	//R: The player can see a list of their current inventory with numbers 
-	//indicating how many of each
+	/**
+	 * Method: viewInventory()
+	 * 
+	 * This method shows your inventory.
+	 * @player 
+	 */
 
 	public static void viewInventory(Player player){
 		System.out.println("You open your bag and search through your belongings.");
 		//System.out.println(player.invItems.get());
 		// for loop here or get ArrayList differently later
 	}
-	//S: The player selects the View Map option from the main menu.
-	//R: The player is shown a map of the entire area as well as a marker
-	//for their current location and floor.
+	
+	/**
+	 * Method: viewMap()
+	 * 
+	 * This method accesses the Map in the View Map class.
+	 * 
+	 */
+	
 	public static void viewMap(){
         MapView.ViewMap();
 	}
+	/**
+	 * Method: viewScore()
+	 * 
+	 * This method gets the current score of the player and displays it.
+	 * 
+	 * @player
+	 * 
+	 */
 
-	//S: The player selects the View Score option from the main menu.
-
-	//R: The player sees their current score for the game they are playing.
 	public static void viewScore(Player player){
 		System.out.println(player.getCurrentScore());
 	}
 	
-	//S: The player selects the Save Game option from the main menu.
-
-	//R: The player is notified that their current game has been saved, 
-	//including progress, inventory, and their last location.
+	/**
+	 * Method: saveGame()
+	 * 
+	 * This method saves the player's file in the desktop.
+	 * 
+	 */
+	
 	public static void saveGame(){
 	
 		Scanner input = new Scanner(System.in);
@@ -167,7 +182,12 @@ public class Game implements Serializable {
 
 	}
 	
-
+	/**
+	 * Method: intro()
+	 * 
+	 * The method displays the introduction of the game.
+	 * 
+	 */
 	public static void intro() {
 		System.out.print("                      	                                 +-------------------------------+\n");
     	System.out.print("					  		 |       Astral Possession       |\n");

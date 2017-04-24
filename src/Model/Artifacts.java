@@ -4,8 +4,8 @@ import java.util.ArrayList;
 /**
  * Class: Artifacts
  * 
- * @author  Course : ITEC 3860, Spring, 2017 Written: April , 
- *         2017
+ * @author  Course : ITEC 3860, Spring, 2017 Written: April 17, 2017
+ *         
  * 
  * 
  *         This class will 

@@ -10,8 +10,8 @@ import java.util.ArrayList;
 /**
  * Class: Room
  * 
- * @author  Course : ITEC 3860, Spring, 2017 Written: April , 
- *         2017
+ * @author Team Avengers Course : ITEC 3860, Spring, 2017 Written: April 22,2017 
+ *         
  * 
  * 
  *         This class will 
