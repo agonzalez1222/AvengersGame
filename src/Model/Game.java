@@ -55,6 +55,7 @@ public class Game implements Serializable {
 	
 	System.out.println(theme);
 	System.out.println(story);
+	System.out.println(storyDescription);
 	}
 
 	//S: The player selects the Exit Game option from the main menu.
