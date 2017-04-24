@@ -1,5 +1,7 @@
 package View;
 
+import Control.ControlClass;
+import java.io.*;
 /**
  * Class: View Class
  * 
@@ -19,5 +21,8 @@ public class ViewClass {
 	{
 		System.out.println(str);
 	}
-
+	public static void main(String[] args) throws IOException
+	{
+		ControlClass.getInput();
+	}
 }

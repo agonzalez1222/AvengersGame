@@ -27,18 +27,16 @@ public class Game implements Serializable {
 		
 		
 		
-	String story = "Story: The exploratory ship Legacy becomes"
-			+ " stranded in space when a part of the crew, belonging"
-			+ " to a mysterious cult, summons a cosmic being and floods"
+	String story = "Story: The exploratory ship Legacy becomes\n"
+			+ " stranded in space when a part of the crew, belonging\n"
+			+ " to a mysterious cult, summons a cosmic being and floods\n"
 			+ " the ship with horrors beyond imagination.";
 
 	String storyDescription = "Title: Astral Possession " ;
 	String theme =  "Theme: Sci-Fi/Cosmic Horror " 
 	+ " Player: Un-named engineer";
 	
-	System.out.println("*---------------------------------*");
-	System.out.println("|"   + storyDescription +        "|");
-	System.out.println("*---------------------------------*");
+	
 	System.out.println(theme);
 	System.out.println(story);
 	}
@@ -158,6 +156,8 @@ public class Game implements Serializable {
     	System.out.println("");
     	System.out.println("                 Type a command to begin:");
     	System.out.println("");
+    	
+    	System.out.println("Start Game\nHelp Menu\nLoad Game\nSave Game\nExit Game ");
 	}
 }	
 		

@@ -24,12 +24,18 @@ public class ControlClass
 	{
 		try
 		{
+			Game.titletMenu();
 			String ui = input.nextLine();
 			System.out.println();
 			
-			if(ui.equalsIgnoreCase("help"))
+			if(ui.equalsIgnoreCase("help") || ui.equalsIgnoreCase("help menu"))
 			{
 				Game.openHelp();
+				
+			}
+			if(ui.equalsIgnoreCase("start") || ui.equalsIgnoreCase("start game"))
+			{
+				Game.gameStartText();
 			}
 			
 			return ui;
