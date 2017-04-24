@@ -1,12 +1,4 @@
-package Model;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-
-import java.util.Scanner;
-
+package Control;
 //import java.util.HashMap;
 //import java.util.Map;
 //import java.util.Random;
@@ -14,60 +6,145 @@ import java.util.Scanner;
 //import java.io.IOException;
 //import java.io.InputStreamReader;
 //import java.io.Serializable;
-import Model.Room;
-import Model.Monster;
+import Model.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import java.util.Scanner;
 
 
-class RoomMaker {
-Monster allMonsters = new Monster();
-protected ArrayList<Monster> monsters = allMonsters.getList();
-protected Monster m1 = monsters.get(0);
-protected Monster m2 = monsters.get(1);
-protected Monster m3 = monsters.get(2);
-protected Monster m4 = monsters.get(3);
-protected Monster m5 = monsters.get(4);
-protected Monster m6 = monsters.get(5);
-protected Monster m7 = monsters.get(6);
-protected Monster m8 = monsters.get(7);
-
-Items all = new Items();
-protected ArrayList<Items> item = all.getList();
-protected Items i1 = item.get(0); 
-protected Items i2 = item.get(1);
-protected Items i3 = item.get(2);
-protected Items i4 = item.get(3);
-protected Items i5 = item.get(4);
-protected Items i6 = item.get(5);
-protected Items i7 = item.get(6);
-protected Items i8 = item.get(7);
-protected Items i9 = item.get(8);
-protected Items i10 = item.get(9);
-
-Artifacts art = new Artifacts();
-protected ArrayList<Artifacts> artifact = art.getList();
-protected Artifacts w1 = artifact.get(0);
-protected Artifacts w2 = artifact.get(1);
-protected Artifacts w3 = artifact.get(2);
-protected Artifacts w4 = artifact.get(3);
-protected Artifacts w5 = artifact.get(4);
-protected Artifacts w6 = artifact.get(5);
-protected Artifacts w7 = artifact.get(6);
-protected Artifacts w8 = artifact.get(7);
-protected Artifacts w9 = artifact.get(8);
-protected Artifacts w10 = artifact.get(9);
+public class RoomMaker {
+		
+		public Player player;
+		protected final int WIDTH = 40;
+		protected final int HEIGHT = 40;
+		public Monster monster;
+	
+		// Monsters
+		Monster m1 = new Monster(10, (int)(Math.random() * 5 + 1), 0, "Insane Crew Person", "Crew member driven insane by the otherworldly happenings on the ship. It's as if they have seen the other side and come back changed. Their eyes...their eyes are so crazed. So....hollow...", false);
+		Monster m2 = new Monster(15, (int)(Math.random() * 4 + 5), 0, "Cultist", "Member of a mysterious cult bent on bringing a Great Old One into this plane of existence. They seem to be constantly mumbling something. The words can almost be heard, but before one can understand, they disappear from the brain as if they were never there.", false);
+		Monster m3 = new Monster(15, (int)(Math.random() * 7 + 4), 0, "Gug", "They possess arms that split into multiple forearms that end in razor-sharp talons and a terrifying mouth that opens vertically. They chitter about looking for food. They wouldn't be out of place in a sewer and the horrendous stench confirms that. So strong the stench, one almost forgets where...or even who...they are.", false);
+		Monster m4 = new Monster(25, (int)(Math.random() * 5 + 9), 0, "Ghast", "A creature without a nose or forehead. It hops around looking for Gugs to eat on its hooved kangaroo-like legs, but will settle for anything meaty when necessary. The sounds it belches forth...the sounds burn into one's soul and will likely never leave, haunting one in this life and the next.", false);
+		Monster m5 = new Monster(35, (int)(Math.random() * 3 + 11), 0, "Mi-go", "It seems to be made of an unknown substance resembling a fungus and has huge lobster claws and bat wings. What one assumes to be its mouth drips with a beautiful, pinkish substance. So lovely this substance.....it draws one to it. One just wants to touch it. Feel it. Swim in its beauty....", false);
+		Monster m6 = new Monster(40, (int)(Math.random() * 6 + 10), 0, "Elder Thing", "A large starfish, with eyes and a mouth, sits atop a cylindrical mass of tentacles. Crab-like claws protrude hideous gaping maws that dot the writhing mass. One can hear it in their mind, speaking, praying, to some greater entity. Or maybe one is just going crazy. Yes...that must be it.", false);
+		Monster m7 = new Monster(60, 20, 0, "Shoggoth", "Always shifting and changing. One’s eyes cannot seem to focus on anything but the multitudes of inky, black eyes covering it. They seem so deep and transfixing. Like they contain all the secrets of all the worlds. One could lose themselves in those eyes if not careful.", false);
+		Monster boss = new Monster(100, 30, 0, "Great Old One", "A horrifying, giant, three-eyed slug with metallic spines protruding from its slimy back and pyramid-shaped feet that scrape and screech against the metallic floor.", true);
+		
+		// Artifacts
+		Artifacts w1 = new Artifacts("None", "You need to hurry and find a weapon", 1, 0, 0);
+		Artifacts w2 = new Artifacts("Pipe", "A piece of piping. You're not sure what it belongs to, but it can't be too important.", 2, 1000, 0);
+		Artifacts w3 = new Artifacts("Knife", "A knife found in the Galley. Slightly dull from frequent use.", 6, 1000, 0);
+		Artifacts w4 = new Artifacts("Wrentch", "A standard wrench. Used for maintaining equipment on the ship." , 8, 1000, 0);
+		Artifacts w5 = new Artifacts("Plasma Saw", "A small, handheld saw for maintenance on the ship. More of a tool than a weapon." ,13, 1000, 0);
+		Artifacts w6 = new Artifacts("Gas Torch", "A gas torch used for ship maintenance. It has a limited amount of fuel." ,20, 100, 0);
+		Artifacts w7 = new Artifacts("Plasma Pistol", "A small firearm used for self-defense. Can hold 12 plasma rounds.", 35, 12, 0);
+		Artifacts w8 = new Artifacts("Civilian Shirt", "A standard civilian's shirt. Comfortable but not very protective." , 0, 1, 5);
+		Artifacts w9 = new Artifacts("Space Suit", "A space suit that allows the user to exist in the vacuum of space. Well insulated but not great against slashing or piercing damage." ,0, 1, 15);
+		Artifacts w10 = new Artifacts("ASM4 Series Gaurd Armor", "Armor that protects the user from extraterrestrial threats and medium gunfire" ,0, 1, 20);
+		
+		//Items
+		Items i1 = new Items("I1", "MedKit", "A standard first aid kit for treating minor wounds", "Replenish Health by 20", 20, 0, false);
+		Items i2 = new Items("I2", "Gas Canister", "A refill canister for a gas torch. Highly flammable", "Increases gas torch ammo by 50%", 0, 50, false);
+		Items i3 = new Items("I3", "Plasma Rounds", "Ammunition for a plasma pistol", "Increase plasma pistol ammo by 6", 0, 6, false);
+		Items i4 = new Items("I4", "Green Herb", "An edible herb found in the greenhouse. Eat it to restore health.",  "Replenishes Health by 15", 15, 0, false);
+		Items i5 = new Items("I5", "Red Herb", "A vibrant red herb. It's inedible. Perhaps it has some other use?",  "Can be combine with green herb", 0, 0, false);
+		Items i6 = new Items("I6", "Mixed Herbs", "A combination of a green and red herb. Restores a good amount of health.",  "Replenishes Health by 30", 30, 0, false);			Items captainKey = new Items("I7", "Captain's Key Card", "A Card Key the captain used to enter special areas of the ship.",  "", 0, 0, true);
+		Items i7 = new Items("I8", "Flashlight", "", "", 0, 0, true);
+		Items i8 = new Items("I9", "Lab Paper", "A piece of paper found in the pocket of a lab coat. There's something written on it...",  "", 0, 0, true);
+		Items i9 = new Items("I10", "Cryo-Canister", "A container that instantly freezes an area once thrown. Can be used to slow down enemies.",  "Causes a monster to skip it's turn once per use.", 0, 0, false);
+			
+		
+//protected ArrayList<Artifacts> artifact = new ArrayList<Artifacts>();
+//protected Artifacts w1 = artifact.get(0);
+//protected Artifacts w2 = artifact.get(1);
+//protected Artifacts w3 = artifact.get(2);
+//protected Artifacts w4 = artifact.get(3);
+//protected Artifacts w5 = artifact.get(4);
+//protected Artifacts w6 = artifact.get(5);
+//protected Artifacts w7 = artifact.get(6);
+//protected Artifacts w8 = artifact.get(7);
+//protected Artifacts w9 = artifact.get(8);
+//protected Artifacts w10 = artifact.get(9);
 
 protected Room[][] room;
 protected Player p1 = new Player();
 protected static int x = 0;
 protected static int y = 4;
-
+protected int z = 0;
 	public RoomMaker()
 	{
-		
+		 
 	}
+		Scanner input = new Scanner(System.in);
+		public String getInput() throws IOException
+		{
+			Game.titleMenu();
+			//build(room, WIDTH, HEIGHT);
+			String ui = input.nextLine();
+			System.out.println();
+			
+			if(ui.equalsIgnoreCase("help") || ui.equalsIgnoreCase("help menu"))
+			{
+				Game.openHelp();
+			}
+			if(ui.equalsIgnoreCase("start") || ui.equalsIgnoreCase("start game"))
+			{
+				Game.gameStartText();
+				print(room,x,y);
+			}
+			if(ui.equalsIgnoreCase("Save") || ui.equalsIgnoreCase("save game"))
+			{
+				Game.saveGame();
+			}
+			
+			return ui;
+		}
+		
+		public static void startGame(){
+		 	
+		 	Scanner input = new Scanner(System.in);
+		 	String ui = input.nextLine();
+
+			if(ui.equalsIgnoreCase("start") || ui.equalsIgnoreCase("help menu")){
+		    //when map is typed it displays it 
+		    	Items test = new Items();
+			//	Items test1 = new Items();
+		    	
+		    	Player p1 = new Player();
+		    	try
+		    	{
+		    		
+		        	RoomMaker bs = new RoomMaker();
+		        	final int WIDTH = 40;
+		            final int HEIGHT = 40;
+		            Room[][] room = new Room[WIDTH][HEIGHT];
+		            bs.build(room, WIDTH, HEIGHT);
+		            System.out.println();
+		            bs.print(room, bs.getX(), bs.getY());
+		            
+		            bs.movePlayer(p1);
+		            bs.print(room, bs.getX(), bs.getY());
+		    		
+		    		
+		    		
+		    	}
+		    	catch(IOException e)
+		    	{
+		    		System.out.println("cant move");
+		    	}
+		    	
+			}
+			if(ui.equalsIgnoreCase("help") || ui.equalsIgnoreCase("help menu"))
+			{
+				Game.openHelp();
+			}
+			Game.titleMenu();
+			startGame();
+		}
 	
-    public void build(Room[][] room, final int WIDTH, final int HEIGHT, Items items
-    		) {
+    public void build(Room[][] room, final int WIDTH, final int HEIGHT) {
 
     	// Initialize rooms (a 2D array)
         for (int i = 0; i < WIDTH; i++) {
@@ -266,12 +343,78 @@ protected static int y = 4;
             room[4][14].setNumber(34);
             room[4][14].setName("The Bridge");
             room[4][14].setDescription("You are Confronted by B_1");
-            room[4][14].setMonster(m8);
+            room[4][14].setMonster(boss);
         }
 
         
-        
+    protected void combineHerbs(Items a1)
+	{
+		Scanner input = new Scanner(System.in);
+		if(a1.getName().equalsIgnoreCase("Green Herb") || a1.getName().equalsIgnoreCase("Red Herb"))
+		{
+			System.out.println("Would you like to combine the green and red herbs? \nEnter Yes or No.");
+			String answer = input.nextLine();
+			if(answer.equalsIgnoreCase("Yes"))
+			{
+				System.out.println("You have combined the red and green herb. \nWould you like to use the new combined herb? Enter Yes or No.");
+				String answer2 = input.nextLine();
+				if(answer2.equalsIgnoreCase("Yes"))
+				{
+					this.player.health = this.player.health + 30;
+					System.out.print("Your new health is : " + player.health);
+				}
+				if(answer2.equalsIgnoreCase("no"))
+				{
+					System.out.println("Item is now stored in your inventory.");
+					System.exit(0);
+				}
+			}
+			else
+			{
+				System.out.println("Would you like to use only the Green Herb? \nEnter Yes or No.");
+				String answer3 = input.nextLine();
+				if(answer3.equalsIgnoreCase("Yes"))
+				{
+					this.player.health = this.player.health + 15;
+					System.out.println("Your new health is : " + player.health);
+				}
+				else
+				{
+					System.out.println("Okay, your item is back in inventory.");
+					System.exit(0);
+				}
+			}
+	
+		}
+		else
+		{
+			System.out.println("Please enter a valid item name.");
+			System.exit(0);
+		}
+		input.close();
+	}		
     
+    public void useItem(Items item) {
+		System.out.println("What item would you like to use?");
+		System.out.println(player.getInvItems());
+		player.invItems.add(Items.getItems(0));
+
+		player.currentWeapon = w1;
+		player.currentArmor = w8;
+		player.invItems = new ArrayList<>();
+
+	}
+        
+//    public boolean ifMonsterExists()
+//    {
+//    	String hi = room[0][4].getMonster();
+//    	if(hi.isEmpty() && hi == null)
+//    	{
+//    		return false;
+//    	}
+//    	else return true;
+//    	
+//    }
 
     public void print(Room[][] room, int x, int y) {
     	this.room = room;
@@ -280,16 +423,18 @@ protected static int y = 4;
         System.out.println(room[x][y].getName());
         System.out.println("You see: " + room[x][y].getItems() + " | You also see "  +  room[x][y].getMonster() + " | You also see "  +  room[x][y].getArtifact() );
         System.out.println("("+ x + "," + y + ")");
+        //System.out.println();
         this.x = x;
         this.y = y;
     }
     
-    protected int getX()
+
+    public int getX()
     {
     	return x;
     }
     
-    protected int getY()
+    public int getY()
     {
     	return y;
     }
@@ -304,9 +449,15 @@ protected static int y = 4;
     }
     
     // Remove item from room when added to inventory
-    public static void removeItem(Room[][] room, int x, int y, Items item) {
+    public void removeItem(Room[][] room, int x, int y, Items item) {
     	
     	room[x][y].deleteItem(item);
+    }
+    
+    //Removes monster if dead
+    public void removeMonster(Room[][] room, int x, int y, Monster monster){
+    	if (monster.isAlive() == false)
+    	room[x][y].deleteMonster(monster);
     }
    
     private boolean roomExists(int x, int y) {
@@ -324,13 +475,14 @@ protected static int y = 4;
     
 }
     
-    public void movePlayer(Player player) throws IOException {
+    public  void movePlayer(Player player) throws IOException {
         while(!player.isFighting())
         {
       boolean northPossible = roomExists(x, y + 1);
       boolean southPossible = roomExists(x, y - 1);
       boolean eastPossible = roomExists(x + 1, y);
       boolean westPossible = roomExists(x - 1, y);
+      	System.out.println("Type help or menu for assistance.");
         System.out.print("Where would you like to go :");
         if (northPossible) {
             System.out.print(" North (n)");
@@ -355,6 +507,10 @@ protected static int y = 4;
             x++;
         } else if (direction.equalsIgnoreCase("w") && westPossible) {
              x--;
+        } else if (direction.equalsIgnoreCase("menu") || direction.equalsIgnoreCase("help") ) {
+            Game.openHelp();
+        } else if (direction.equalsIgnoreCase("map")) {
+       	 MapView.ViewMap();
         }
         else
         {
@@ -365,25 +521,97 @@ protected static int y = 4;
         System.out.println(x);
         System.out.println(y);
         getInfo();
+        //input.close();
         }
-        
+      
     }
     
     protected void getInfo()
     {
-    	
-    		
-    		
 //    		ArrayList<Items> list = test.getList();
 //    		test = list.get(0);
         	RoomMaker bs = new RoomMaker();
-            bs.print(room, bs.getX(), bs.getY());
-            
-           
-    		
-    		
-    		
-    	
-    	
+            bs.print(room, bs.getX(), bs.getY());	
     }
+  
+    public boolean monsterExists(){
+    	if (monster.isAlive() == true){
+    		return true;
+    		
+    	}
+    	return false;
+    }
+    
+    public void testFight(){
+    	
+    	//while (room[x][y].isThere(monster) == true)
+    		
+    		
+    		
+    
+    }
+    public void FightSequence(Player gamePlayer, Monster gameMonster, Items gameItem) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
+		String userInput = input.nextLine();
+		if(userInput.equalsIgnoreCase("Attack"))
+		{
+			System.out.println("You have chosen to attack: " + (gameMonster.getName()) + "for " + (damageMonster(gamePlayer)) + " damage");
+				if (gameMonster.isAlive() == true) {
+					System.out.println("The monster strikes you back and deals " + damagePlayer(gameMonster) + " damage");
+				} else if (gamePlayer.isAlive() == false) {
+					System.out.println("You Died.");
+					System.exit(0);
+				} else if (gameMonster.isAlive() && gameMonster.getIsFrozen()) {
+					
+					System.out.println(gameMonster.getName() + " has been slain.");
+				}
+				System.exit(0);
+		}
+		
+		if(userInput.equalsIgnoreCase("Run"))
+		{
+			Player.escapeRoll();
+			if (Player.escapeRoll() > 5) {
+				System.out.println("You managed to escape.");
+				// Add code to exit the fight here.
+				
+			}
+		}
+		
+		if(userInput.equalsIgnoreCase("Use Item"))
+		{
+			gamePlayer.useHealthRegenItem(gameItem);
+		} else {	
+			System.out.println("That action was not recognized, please try to enter another option");	
+			//Player.Fight();
+		}
+		
+		if (gamePlayer.getHealth() < 0) {
+			System.out.println("You died.");
+			// System.exit(0);
+		} else if (gameMonster.getHealth() < 0) {
+			System.out.println("You have slain: " + gameMonster.getName());
+		}
+		input.close();
+		System.out.println("Hi");
+		} 
+    
+    protected int damagePlayer(Monster monster) {
+		int monsterAtk = monster.getAtk();
+		int health = player.getHealth();
+		health = health - monsterAtk;
+		int damage = monsterAtk - player.getDef();
+		player.setHealth(health);
+		return damage;
+	}
+    
+    protected int damageMonster(Player player) {
+		int playerAtk = player.getAtk();
+		int mHealth = monster.getHealth();
+		mHealth = mHealth - playerAtk;
+		monster.setHealth(mHealth);
+		int damage = playerAtk;
+		return damage;
+	}
 }

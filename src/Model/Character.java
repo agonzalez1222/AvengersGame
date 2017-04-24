@@ -14,10 +14,10 @@ package Model;
  */
 
 public abstract class Character {
-	protected int health;
-	protected int atk;
-	protected int def;
-	protected Room currentRoom;
+	public int health;
+	public int atk;
+	public int def;
+	public Room currentRoom;
 	
 	protected Character(int health, int atk, int def) {
 		this.health = health;

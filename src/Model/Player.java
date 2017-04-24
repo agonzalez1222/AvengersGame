@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import Control.RoomMaker;
 import Model.Items;
 import Model.Room;
 /**
@@ -23,11 +25,11 @@ import Model.Room;
 public class Player extends Character {
 	
 	// Player variables
-	ArrayList<Items> invItems;
+	public ArrayList<Items> invItems;
 	ArrayList<Artifacts> equipment;
 	private int currentScore = 1000;
-	private Artifacts currentWeapon;
-	private Artifacts currentArmor;
+	public Artifacts currentWeapon;
+	public Artifacts currentArmor;
 	static Random rand = new Random();
 	Items a1 = new Items();
 	ArrayList<Items> list1 = new ArrayList<>();
@@ -36,7 +38,7 @@ public class Player extends Character {
 	private int currentX = 0;
 	private int currentY = 4;
 	
-	protected Player() {
+	public Player() {
 		super(100, 1, 5);
 
 		//currentWeapon = artifacts.get(0);
@@ -44,16 +46,6 @@ public class Player extends Character {
 		invItems = new ArrayList<>();
 	}
 	
-	public void useItem(Items item) {
-		System.out.println("What item would you like to use?");
-		System.out.println(getInvItems());
-		invItems.add(item.getItems(0));
-
-		//currentWeapon = Artifacts.artifacts.get(0);
-		//currentArmor = Artifacts.artifacts.get(7);
-		invItems = new ArrayList<>();
-
-	}
 	
 	public int getCurrentX()
 	{
@@ -264,52 +256,7 @@ public class Player extends Character {
 		input.close();
 	}
 	
-	protected void combineHerbs(Items a1)
-	{
-		Scanner input = new Scanner(System.in);
-		if(a1.getName().equalsIgnoreCase("Green Herb") || a1.getName().equalsIgnoreCase("Red Herb"))
-		{
-			System.out.println("Would you like to combine the green and red herbs? \nEnter Yes or No.");
-			String answer = input.nextLine();
-			if(answer.equalsIgnoreCase("Yes"))
-			{
-				System.out.println("You have combined the red and green herb. \nWould you like to use the new combined herb? Enter Yes or No.");
-				String answer2 = input.nextLine();
-				if(answer2.equalsIgnoreCase("Yes"))
-				{
-					this.health = this.health + 30;
-					System.out.print("Your new health is : " + health);
-				}
-				if(answer2.equalsIgnoreCase("no"))
-				{
-					System.out.println("Item is now stored in your inventory.");
-					System.exit(0);
-				}
-			}
-			else
-			{
-				System.out.println("Would you like to use only the Green Herb? \nEnter Yes or No.");
-				String answer3 = input.nextLine();
-				if(answer3.equalsIgnoreCase("Yes"))
-				{
-					this.health = this.health + 15;
-					System.out.println("Your new health is : " + health);
-				}
-				else
-				{
-					System.out.println("Okay, your item is back in inventory.");
-					System.exit(0);
-				}
-			}
 	
-		}
-		else
-		{
-			System.out.println("Please enter a valid item name.");
-			System.exit(0);
-		}
-		input.close();
-	}		
 		
 	
 	protected void increaseAttack(Artifacts artifacts)
@@ -419,7 +366,7 @@ protected void useCanister(Items item)
 	}
 }
 
-protected boolean isFighting()
+public boolean isFighting()
 {
 	
 	return false;

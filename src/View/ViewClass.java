@@ -1,7 +1,13 @@
 package View;
+import Control.RoomMaker;
+import Model.Game;
+//import Model.GameTester;
+import Model.Items;
+import Model.Player;
+import Model.Room;
 
-import Control.ControlClass;
 import java.io.*;
+import java.util.Scanner;
 /**
  * Class: View Class
  * 
@@ -16,13 +22,15 @@ import java.io.*;
  */
 
 public class ViewClass {
-
-	public void print(String str)
+	
+	public static void main(String[] args) 
 	{
-		System.out.println(str);
+		
+	 	Game.intro();
+	 	Game.titleMenu();
+	 	RoomMaker.startGame();	
+	 	
 	}
-	public static void main(String[] args) throws IOException
-	{
-		ControlClass.getInput();
-	}
+	 	
+	 	
 }

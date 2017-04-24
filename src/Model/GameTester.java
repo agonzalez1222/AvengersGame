@@ -5,13 +5,13 @@ import java.util.Scanner;
 import javax.imageio.ImageIO;
 //import javax.swing.JFrame;
 
+import Control.RoomMaker;
+
 import java.awt.*;
 //import java.awt.event.*;
 import java.awt.image.*;
 import java.io.*;
-//import javax.imageio.*;
-//import javax.swing.*;
-import Model.RoomMaker;
+import Control.RoomMaker;
  
 /**
  * This class demonstrates how to load an Image from an external file
@@ -22,6 +22,7 @@ public class GameTester extends Component {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	BufferedImage img;
     static Scanner input = new Scanner(System.in);
     static String map = input.nextLine();
@@ -46,51 +47,48 @@ public class GameTester extends Component {
        }
     }
  
-    public static void main(String[] args) {
-    	Game.intro();
-  
-      /*  JFrame f = new JFrame("Game Map");
-             
-        f.addWindowListener(new WindowAdapter(){
-                public void windowClosing(WindowEvent e) {
-                    System.exit(0);
-                }
-            });
- 
-        f.add(new GameTester());
-        f.pack();
-        f.setVisible(true);
-    }
-    */
-    //when map is typed it displays it 
-    	Items test = new Items();
-	//	Items test1 = new Items();
-    	
-    	Player p1 = new Player();
-    	try
-    	{
-    		
-    		
-    		ArrayList<Items> list = test.getList();
-    		test = list.get(0);
-        	RoomMaker bs = new RoomMaker();
-        	final int WIDTH = 40;
-            final int HEIGHT = 40;
-            Room[][] room = new Room[WIDTH][HEIGHT];
-            bs.build(room, WIDTH, HEIGHT,test);
-            bs.print(room, bs.getX(), bs.getY());
-            
-            bs.movePlayer(p1);
-            bs.print(room, bs.getX(), bs.getY());
-    		
-    		
-    		
-    	}
-    	catch(IOException e)
-    	{
-    		System.out.println("cant move");
-    	}
-		
+   public static void main(String[] args) {
+//    	Game.intro();
+//      /*  JFrame f = new JFrame("Game Map");
+//             
+//        f.addWindowListener(new WindowAdapter(){
+//                public void windowClosing(WindowEvent e) {
+//                    System.exit(0);
+//                }
+//            });
+// 
+//        f.add(new GameTester());
+//        f.pack();
+//        f.setVisible(true);
+//    }
+//    */
+//    //when map is typed it displays it 
+//    	Items test = new Items();
+//	//	Items test1 = new Items();
+//    	
+//    	Player p1 = new Player();
+//    	try
+//    	{
+//    		
+//        	RoomMaker bs = new RoomMaker();
+//        	final int WIDTH = 40;
+//            final int HEIGHT = 40;
+//            Room[][] room = new Room[WIDTH][HEIGHT];
+//            bs.build(room, WIDTH, HEIGHT);
+//            System.out.println();
+//            bs.print(room, bs.getX(), bs.getY());
+//            
+//            bs.movePlayer(p1);
+//            bs.print(room, bs.getX(), bs.getY());
+//    		
+//    		
+//    		
+//    	}
+//    	catch(IOException e)
+//    	{
+//    		System.out.println("cant move");
+//    	}
+//		
         
         
         
