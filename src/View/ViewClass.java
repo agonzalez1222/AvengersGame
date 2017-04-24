@@ -25,9 +25,9 @@ public class ViewClass {
 	
 	public static void main(String[] args) 
 	{
-
+		
 	 	Game.intro();
-	
+	 	Game.titleMenu();
 	 	RoomMaker.startGame();	
 	 	
 	}

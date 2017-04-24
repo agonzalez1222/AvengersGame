@@ -141,6 +141,11 @@ protected int z = 0;
 		    		System.out.println("cant move");
 		    	}
 			}
+			if(ui.equalsIgnoreCase("help") || ui.equalsIgnoreCase("help menu"))
+			{
+				Game.openHelp();
+			}
+			
 		}
 	
     public void build(Room[][] room, final int WIDTH, final int HEIGHT) {
