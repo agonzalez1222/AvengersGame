@@ -18,13 +18,13 @@ class RoomMaker {
 Monster allMonsters = new Monster();
 protected ArrayList<Monster> monsters = allMonsters.getList1();
 protected Monster m1 = monsters.get(0);
-protected Monster m2 = monsters.get(0);
-protected Monster m3 = monsters.get(0);
-protected Monster m4 = monsters.get(0);
-protected Monster m5 = monsters.get(0);
-protected Monster m6 = monsters.get(0);
-protected Monster m7 = monsters.get(0);
-protected Monster m8 = monsters.get(0);
+protected Monster m2 = monsters.get(1);
+protected Monster m3 = monsters.get(2);
+protected Monster m4 = monsters.get(3);
+protected Monster m5 = monsters.get(4);
+protected Monster m6 = monsters.get(5);
+protected Monster m7 = monsters.get(6);
+protected Monster m8 = monsters.get(7);
 
 Items all = new Items();
 protected ArrayList<Items> item = all.getList();
