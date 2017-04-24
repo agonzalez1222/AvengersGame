@@ -68,8 +68,8 @@ public class GameTester extends Component {
         final int HEIGHT = Math.abs(40);
         Room[][] room = new Room[WIDTH][HEIGHT];
         bs.build(room, WIDTH, HEIGHT,test);
-        int x = 0;
-        int y = 4;
+        int x = 4;
+        int y = 14;
         bs.print(room, x, y);
         
         System.out.println(bs.getClass());
