@@ -43,7 +43,7 @@ public class GameTester extends Component {
     }
  
     public static void main(String[] args) {
-    	Game.intro();
+    //	Game.intro();
   
       /*  JFrame f = new JFrame("Game Map");
              
@@ -68,7 +68,7 @@ public class GameTester extends Component {
         final int HEIGHT = Math.abs(40);
         Room[][] room = new Room[WIDTH][HEIGHT];
         bs.build(room, WIDTH, HEIGHT,test);
-        int x = 0;
+        int x = 1;
         int y = 4;
         bs.print(room, x, y);
         
