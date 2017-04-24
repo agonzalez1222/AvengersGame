@@ -21,6 +21,8 @@ public class RoomMaker {
 		protected final int WIDTH = 40;
 		protected final int HEIGHT = 40;
 		public Monster monster;
+		public boolean isAlive;
+		public int aliveCounter = 0;
 	
 		// Monsters
 		Monster m1 = new Monster(10, (int)(Math.random() * 5 + 1), 0, "Insane Crew Person", "Crew member driven insane by the otherworldly happenings on the ship. It's as if they have seen the other side and come back changed. Their eyes...their eyes are so crazed. So....hollow...", false);
@@ -157,9 +159,9 @@ protected int z = 0;
             room[0][4].setNumber(1);
             room[0][4].setName("Engine Room");
             room[0][4].setDescription("You wake up with a throbbing headache."
-            		+ " Disoriented and Floating, you look around in the void and you see a dim red light. "
-            		+ "As your eyes adjust to the light you see a sign that says Emergency Power. "
-            		+ "Should you go for the light and push the Button?");
+            		+ " \nDisoriented and Floating, you look around in the void and you see a dim red light. "
+            		+ "\nAs your eyes adjust to the light you see a sign that says Emergency Power. "
+            		+ "\nShould you go for the light and push the Button?");
             room[0][4].setArtifact(w3);
             
           
@@ -416,16 +418,69 @@ protected int z = 0;
 //    	
 //    }
 
+    public Boolean monsterExists(Monster monster){
+    	if (room[x][y].monster.size() > 0){
+    		
+    		return monster.getHealth() > 0;
+    		
+    		
+    	}
+    	
+    	return false;
+    	
+    }
+    
+
+   
     public void print(Room[][] room, int x, int y) {
     	this.room = room;
     	
         System.out.println(room[x][y].getDescription());
         System.out.println(room[x][y].getName());
-        System.out.println("You see: " + room[x][y].getItems() + " | You also see "  +  room[x][y].getMonster() + " | You also see "  +  room[x][y].getArtifact() );
-        System.out.println("("+ x + "," + y + ")");
-        //System.out.println();
-        this.x = x;
-        this.y = y;
+        
+        String a = room[x][y].getItems();
+        String a1 = "You see : ";
+        String a2 = " |";
+        String b = room[x][y].getMonster();
+        String b1 = " Has Appeared | ";
+        String c = room[x][y].getArtifact();
+        String c1 = "You See: ";
+        String m = "";
+        
+        if (a == null){
+        	a = "";
+        	a1 = "";
+        	a2 = "";
+        }
+        
+        if (b == null){
+        	b = "";
+        	b1 = "";
+        }
+        if (c == null){
+        	c = "";
+        	c1 = "";
+        }
+        
+        if (a == "" && a1 == "" && b == "" && b1 == "" && c == "" && c1 == "" ){
+        	m = "There's nothing too see here";
+        }
+        
+        System.out.println(a1 + a + a2 + b + b1 +  c1  +  c  + m);
+        
+        System.out.println("Your Coordinates are: ("+ x + "," + y + ")");
+     //   System.out.println(monsterExists(m1));
+        
+        if(monsterExists(m1) == true){
+    		aliveCounter ++;
+    	}
+    	else if (monsterExists(m1) == false)
+    		aliveCounter --;
+        
+        // This counter is to check for monster in room -1 mean no monster 1 means monster exists.
+        System.out.println(aliveCounter);
+     //   this.x = x;
+      //  this.y = y;
     }
     
 
@@ -509,6 +564,7 @@ protected int z = 0;
              x--;
         } else if (direction.equalsIgnoreCase("menu") || direction.equalsIgnoreCase("help") ) {
             Game.openHelp();
+            
         } else if (direction.equalsIgnoreCase("map")) {
        	 MapView.ViewMap();
         }
@@ -534,13 +590,6 @@ protected int z = 0;
             bs.print(room, bs.getX(), bs.getY());	
     }
   
-    public boolean monsterExists(){
-    	if (monster.isAlive() == true){
-    		return true;
-    		
-    	}
-    	return false;
-    }
     
     public void testFight(){
     	
@@ -614,4 +663,7 @@ protected int z = 0;
 		int damage = playerAtk;
 		return damage;
 	}
+
+
 }
+
