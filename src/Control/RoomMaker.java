@@ -523,9 +523,9 @@ protected int z = 0;
 		String userInput = input.nextLine();
 		if(userInput.equalsIgnoreCase("Attack"))
 		{
-			System.out.println("You have chosen to attack: " + (gameMonster.getName()) + "for " + (gameMonster.damageMonster(gamePlayer)) + " damage");
+			System.out.println("You have chosen to attack: " + (gameMonster.getName()) + "for " + (damageMonster(gamePlayer)) + " damage");
 				if (gameMonster.isAlive() == true) {
-					System.out.println("The monster strikes you back and deals " + gamePlayer.damagePlayer(	gameMonster) + " damage");
+					System.out.println("The monster strikes you back and deals " + damagePlayer(gameMonster) + " damage");
 				} else if (gamePlayer.isAlive() == false) {
 					System.out.println("You Died.");
 					System.exit(0);
