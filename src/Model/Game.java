@@ -157,6 +157,7 @@ public class Game implements Serializable {
     	System.out.println("					  		 +-------------------------------+");
     	System.out.println("");
     	System.out.println("                 Type a command to begin:");
+    	System.out.println("");
 	}
 }	
 		
