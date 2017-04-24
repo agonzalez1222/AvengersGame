@@ -1,4 +1,7 @@
 package Model;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Serializable;
 
 /**
@@ -59,10 +62,21 @@ public class Game implements Serializable {
 	//R: The correct game file is loaded with all of the player’s current
 	//progress, inventory and last location.
 	public static void loadGame(){
-		
+		 try{
+		     BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+		     String inputString = bufferRead.readLine();
+		      
+		     System.out.println(SaveFile.txt);
+		 }
+		 catch(IOException ex)
+		 {
+		    ex.printStackTrace();
+		 }
+		}   
+		 
 		
 
-	}
+	
 
 	//S: The player selects the Open Help option from the main menu.
 
