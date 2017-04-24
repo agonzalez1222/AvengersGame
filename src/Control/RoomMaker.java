@@ -20,6 +20,7 @@ public class RoomMaker {
 		public Player player;
 		protected final int WIDTH = 40;
 		protected final int HEIGHT = 40;
+		public Monster monster;
 	
 		// Monsters
 		Monster m1 = new Monster(10, (int)(Math.random() * 5 + 1), 0, "Insane Crew Person", "Crew member driven insane by the otherworldly happenings on the ship. It's as if they have seen the other side and come back changed. Their eyes...their eyes are so crazed. So....hollow...", false);
@@ -510,19 +511,74 @@ protected int z = 0;
     
     protected void getInfo()
     {
-    	
-    		
-    		
 //    		ArrayList<Items> list = test.getList();
 //    		test = list.get(0);
         	RoomMaker bs = new RoomMaker();
-            bs.print(room, bs.getX(), bs.getY());
-            
-           
-    		
-    		
-    		
-    	
-    	
+            bs.print(room, bs.getX(), bs.getY());	
     }
+    
+    public void FightSequence(Player gamePlayer, Monster gameMonster, Items gameItem) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
+		String userInput = input.nextLine();
+		if(userInput.equalsIgnoreCase("Attack"))
+		{
+			System.out.println("You have chosen to attack: " + (gameMonster.getName()) + "for " + (gameMonster.damageMonster(gamePlayer)) + " damage");
+				if (gameMonster.isAlive() == true) {
+					System.out.println("The monster strikes you back and deals " + gamePlayer.damagePlayer(	gameMonster) + " damage");
+				} else if (gamePlayer.isAlive() == false) {
+					System.out.println("You Died.");
+					System.exit(0);
+				} else if (gameMonster.isAlive() && gameMonster.getIsFrozen()) {
+					
+					System.out.println(gameMonster.getName() + " has been slain.");
+				}
+				System.exit(0);
+		}
+		
+		if(userInput.equalsIgnoreCase("Run"))
+		{
+			Player.escapeRoll();
+			if (Player.escapeRoll() > 5) {
+				System.out.println("You managed to escape.");
+				// Add code to exit the fight here.
+				
+			}
+		}
+		
+		if(userInput.equalsIgnoreCase("Use Item"))
+		{
+			gamePlayer.useHealthRegenItem(gameItem);
+		} else {	
+			System.out.println("That action was not recognized, please try to enter another option");	
+			//Player.Fight();
+		}
+		
+		if (gamePlayer.getHealth() < 0) {
+			System.out.println("You died.");
+			// System.exit(0);
+		} else if (gameMonster.getHealth() < 0) {
+			System.out.println("You have slain: " + gameMonster.getName());
+		}
+		input.close();
+		System.out.println("Hi");
+		} 
+    
+    protected int damagePlayer(Monster monster) {
+		int monsterAtk = monster.getAtk();
+		int health = player.getHealth();
+		health = health - monsterAtk;
+		int damage = monsterAtk - player.getDef();
+		player.setHealth(health);
+		return damage;
+	}
+    
+    protected int damageMonster(Player player) {
+		int playerAtk = player.getAtk();
+		int mHealth = monster.getHealth();
+		mHealth = mHealth - playerAtk;
+		monster.setHealth(mHealth);
+		int damage = playerAtk;
+		return damage;
+	}
 }

@@ -141,4 +141,8 @@ public class Monster extends Character
 	{
 		return monsters.get(i);
 	}
+	public void setHealth(int health)
+	{
+		this.health = health;
+	}
 }
