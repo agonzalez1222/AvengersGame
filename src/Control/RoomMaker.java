@@ -108,7 +108,7 @@ protected int z = 0;
 			return ui;
 		}
 		
-		public static void startGame (){
+		public static void startGame(){
 		 	
 		 	Scanner input = new Scanner(System.in);
 		 	String ui = input.nextLine();
@@ -140,12 +140,14 @@ protected int z = 0;
 		    	{
 		    		System.out.println("cant move");
 		    	}
+		    	
 			}
 			if(ui.equalsIgnoreCase("help") || ui.equalsIgnoreCase("help menu"))
 			{
 				Game.openHelp();
 			}
-			
+			Game.titleMenu();
+			startGame();
 		}
 	
     public void build(Room[][] room, final int WIDTH, final int HEIGHT) {
