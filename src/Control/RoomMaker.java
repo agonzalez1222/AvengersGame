@@ -1,12 +1,4 @@
 package Control;
-import Model.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-
-import java.util.Scanner;
-
 //import java.util.HashMap;
 //import java.util.Map;
 //import java.util.Random;
@@ -14,12 +6,13 @@ import java.util.Scanner;
 //import java.io.IOException;
 //import java.io.InputStreamReader;
 //import java.io.Serializable;
-import Model.Room;
-import Model.Artifacts;
-import Model.Items;
-import Model.Monster;
-import Model.Player;
-import Model.GameTester;
+import Model.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import java.util.Scanner;
 
 
 public class RoomMaker {
@@ -471,6 +464,7 @@ protected int z = 0;
       boolean southPossible = roomExists(x, y - 1);
       boolean eastPossible = roomExists(x + 1, y);
       boolean westPossible = roomExists(x - 1, y);
+      	System.out.println("Type help or menu for assistance.");
         System.out.print("Where would you like to go :");
         if (northPossible) {
             System.out.print(" North (n)");
@@ -495,6 +489,10 @@ protected int z = 0;
             x++;
         } else if (direction.equalsIgnoreCase("w") && westPossible) {
              x--;
+        } else if (direction.equalsIgnoreCase("menu") || direction.equalsIgnoreCase("help") ) {
+            Game.openHelp();
+        } else if (direction.equalsIgnoreCase("map")) {
+       	 MapView.ViewMap();
         }
         else
         {

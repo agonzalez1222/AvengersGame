@@ -22,6 +22,7 @@ public class GameTester extends Component {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	BufferedImage img;
     static Scanner input = new Scanner(System.in);
     static String map = input.nextLine();
