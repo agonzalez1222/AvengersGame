@@ -405,7 +405,16 @@ protected int z = 0;
 
 	}
         
-    
+//    public boolean ifMonsterExists()
+//    {
+//    	String hi = room[0][4].getMonster();
+//    	if(hi.isEmpty() && hi == null)
+//    	{
+//    		return false;
+//    	}
+//    	else return true;
+//    	
+//    }
 
     public void print(Room[][] room, int x, int y) {
     	this.room = room;
@@ -414,10 +423,12 @@ protected int z = 0;
         System.out.println(room[x][y].getName());
         System.out.println("You see: " + room[x][y].getItems() + " | You also see "  +  room[x][y].getMonster() + " | You also see "  +  room[x][y].getArtifact() );
         System.out.println("("+ x + "," + y + ")");
+        //System.out.println();
         this.x = x;
         this.y = y;
     }
     
+
     public int getX()
     {
     	return x;
@@ -441,6 +452,12 @@ protected int z = 0;
     public void removeItem(Room[][] room, int x, int y, Items item) {
     	
     	room[x][y].deleteItem(item);
+    }
+    
+    //Removes monster if dead
+    public void removeMonster(Room[][] room, int x, int y, Monster monster){
+    	if (monster.isAlive() == false)
+    	room[x][y].deleteMonster(monster);
     }
    
     private boolean roomExists(int x, int y) {
@@ -516,7 +533,23 @@ protected int z = 0;
         	RoomMaker bs = new RoomMaker();
             bs.print(room, bs.getX(), bs.getY());	
     }
+  
+    public boolean monsterExists(){
+    	if (monster.isAlive() == true){
+    		return true;
+    		
+    	}
+    	return false;
+    }
     
+    public void testFight(){
+    	
+    	//while (room[x][y].isThere(monster) == true)
+    		
+    		
+    		
+    
+    }
     public void FightSequence(Player gamePlayer, Monster gameMonster, Items gameItem) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");

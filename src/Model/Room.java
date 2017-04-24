@@ -133,6 +133,9 @@ public class Room {
     public void deleteItem(Items item) {
         this.items.remove(item);
     }
+    public void deleteMonster(Monster monster) {
+        this.items.remove(monster);
+    }
 
     public String getItems() {
         return this.itemHolder.getName();
@@ -143,4 +146,6 @@ public class Room {
     public String getArtifact() {
         return this.artifactHolder.getName();
     }
+    
+    
 }

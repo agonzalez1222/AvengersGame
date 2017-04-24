@@ -101,6 +101,8 @@ public class Monster extends Character
 		return health > 0;
 	}
 	
+	
+	
 	/**
 	 * @return the isFrozen
 	 */
