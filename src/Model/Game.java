@@ -1,5 +1,9 @@
 package Model;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.io.Serializable;
+import java.util.Scanner;
 
 /**
  * Class: Game
@@ -134,6 +138,19 @@ public class Game implements Serializable {
 	//R: The player is notified that their current game has been saved, 
 	//including progress, inventory, and their last location.
 	public static void saveGame(){
+	
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter a name for your save file: " );
+		String save =  input.nextLine();
+		
+		
+	File newFile = new File("C:/Desktop/" + save + ".txt" ); 
+	try {
+		PrintWriter print = new PrintWriter(newFile);
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		System.out.println("Saving error");
+	}
 
 	}
 	
@@ -158,6 +175,7 @@ public class Game implements Serializable {
     	System.out.println("");
     	
     	System.out.println("Start Game\nHelp Menu\nLoad Game\nSave Game\nExit Game ");
+    	
 	}
 }	
 		
