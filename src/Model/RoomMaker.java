@@ -23,7 +23,7 @@ protected Monster m3 = monsters.get(0);
 protected Monster m4 = monsters.get(0);
 protected Monster m5 = monsters.get(0);
 protected Monster m6 = monsters.get(0);
-protected Monster m7 = monsters.get(0);
+protected Monster m7 = monsters.get(6);
 protected Monster m8 = monsters.get(0);
 
 Items all = new Items();
@@ -76,26 +76,16 @@ protected Room[][] room;
             		+ " Disoriented and Floating, you look around in the void and you see a dim red light. "
             		+ "As your eyes adjust to the light you see a sign that says Emergency Power. "
             		+ "Should you go for the light and push the Button?");
-            room[0][4].setItems(this.i2);
-            room[0][4].setMonster(this.m1);
-           System.out.println(a1.getName());
-//            artifact = a3.getList();
-//            a3 = artifact.get(4);
-//            room [0][0].setArtifact(a3);
-            this.i1 = items;
+            room[0][4].setItems(i2);
+            room[0][4].setMonster(m1);
+      
             room[1][4].setNumber(2);
             room[1][4].setName("Food Storage Room");
             room[1][4].setDescription("You Stumble through the door as your body becomes re acclimated to the artificial gravity."
             		+ " You look to your right and you see a computer terminal. To your right you see a bunch of dried food goods. "
             		+ "Across the room in front of you, you see a set of double doors that has Mess Hall written above it. You See M_1. You see W_1");
-            room [1][4].setMonster(m1);
-//            this.monsters = m1.getList();
-//            int l = 0;
-//            m1 = monsters.get(l);
-//            room [1][0].setMonster(m1);
-//            this.monsters = this.m1.getList();
-//            this.m1 = monsters.get(0);
-//            room [1][0].setMonster(this.m1);
+            room [1][4].setMonster(m7);
+//         
 
             room[2][4].setNumber(3);
             room[2][4].setName("Mess Hall");
@@ -264,7 +254,7 @@ protected Room[][] room;
     public void print(Room[][] room, int x, int y) {
     	this.room = room;
         System.out.println(room[x][y].getDescription());
-        System.out.println("You see: " + room[x][y].getItems() + "and you also see"  +  room[x][y].getMonster() );
+        System.out.println("You see: " + room[x][y].getItems() + " and you also see "  +  room[x][y].getMonster() );
         System.out.println();
     }
 
