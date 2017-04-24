@@ -1,10 +1,11 @@
 package Model;
-import java.io.IOException;
-import java.io.Serializable;
+//import java.io.IOException;
+//import java.io.Serializable;
+//import java.util.HashSet;
+//import java.util.Random;
+//import java.util.Set;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+
 
 /**
  * Class: Room
@@ -24,9 +25,9 @@ public class Room {
 	private Boolean isPuzzleRoom;
 	private Boolean isBossRoom;
 	//private Monster monster;
-	private final static Random random = new Random();
+	//private final static Random random = new Random();
     //private final static Set<Integer> roomsSeen = new HashSet<Integer>();
-    private final static int NUM_ROOMS = 34;
+   // private final static int NUM_ROOMS = 34;
     private int number;
     private String name;
     private String description;
@@ -51,20 +52,20 @@ public class Room {
 	{
 		Items itemHolder = new Items();
 	    ArrayList<Items> list2 = itemHolder.getList();
-	    ArrayList<Items> items = new ArrayList<>();
+	 //   ArrayList<Items> items = new ArrayList<>();
 	    for(int i = 0; i < 9; i++)
 	    {
 	      System.out.println(list2.get(i).getName());
 	    }
 		
 	}
-	private Room(String description,  Boolean isPuzzleRoom, Boolean isBossRoom) { //Monster monster,
-		this.description = description;
-		this.isBossRoom = isBossRoom;
-		this.isPuzzleRoom = isPuzzleRoom;
-		//this.monster = monster;
-		
-	}
+//	private Room(String description,  Boolean isPuzzleRoom, Boolean isBossRoom) { //Monster monster,
+//		this.description = description;
+//		this.isBossRoom = isBossRoom;
+//		this.isPuzzleRoom = isPuzzleRoom;
+//		//this.monster = monster;
+//		
+//	}
 	
 	
 	public static Room newRoomInstance() {

@@ -3,14 +3,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
+//import javax.swing.JFrame;
 
 import java.awt.*;
-import java.awt.event.*;
+//import java.awt.event.*;
 import java.awt.image.*;
 import java.io.*;
-import javax.imageio.*;
-import javax.swing.*;
+//import javax.imageio.*;
+//import javax.swing.*;
 import Model.RoomMaker;
  
 /**
@@ -18,7 +18,11 @@ import Model.RoomMaker;
  */
 public class GameTester extends Component {
            
-    BufferedImage img;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	BufferedImage img;
     static Scanner input = new Scanner(System.in);
     static String map = input.nextLine();
 
@@ -60,7 +64,7 @@ public class GameTester extends Component {
     */
     //when map is typed it displays it 
     	Items test = new Items();
-		Items test1 = new Items();
+	//	Items test1 = new Items();
 		ArrayList<Items> list = test.getList();
 		test = list.get(0);
     	RoomMaker bs = new RoomMaker();
