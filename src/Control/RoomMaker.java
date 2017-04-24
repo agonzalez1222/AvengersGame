@@ -17,12 +17,12 @@ import java.util.Scanner;
 
 public class RoomMaker {
 		
-		public Player player;
+		public static Player player;
 		protected final int WIDTH = 40;
 		protected final int HEIGHT = 40;
-		public Monster monster;
+		public static Monster monster;
 		public boolean isAlive;
-		public int aliveCounter = 0;
+		public static int aliveCounter = 0;
 	
 		// Monsters
 		Monster m1 = new Monster(10, (int)(Math.random() * 5 + 1), 0, "Insane Crew Person", "Crew member driven insane by the otherworldly happenings on the ship. It's as if they have seen the other side and come back changed. Their eyes...their eyes are so crazed. So....hollow...", false);
@@ -75,6 +75,7 @@ protected Player p1 = new Player();
 protected static int x = 0;
 protected static int y = 4;
 protected int z = 0;
+protected static Items item = new Items();
 	public RoomMaker()
 	{
 		 
@@ -127,8 +128,9 @@ protected int z = 0;
 		            bs.print(room, bs.getX(), bs.getY());
 		            
 		            bs.movePlayer(p1);
+		            
 		            bs.print(room, bs.getX(), bs.getY());
-		    		
+		    		battle();
 		    		
 		    		
 		    	}
@@ -483,6 +485,20 @@ protected int z = 0;
       //  this.y = y;
     }
     
+    public void incrementMonster()
+    {
+    	if(monsterExists(m1) == true){
+    		aliveCounter ++;
+    	}
+    }
+    
+    public void decrementMonster()
+    {
+    	if (monsterExists(m1) == false)
+    	{
+    		aliveCounter --;
+    	}
+    }
 
     public int getX()
     {
@@ -599,21 +615,21 @@ protected int z = 0;
     		
     
     }
-    public void FightSequence(Player gamePlayer, Monster gameMonster, Items gameItem) {
+    public static void fightSequence() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
 		String userInput = input.nextLine();
 		if(userInput.equalsIgnoreCase("Attack"))
 		{
-			System.out.println("You have chosen to attack: " + (gameMonster.getName()) + "for " + (damageMonster(gamePlayer)) + " damage");
-				if (gameMonster.isAlive() == true) {
-					System.out.println("The monster strikes you back and deals " + damagePlayer(gameMonster) + " damage");
-				} else if (gamePlayer.isAlive() == false) {
+			System.out.println("You have chosen to attack: " + (monster.getName()) + "for " + (damageMonster(player)) + " damage");
+				if (monster.isAlive() == true) {
+					System.out.println("The monster strikes you back and deals " + damagePlayer(monster) + " damage");
+				} else if (player.isAlive() == false) {
 					System.out.println("You Died.");
 					System.exit(0);
-				} else if (gameMonster.isAlive() && gameMonster.getIsFrozen()) {
+				} else if (monster.isAlive() && monster.getIsFrozen()) {
 					
-					System.out.println(gameMonster.getName() + " has been slain.");
+					System.out.println(monster.getName() + " has been slain.");
 				}
 				System.exit(0);
 		}
@@ -630,23 +646,23 @@ protected int z = 0;
 		
 		if(userInput.equalsIgnoreCase("Use Item"))
 		{
-			gamePlayer.useHealthRegenItem(gameItem);
+			player.useHealthRegenItem(item);
 		} else {	
 			System.out.println("That action was not recognized, please try to enter another option");	
 			//Player.Fight();
 		}
 		
-		if (gamePlayer.getHealth() < 0) {
+		if (player.getHealth() < 0) {
 			System.out.println("You died.");
 			// System.exit(0);
-		} else if (gameMonster.getHealth() < 0) {
-			System.out.println("You have slain: " + gameMonster.getName());
+		} else if (monster.getHealth() < 0) {
+			System.out.println("You have slain: " + monster.getName());
 		}
 		input.close();
 		System.out.println("Hi");
 		} 
     
-    protected int damagePlayer(Monster monster) {
+    protected static int damagePlayer(Monster monster) {
 		int monsterAtk = monster.getAtk();
 		int health = player.getHealth();
 		health = health - monsterAtk;
@@ -655,7 +671,7 @@ protected int z = 0;
 		return damage;
 	}
     
-    protected int damageMonster(Player player) {
+    protected static int damageMonster(Player player) {
 		int playerAtk = player.getAtk();
 		int mHealth = monster.getHealth();
 		mHealth = mHealth - playerAtk;
@@ -664,6 +680,20 @@ protected int z = 0;
 		return damage;
 	}
 
-
+    public static void battle()
+    {
+    	while(player.isAlive() && monster.isAlive())
+    	{
+    		if(aliveCounter >= 0)
+    		{
+    			fightSequence();
+    		}
+    		else
+    		{
+    			System.out.println("error");
+    		}
+    	}
+    }
+    
 }
 
