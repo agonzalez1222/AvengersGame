@@ -59,6 +59,8 @@ public class Game implements Serializable {
 	//R: The correct game file is loaded with all of the player’s current
 	//progress, inventory and last location.
 	public static void loadGame(){
+		
+		
 
 	}
 
@@ -89,8 +91,14 @@ public class Game implements Serializable {
 		System.out.println("||||||||||||||||||||||||||||||||||||||||| Commands |||||||||||||||||||||||||||||||||||||||||");
 		System.out.println("");
 		System.out.println(commands);
-
-		
+		System.out.println("||||||||||||||||||||||||||||||||||||||||Fight Commands|||||||||||||||||||||||||||||||||||||||");
+        System.out.println("Fight");
+        System.out.println("Use Item");
+        System.out.println("Run");
+        System.out.println("||||||||||||||||||||||||||||||||||||||||Movement|||||||||||||||||||||||||||||||||||||||||||||");
+        System.out.println(" N " + " S " + " E " + " W ");
+        
+        
 		System.out.print("Goal: Reach the bridge and send a distress signal to escape the horrors within the ship.");
 		System.out.println("Score: Score starts at 1000. Each move/step made reduces the score by a "
 				+ "certain amount. The fewer moves made, the higher the score.");
@@ -139,20 +147,6 @@ public class Game implements Serializable {
 
 	}
 	
-
-<<<<<<< HEAD
-=======
-	public static void intro() {
-    	System.out.println("");
-    	System.out.println("Welcome to Astral Possession, a sci-fi/cosmic horror text based game.");
-    	System.out.println("You play an Un-named Engineer aboard the exploratory ship Legacy, which later becomes stranded in space when a part of the crew,");
-    	System.out.println("belonging to a mysterious cult, summons a cosmic being and floods the ship with horrors beyond imagination. Your goal is to make");
-    	System.out.println("your way through the horrors of the ship to the bridge and send a distress signal for help.");
-
-	
-
->>>>>>> 8e853fb0f622ccd5a08486679c1f44295f0aa2af
-	}
 	
 	public static void titletMenu() {
 		System.out.print("                      	                                 +-------------------------------+\n");
@@ -160,6 +154,11 @@ public class Game implements Serializable {
     	System.out.println("					  		 +-------------------------------+");
     	System.out.println("");
     	System.out.println("                 Type a command to begin:");
+    	System.out.println("Start Game");
+    	System.out.println("Load Game");
+    	System.out.println("Save Game");
+    	System.out.println("Exit Game");
+    	System.out.println("Help");
 	}
 }	
 		

@@ -328,7 +328,7 @@ public class Player extends Character {
 	 * 
 	 * @return
 	 */
-	public Artifacts getCurrentArmor() {
+	public Artifacts 	CurrentArmor() {
 		return currentArmor;
 	}
 	
