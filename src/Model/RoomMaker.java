@@ -52,6 +52,9 @@ protected Artifacts w10 = artifact.get(9);
 
 protected Room[][] room;
 
+protected int x;
+protected int y;
+
 	public RoomMaker()
 	{
 		
@@ -266,11 +269,25 @@ protected Room[][] room;
 
     public void print(Room[][] room, int x, int y) {
     	this.room = room;
+    	
         System.out.println(room[x][y].getDescription());
+        System.out.println(room[x][y].getName());
         System.out.println("You see: " + room[x][y].getItems() + " | You also see "  +  room[x][y].getMonster() + " | You also see "  +  room[x][y].getArtifact() );
-        System.out.println();
+        System.out.println("("+ x + "," + y + ")");
+        this.x = x;
+        this.y = y;
     }
-
+    
+    protected int getX()
+    {
+    	return x;
+    }
+    
+    protected int getY()
+    {
+    	return y;
+    }
+    
     // Remove item from room when added to inventory
     public static void removeItem(Room[][] room, int x, int y, Items item) {
     	

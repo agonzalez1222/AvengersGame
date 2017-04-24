@@ -76,7 +76,8 @@ public class GameTester extends Component {
         int y = 14;
         bs.print(room, x, y);
         
-        System.out.println(bs.getClass());
+        
+        System.out.println(bs.getY());
     	
     	
     	
