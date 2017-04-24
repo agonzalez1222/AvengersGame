@@ -132,7 +132,7 @@ public class Monster extends Character
 		return name;
 	}
 	
-	protected ArrayList<Monster> getList1()
+	protected ArrayList<Monster> getList()
 	{
 		return monsters;
 	}

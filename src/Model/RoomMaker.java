@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 class RoomMaker {
 Monster allMonsters = new Monster();
-protected ArrayList<Monster> monsters = allMonsters.getList1();
+protected ArrayList<Monster> monsters = allMonsters.getList();
 protected Monster m1 = monsters.get(0);
 protected Monster m2 = monsters.get(1);
 protected Monster m3 = monsters.get(2);
@@ -76,26 +76,19 @@ protected Room[][] room;
             		+ " Disoriented and Floating, you look around in the void and you see a dim red light. "
             		+ "As your eyes adjust to the light you see a sign that says Emergency Power. "
             		+ "Should you go for the light and push the Button?");
-            room[0][4].setItems(this.i2);
-            room[0][4].setMonster(this.m1);
-           System.out.println(a1.getName());
-//            artifact = a3.getList();
-//            a3 = artifact.get(4);
-//            room [0][0].setArtifact(a3);
-            this.i1 = items;
+            room[0][4].setItems(i2);
+            room[0][4].setMonster(m1);
+            room[0][4].setArtifact(a1);
+            
+          
+
             room[1][4].setNumber(2);
             room[1][4].setName("Food Storage Room");
             room[1][4].setDescription("You Stumble through the door as your body becomes re acclimated to the artificial gravity."
             		+ " You look to your right and you see a computer terminal. To your right you see a bunch of dried food goods. "
             		+ "Across the room in front of you, you see a set of double doors that has Mess Hall written above it. You See M_1. You see W_1");
             room [1][4].setMonster(m1);
-//            this.monsters = m1.getList();
-//            int l = 0;
-//            m1 = monsters.get(l);
-//            room [1][0].setMonster(m1);
-//            this.monsters = this.m1.getList();
-//            this.m1 = monsters.get(0);
-//            room [1][0].setMonster(this.m1);
+
 
             room[2][4].setNumber(3);
             room[2][4].setName("Mess Hall");
@@ -152,18 +145,14 @@ protected Room[][] room;
             room[0][8].setNumber(14);
             room[0][8].setName("Brig");
             room[0][8].setDescription("You walk into the brig and you are immediately attacked by M_1.");
-//            monsters = m1.getList();
-//            m1 = monsters.get(0);
-//            room [0][4].setMonster(m1);
+            room[0][8].setMonster(m1);
             
             room[1][8].setNumber(15);
             room[1][8].setName("Aft Bay");
             room[1][8].setDescription("The room is a huge empty Room. "
             		+ "There is a huge hole in the Side of the ship and you are exposed to the Cruel Vacuums of space. "
             		+ "M_6 guards the Door Labeled Stairs");
-//            monsters = m6.getList();
-//            m6 = monsters.get(5);
-//            room [1][4].setMonster(m6);
+            room[1][8].setMonster(m6);
             
             room[2][7].setNumber(16);
             room[2][7].setName("Storage Bay");
@@ -226,9 +215,7 @@ protected Room[][] room;
             room[2][13].setNumber(28);
             room[2][13].setName("Bridge Level Airlock");
             room[2][13].setDescription("You walk into the Bridge airlock and see an M_7. You can't use that door Until you Remove him. ");
-//            monsters = m7.getList();
-//            m7 = monsters.get(6);
-//            room [2][9].setMonster(m7);
+            room[2][13].setMonster(m7);
             
             room[2][12].setNumber(29);
             room[2][12].setName("Water Treatment");
@@ -264,7 +251,7 @@ protected Room[][] room;
     public void print(Room[][] room, int x, int y) {
     	this.room = room;
         System.out.println(room[x][y].getDescription());
-        System.out.println("You see: " + room[x][y].getItems() + "and you also see"  +  room[x][y].getMonster() );
+        System.out.println("You see: " + room[x][y].getItems() + " | You also see "  +  room[x][y].getMonster() + " | You also see "  +  room[x][y].getArtifact() );
         System.out.println();
     }
 
@@ -274,107 +261,3 @@ protected Room[][] room;
     	room[x][y].deleteItem(item);
     }
 }
-
-
-
-
-
-//import com.sun.javafx.collections.MappingChange.Map;
-
-//public class RoomMaker {
-//	
-//	    private final Map<Integer, Map<Integer, Room>> map = new HashMap<Integer, Map<Integer, Room>>();
-//	    //HashMap<Int,Gmap> map =new HashMap<Int,Gmap>();
-//	    private Room currentRoom;
-//	    private int currentX = 0;
-//	    private int currentY = 0;
-//	    Items a1 = new Items();
-//		ArrayList<Items> list1 = new ArrayList<>();
-//	    
-//	    private RoomMaker(){
-//	    }
-//	    private void putRoom(int x, int y, Room room) {
-//	        if (!map.containsKey(x)) {
-//	            map.put(x, new HashMap<Integer, Room>());
-//	        }
-//	        map.get(x).put(y, room);
-//	    }
-//
-//	    private Room getRoom(int x, int y) {
-//	        return map.get(x).get(y);
-//	    }
-//
-//	    private boolean roomExists(int x, int y) {
-//	        if (!map.containsKey(x)) {
-//	            return false;
-//	        }
-//	        return map.get(x).containsKey(y);
-//	    }
-//
-////	    private boolean isComplete() {
-////	        return currentRoom.isBossRoom() && currentRoom.isComplete();
-////	    }
-//
-//
-//	    public void movePlayer(Player player) throws IOException {
-//	        boolean northPossible = roomExists(currentX, currentY + 1);
-//	        boolean southPossible = roomExists(currentX, currentY - 1);
-//	        boolean eastPossible = roomExists(currentX + 1, currentY);
-//	        boolean westPossible = roomExists(currentX - 1, currentY);
-//	        System.out.print("Where would you like to go :");
-//	        if (northPossible) {
-//	            System.out.print(" North (n)");
-//	        }
-//	        if (eastPossible) {
-//	            System.out.print(" East (e)");
-//	        }
-//	        if (southPossible) {
-//	            System.out.print(" South (s)");
-//	        }
-//	        if (westPossible) {
-//	            System.out.print(" West (w)");
-//	        }
-//	        System.out.print(" ? ");
-//	        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-//	        String direction = in.readLine();
-//	        if (direction.equals("n") && northPossible) {
-//	            currentY++;
-//	        } else if (direction.equals("s") && southPossible) {
-//	            currentY--;
-//	        } else if (direction.equals("e") && eastPossible) {
-//	            currentX++;
-//	        } else if (direction.equals("w") && westPossible) {
-//	            currentX--;
-//	        }
-//	        currentRoom = getRoom(currentX, currentY);
-//	        currentRoom.enter(player);
-//	    }
-//
-////	    public void startQuest(Player player) throws IOException {
-////	        while (player.isAlive() && !isComplete()) {
-////	            movePlayer(player);
-////	        }
-////	        if (player.isAlive()) {
-////	            System.out.println(Art.CROWN);
-////	        } else {
-////	            System.out.println(Art.REAPER);
-////	        }
-////	    }
-//
-//	    public static RoomMaker newInstance() {
-//	    	RoomMaker roomG = new RoomMaker();
-//	    	roomG.putRoom(0, 0, Room.newRegularInstance());
-//	    	roomG.putRoom(-1, 1, Room.newRegularInstance());
-//	    	roomG.putRoom(0, 1, Room.newRegularInstance());
-//	    	roomG.putRoom(1, 1, Room.newRegularInstance());
-//	    	roomG.putRoom(-1, 2, Room.newRegularInstance());
-//	    	roomG.putRoom(1, 2, Room.newRegularInstance());
-//	    	roomG.putRoom(-1, 3, Room.newRegularInstance());
-//	    	roomG.putRoom(0, 3, Room.newRegularInstance());
-//	    	roomG.putRoom(1, 3, Room.newRegularInstance());
-//	       // dungeon.putRoom(0, 4, Room.newBossInstance());
-//	    	roomG.currentRoom = roomG.getRoom(0, 0);
-//	        return roomG;
-//	    }
-//
-//	}
