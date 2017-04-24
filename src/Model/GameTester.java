@@ -65,19 +65,32 @@ public class GameTester extends Component {
     //when map is typed it displays it 
     	Items test = new Items();
 	//	Items test1 = new Items();
-		ArrayList<Items> list = test.getList();
-		test = list.get(0);
-    	RoomMaker bs = new RoomMaker();
-    	final int WIDTH = Math.abs(40);
-        final int HEIGHT = Math.abs(40);
-        Room[][] room = new Room[WIDTH][HEIGHT];
-        bs.build(room, WIDTH, HEIGHT,test);
-        int x = 4;
-        int y = 14;
-        bs.print(room, x, y);
+    	
+    	Player p1 = new Player();
+    	try
+    	{
+    		
+    		ArrayList<Items> list = test.getList();
+    		test = list.get(0);
+        	RoomMaker bs = new RoomMaker();
+        	final int WIDTH = Math.abs(40);
+            final int HEIGHT = Math.abs(40);
+            Room[][] room = new Room[WIDTH][HEIGHT];
+            bs.build(room, WIDTH, HEIGHT,test);
+            bs.setX(0);
+            bs.setY(4);
+            bs.print(room, bs.getX(), bs.getY());
+            p1.movePlayer(p1);
+    		
+    	}
+    	catch(IOException e)
+    	{
+    		System.out.println("cant move");
+    	}
+		
         
         
-        System.out.println(bs.getY());
+        
     	
     	
     	

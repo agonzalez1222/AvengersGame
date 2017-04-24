@@ -32,10 +32,9 @@ public class Player extends Character {
 	Items a1 = new Items();
 	ArrayList<Items> list1 = new ArrayList<>();
 	ArrayList<Artifacts> artifacts = new ArrayList<>();
-	private int currentX = 0;
-	private int currentY = 0;
 	protected Monster m1;
-	
+	private int currentX = 0;
+	private int currentY = 4;
 	
 	protected Player() {
 		super(100, 1, 5);
@@ -54,6 +53,16 @@ public class Player extends Character {
 		//currentArmor = Artifacts.artifacts.get(7);
 		invItems = new ArrayList<>();
 
+	}
+	
+	public int getCurrentX()
+	{
+		return this.currentX;
+	}
+	
+	public int getCurrentY()
+	{
+		return this.currentY;
 	}
 	
 	public ArrayList<Items> getInvItems() {
@@ -335,7 +344,10 @@ public class Player extends Character {
     //test player movement 
 	
 	private boolean roomExists(int x, int y) {
-		return false;
+		this.currentX = x;
+		this.currentY = y;
+		return true;
+		
 	 // return true;
     
 }
@@ -359,6 +371,7 @@ public class Player extends Character {
 	 * @throws IOException
 	 */
     public void movePlayer(Player player) throws IOException {
+    
     boolean northPossible = roomExists(currentX, currentY + 1);
     boolean southPossible = roomExists(currentX, currentY - 1);
     boolean eastPossible = roomExists(currentX + 1, currentY);
@@ -380,16 +393,18 @@ public class Player extends Character {
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     String direction = in.readLine();
     if (direction.equals("n") && northPossible) {
-        currentY++;
+       this.currentY = currentY++;
     } else if (direction.equals("s") && southPossible) {
-        currentY--;
+        this.currentY = currentY--;
     } else if (direction.equals("e") && eastPossible) {
-        currentX++;
+        this.currentX = currentX++;
     } else if (direction.equals("w") && westPossible) {
-        currentX--;
+        this.currentX = currentX--;
     }
    // currentRoom = getRoom(currentX, currentY);
   // currentRoom.enter(player);
+    System.out.println(currentX);
+    System.out.println(currentY);
 }
 
 protected void useCanister(Items item)

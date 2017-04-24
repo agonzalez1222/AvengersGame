@@ -26,7 +26,7 @@ protected Monster m8 = monsters.get(7);
 
 Items all = new Items();
 protected ArrayList<Items> item = all.getList();
- protected Items i1 = item.get(0); 
+protected Items i1 = item.get(0); 
 protected Items i2 = item.get(1);
 protected Items i3 = item.get(2);
 protected Items i4 = item.get(3);
@@ -51,9 +51,9 @@ protected Artifacts w9 = artifact.get(8);
 protected Artifacts w10 = artifact.get(9);
 
 protected Room[][] room;
-
-protected int x;
-protected int y;
+protected Player p1 = new Player();
+protected int x = p1.getCurrentX();
+protected int y = p1.getCurrentY();
 
 	public RoomMaker()
 	{
@@ -286,6 +286,15 @@ protected int y;
     protected int getY()
     {
     	return y;
+    }
+    protected void setX(int x)
+    {
+    	this.x = x;
+    }
+    
+    protected void setY(int y)
+    {
+    	this.y = y;
     }
     
     // Remove item from room when added to inventory
