@@ -5,13 +5,12 @@ import java.util.Scanner;
 import javax.imageio.ImageIO;
 //import javax.swing.JFrame;
 
+import Control.RoomMaker;
+
 import java.awt.*;
 //import java.awt.event.*;
 import java.awt.image.*;
 import java.io.*;
-//import javax.imageio.*;
-//import javax.swing.*;
-import Model.RoomMaker;
  
 /**
  * This class demonstrates how to load an Image from an external file
@@ -48,7 +47,6 @@ public class GameTester extends Component {
  
     public static void main(String[] args) {
     	Game.intro();
-  
       /*  JFrame f = new JFrame("Game Map");
              
         f.addWindowListener(new WindowAdapter(){
@@ -70,14 +68,11 @@ public class GameTester extends Component {
     	try
     	{
     		
-    		
-    		ArrayList<Items> list = test.getList();
-    		test = list.get(0);
         	RoomMaker bs = new RoomMaker();
         	final int WIDTH = 40;
             final int HEIGHT = 40;
             Room[][] room = new Room[WIDTH][HEIGHT];
-            bs.build(room, WIDTH, HEIGHT,test);
+            bs.build(room, WIDTH, HEIGHT);
             System.out.println();
             bs.print(room, bs.getX(), bs.getY());
             

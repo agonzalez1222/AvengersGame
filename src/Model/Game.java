@@ -178,7 +178,7 @@ public class Game implements Serializable {
 
 	}
 	
-	public static void titletMenu() {
+	public static void titleMenu() {
 		System.out.print("                      	                                 +-------------------------------+\n");
     	System.out.print("					  		 |       Astral Possession       |\n");
     	System.out.println("					  		 +-------------------------------+");

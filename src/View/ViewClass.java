@@ -1,6 +1,6 @@
 package View;
+import Control.RoomMaker;
 
-import Control.ControlClass;
 import java.io.*;
 /**
  * Class: View Class
@@ -16,13 +16,15 @@ import java.io.*;
  */
 
 public class ViewClass {
-
-	public void print(String str)
+	
+	public static void main(String[] args) 
 	{
-		System.out.println(str);
-	}
-	public static void main(String[] args) throws IOException
-	{
-		ControlClass.getInput();
+		RoomMaker rm = new RoomMaker();
+		try {
+			rm.getInput();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
