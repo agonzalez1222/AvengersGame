@@ -49,193 +49,201 @@ protected Artifacts a8;
 protected Artifacts a9;
 protected Artifacts a10;
 
-    public  void build(Room[][] room, final int WIDTH, final int HEIGHT) {
+protected Room[][] room;
 
-    	// Initialize rooms (a 2D array)
-        for (int i = 0; i < WIDTH; i++) {
-            for (int j = 0; j < HEIGHT; j++) {
-                room[i][j] = new Room(i, "", ""/* item? */, null /* monster */, null /* item */, null /* artifact */);
-            }
-        }
 
-        room[0][0].setNumber(1);
-        room[0][0].setName("Engine Room");
-        room[0][0].setDescription("You wake up with a throbbing headache."
+	public RoomMaker(Room[][] rooms)
+	{
+		this.room = rooms;
+		rooms[0][0].setNumber(1);
+        rooms[0][0].setName("Engine Room");
+        rooms[0][0].setDescription("You wake up with a throbbing headache."
         		+ " Disoriented and Floating, you look around in the void and you see a dim red light. "
         		+ "As your eyes adjust to the light you see a sign that says Emergency Power. "
         		+ "Should you go for the light and push the Button?");
         artifact = a3.getList();
         a3 = artifact.get(4);
-        room [0][0].setArtifact(a3);
+        rooms [0][0].setArtifact(a3);
         
-        room[1][0].setNumber(2);
-        room[1][0].setName("Food Storage Room");
-        room[1][0].setDescription("You Stumble through the door as your body becomes re acclimated to the artificial gravity."
+        rooms[1][0].setNumber(2);
+        rooms[1][0].setName("Food Storage Room");
+        rooms[1][0].setDescription("You Stumble through the door as your body becomes re acclimated to the artificial gravity."
         		+ " You look to your right and you see a computer terminal. To your right you see a bunch of dried food goods. "
         		+ "Across the room in front of you, you see a set of double doors that has Mess Hall written above it. You See M_1. You see W_1");
         monsters = m1.getList();
         m1 = monsters.get(0);
-        room [1][0].setMonster(m1);
+        rooms [1][0].setMonster(m1);
 
 
-        room[2][0].setNumber(3);
-        room[2][0].setName("Mess Hall");
-        room[2][0].setDescription("You step into the mess hall and see a trashed room."
+        rooms[2][0].setNumber(3);
+        rooms[2][0].setName("Mess Hall");
+        rooms[2][0].setDescription("You step into the mess hall and see a trashed room."
         		+ " There are tables and chairs flipped and rotting food littering the ground. "
         		+ "To your right you See the kitchen. Across the room you see another set of double doors that is Labeled Barracks.");
     
-        room[2][-1].setNumber(4);
-        room[2][-1].setName("Kitchen");
-        room[2][-1].setDescription("Your step into the Kitchen. The Floors are covered with pots and pans."
+        rooms[2][-1].setNumber(4);
+        rooms[2][-1].setName("Kitchen");
+        rooms[2][-1].setDescription("Your step into the Kitchen. The Floors are covered with pots and pans."
         		+ " You see No other Exits in the room. You Do see M_2. You See W_2");
         
-        room[3][0].setNumber(5);
-        room[3][0].setName("Barracks Hall 1");
-        room[3][0].setDescription("You Stare down the long Empty Barracks Hall. "
+        rooms[3][0].setNumber(5);
+        rooms[3][0].setName("Barracks Hall 1");
+        rooms[3][0].setDescription("You Stare down the long Empty Barracks Hall. "
         		+ "You see a Stairwell to your north and a wall to the south, to the east you see more hallway");
         
-        room[4][0].setNumber(6);
-        room[4][0].setName("Barracks Hall 2");
-        room[4][0].setDescription("You Stare down the long Empty Barracks Hall. "
+        rooms[4][0].setNumber(6);
+        rooms[4][0].setName("Barracks Hall 2");
+        rooms[4][0].setDescription("You Stare down the long Empty Barracks Hall. "
         		+ "You see Barracks 1 to the north and Barracks 2 to the south, to the east you see more hallway");
         
-        room[5][0].setNumber(7);
-        room[5][0].setName("Barracks Hall 3");
-        room[5][0].setDescription("You Stare down the long Empty Barracks Hall. "
+        rooms[5][0].setNumber(7);
+        rooms[5][0].setName("Barracks Hall 3");
+        rooms[5][0].setDescription("You Stare down the long Empty Barracks Hall. "
         		+ "You see the Captain's room to the north and the Officer's room to the south,  Barracks 1, to the east you see more hallway");
         
-        room[5][-1].setNumber(8);
-        room[5][-1].setName("Captains Room");
-        room[5][-1].setDescription("You Walk into the captain’s room and you are confronted by M_2. ");
+        rooms[5][-1].setNumber(8);
+        rooms[5][-1].setName("Captains Room");
+        rooms[5][-1].setDescription("You Walk into the captain’s room and you are confronted by M_2. ");
         
-        room[5][1].setNumber(9);
-        room[5][1].setName("Officers Room");
-        room[5][1].setDescription("You walk into the officer's room. It is quiet and you don’t observe anything.");
+        rooms[5][1].setNumber(9);
+        rooms[5][1].setName("Officers Room");
+        rooms[5][1].setDescription("You walk into the officer's room. It is quiet and you don’t observe anything.");
         
-        room[4][-1].setNumber(10);
-        room[4][-1].setName("Barracks 1");
-        room[4][-1].setDescription("To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. "
+        rooms[4][-1].setNumber(10);
+        rooms[4][-1].setName("Barracks 1");
+        rooms[4][-1].setDescription("To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. "
         		+ "There are no items in this room.");
         
-        room[4][1].setNumber(11);
-        room[4][1].setName("Barracks 2");
-        room[4][1].setDescription("To walk into Barak 2. The room is filled with Bunk Beds. A M_1 attacks you. "
+        rooms[4][1].setNumber(11);
+        rooms[4][1].setName("Barracks 2");
+        rooms[4][1].setDescription("To walk into Barak 2. The room is filled with Bunk Beds. A M_1 attacks you. "
         		+ "There are no items in this room.");
         
-        room[3][1].setNumber(12);
-        room[3][1].setName("Stairs 1");
-        room[3][1].setDescription("You Walk into the Stairs from Barracks Hall and at the top of the Stairs is a door labeled ForeBay.");
+        rooms[3][1].setNumber(12);
+        rooms[3][1].setName("Stairs 1");
+        rooms[3][1].setDescription("You Walk into the Stairs from Barracks Hall and at the top of the Stairs is a door labeled ForeBay.");
         
 //        room[0][4].setNumber(13);
 //        room[0][4].setName("Stairs 2");
 //        room[0][4].setDescription("You Walk into the Stairs from Aftbay and at the top of the Stairs is a door labeled Botany.");
         
-        room[0][4].setNumber(14);
-        room[0][4].setName("Brig");
-        room[0][4].setDescription("You walk into the brig and you are immediately attacked by M_1.");
+        rooms[0][4].setNumber(14);
+        rooms[0][4].setName("Brig");
+        rooms[0][4].setDescription("You walk into the brig and you are immediately attacked by M_1.");
         monsters = m1.getList();
         m1 = monsters.get(0);
-        room [0][4].setMonster(m1);
+        rooms[0][4].setMonster(m1);
         
-        room[1][4].setNumber(15);
-        room[1][4].setName("Aft Bay");
-        room[1][4].setDescription("The room is a huge empty Room. "
+        rooms[1][4].setNumber(15);
+        rooms[1][4].setName("Aft Bay");
+        rooms[1][4].setDescription("The room is a huge empty Room. "
         		+ "There is a huge hole in the Side of the ship and you are exposed to the Cruel Vacuums of space. "
         		+ "M_6 guards the Door Labeled Stairs");
         monsters = m6.getList();
         m6 = monsters.get(5);
-        room [1][4].setMonster(m6);
+        rooms[1][4].setMonster(m6);
         
-        room[2][3].setNumber(16);
-        room[2][3].setName("Storage Bay");
-        room[2][3].setDescription("You walk into the storage bay and see Nothing of Worth. "
+        rooms[2][3].setNumber(16);
+        rooms[2][3].setName("Storage Bay");
+        rooms[2][3].setDescription("You walk into the storage bay and see Nothing of Worth. "
         		+ "It is just a room Filled with what looks like Mining supplies.");
         
-        room[2][4].setNumber(17);
-        room[2][4].setName("Floor Level Airlock");
-        room[2][4].setDescription("You Walk into the Floor Level Airlock and Hear it seal behind you stabilizing the environment around you. "
+        rooms[2][4].setNumber(17);
+        rooms[2][4].setName("Floor Level Airlock");
+        rooms[2][4].setDescription("You Walk into the Floor Level Airlock and Hear it seal behind you stabilizing the environment around you. "
         		+ "You look out the door labeled ForeBay has a green light on it."
         		+ " Then you look at the door labeled Aft Bay and it is clearly marked with a red light. "
         		+ "You should probably have a Space Suit before you enter. ");
         
-        room[3][4].setNumber(18);
-        room[3][4].setName("Fore Bay");
-        room[3][4].setDescription("You Walk into a huge Bay with pallets littering the floor space you see the Stairs behind you, "
+        rooms[3][4].setNumber(18);
+        rooms[3][4].setName("Fore Bay");
+        rooms[3][4].setDescription("You Walk into a huge Bay with pallets littering the floor space you see the Stairs behind you, "
         		+ "The infirmary to you Left, and the floor level airlock and Storage to your right.");
         
 //        room[1][1].setNumber(19);
 //        room[1][1].setName("Elevator");
 //        room[1][1].setDescription("You walk in and see 2 buttons floor level and Bridge. There is a card key that is requested to swipe first.");
         
-        room[4][4].setNumber(20);
-        room[4][4].setName("Med Hallway");
-        room[4][4].setDescription("You Stare down the long Empty Med Halls. "
+        rooms[4][4].setNumber(20);
+        rooms[4][4].setName("Med Hallway");
+        rooms[4][4].setDescription("You Stare down the long Empty Med Halls. "
         		+ "You see the Infirmary to the north and the Lab to your right is an elevator, but it seems you need a key card to access it.");
         
-        room[4][5].setNumber(21);
-        room[4][5].setName("Infirmary");
-        room[4][5].setDescription("You walk into the infirmary and see charts and paper work thrown everywhere. "
+        rooms[4][5].setNumber(21);
+        rooms[4][5].setName("Infirmary");
+        rooms[4][5].setDescription("You walk into the infirmary and see charts and paper work thrown everywhere. "
         		+ "At the rear of the Room you see a storage closet. To the right you see a door lobbed Lab. ");
         
-        room[4][6].setNumber(22);
-        room[4][6].setName("Infirmary Closet");
-        room[4][6].setDescription("You walk into the small Room and see a W_5 laying on the table before you. Do you pick it up?");
+        rooms[4][6].setNumber(22);
+        rooms[4][6].setName("Infirmary Closet");
+        rooms[4][6].setDescription("You walk into the small Room and see a W_5 laying on the table before you. Do you pick it up?");
         
-        room[4][3].setNumber(23);
-        room[4][3].setName("Lab");
-        room[4][3].setDescription("You walk into the lab and you see a closet on the other side of the room. "
+        rooms[4][3].setNumber(23);
+        rooms[4][3].setName("Lab");
+        rooms[4][3].setDescription("You walk into the lab and you see a closet on the other side of the room. "
         		+ "As you are scanning the room a M_1 Attacks you out of nowhere.");
         
-        room[4][2].setNumber(24);
-        room[4][2].setName("Lab Closet");
-        room[4][2].setDescription("In the Small Room you see lab supplies and a Spacesuit laid out before you.");
+        rooms[4][2].setNumber(24);
+        rooms[4][2].setName("Lab Closet");
+        rooms[4][2].setDescription("In the Small Room you see lab supplies and a Spacesuit laid out before you.");
         
-        room[0][9].setNumber(25);
-        room[0][9].setName("Botany");
-        room[0][9].setDescription("As you enter the botany room you feel at home with the smell of earth around you."
+        rooms[0][9].setNumber(25);
+        rooms[0][9].setName("Botany");
+        rooms[0][9].setDescription("As you enter the botany room you feel at home with the smell of earth around you."
         		+ "The feeling is brought to a quick halt when an M_5 approaches you.");
         
-        room[0][8].setNumber(26);
-        room[0][8].setName("Botany Closet");
-        room[0][8].setDescription("You enter the Small closet and you see an I_3.");
+        rooms[0][8].setNumber(26);
+        rooms[0][8].setName("Botany Closet");
+        rooms[0][8].setDescription("You enter the Small closet and you see an I_3.");
         
-        room[1][9].setNumber(27);
-        room[1][9].setName("Aft Bay Bridge");
-        room[1][9].setDescription("You step onto a narrow catwalk with a door labeled botany on side and airlock on the opposite."
+        rooms[1][9].setNumber(27);
+        rooms[1][9].setName("Aft Bay Bridge");
+        rooms[1][9].setDescription("You step onto a narrow catwalk with a door labeled botany on side and airlock on the opposite."
         		+ " You look down and recognize the aft bay that you have already been through.");
         
-        room[2][9].setNumber(28);
-        room[2][9].setName("Bridge Level Airlock");
-        room[2][9].setDescription("You walk into the Bridge airlock and see an M_7. You can't use that door Until you Remove him. ");
+        rooms[2][9].setNumber(28);
+        rooms[2][9].setName("Bridge Level Airlock");
+        rooms[2][9].setDescription("You walk into the Bridge airlock and see an M_7. You can't use that door Until you Remove him. ");
         monsters = m7.getList();
         m7 = monsters.get(6);
-        room [2][9].setMonster(m7);
+        rooms[2][9].setMonster(m7);
         
-        room[2][8].setNumber(29);
-        room[2][8].setName("Water Treatment");
-        room[2][8].setDescription("You walk into the water treatment plant and see a tool bench. On the tool bench you see A W_4."
+        rooms[2][8].setNumber(29);
+        rooms[2][8].setName("Water Treatment");
+        rooms[2][8].setDescription("You walk into the water treatment plant and see a tool bench. On the tool bench you see A W_4."
         		+ " You Might be able to use this to get rid of M_7");
         
-        room[3][9].setNumber(30);
-        room[3][9].setName("Fore Bay Bridge");
-        room[3][9].setDescription("You step onto a narrow catwalk with a door labeled Weapons Room on side and airlock on the opposite."
+        rooms[3][9].setNumber(30);
+        rooms[3][9].setName("Fore Bay Bridge");
+        rooms[3][9].setDescription("You step onto a narrow catwalk with a door labeled Weapons Room on side and airlock on the opposite."
         		+ " You look down and recognize the Fore bay that you have already been through.");
         
-        room[4][9].setNumber(31);
-        room[4][9].setName("Weapons Room");
-        room[4][9].setDescription("You walk into the Weapons Room and you See some W_5 to your Right you see a room marked Server Room.");
+        rooms[4][9].setNumber(31);
+        rooms[4][9].setName("Weapons Room");
+        rooms[4][9].setDescription("You walk into the Weapons Room and you See some W_5 to your Right you see a room marked Server Room.");
         
-        room[4][8].setNumber(32);
-        room[4][8].setName("Server Room");
-        room[4][8].setDescription("You enter the Server room. You are immediately attacked by M_6. ");
+        rooms[4][8].setNumber(32);
+        rooms[4][8].setName("Server Room");
+        rooms[4][8].setDescription("You enter the Server room. You are immediately attacked by M_6. ");
         
-        room[4][7].setNumber(33);
-        room[4][7].setName("Server Room Closet");
-        room[4][7].setDescription("In the Small Room you see I_9. You could probably use this in the Elevator.");
+        rooms[4][7].setNumber(33);
+        rooms[4][7].setName("Server Room Closet");
+        rooms[4][7].setDescription("In the Small Room you see I_9. You could probably use this in the Elevator.");
         
-        room[4][10].setNumber(34);
-        room[4][10].setName("The Bridge");
-        room[4][10].setDescription("You are Confronted by B_1");
+        rooms[4][10].setNumber(34);
+        rooms[4][10].setName("The Bridge");
+        rooms[4][10].setDescription("You are Confronted by B_1");
+	}
+    public void build(Room[][] room, final int WIDTH, final int HEIGHT) {
+
+    	// Initialize rooms (a 2D array)
+        for (int i = 0; i < WIDTH; i++) {
+            for (int j = 0; j < HEIGHT; j++) {
+                this.room[i][j] = new Room(i, "", ""/* item? */, null /* monster */, null /* item */, null /* artifact */);
+            }
+        }
+
+        
         
     }
 

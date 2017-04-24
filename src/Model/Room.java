@@ -39,7 +39,7 @@ public class Room {
 	
 	
 	
-	private Room(String description,  Boolean isPuzzleRoom, Boolean isBossRoom) { //Monster monster,
+	public Room(String description,  Boolean isPuzzleRoom, Boolean isBossRoom) { //Monster monster,
 		this.description = description;
 		this.isBossRoom = isBossRoom;
 		this.isPuzzleRoom = isPuzzleRoom;
