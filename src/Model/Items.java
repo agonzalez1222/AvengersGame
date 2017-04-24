@@ -28,7 +28,22 @@ public class Items
 	protected Player player;
 	protected static ArrayList<Items> items;
 	protected Items a1;
-	// 
+	
+	/**
+     * Method: Items()
+     * 
+     * A constructor method that accepts values for all the attributes and sets
+     * them.
+     * 
+     * @param itemID
+     * @param itemName
+     * @param itemDescription
+     * @param itemEffect
+     * @param healthRegen
+     * @param increaseAmmo
+     * @param puzzleItem
+     * 
+     */
 	public Items(String itemID, String itemName, String itemDescription,
 			String itemEffect, int healthRegen, int increaseAmmo, Boolean puzzleItem) {
 		this.itemID = itemID;
@@ -39,21 +54,36 @@ public class Items
 		this.increaseAmmo = increaseAmmo;
 		this.puzzleItem = puzzleItem;
 	}
+	
+	/**
+     * Getter method for name
+     * @return the itemName
+     */
 	public String getName()
 	{
 		return itemName;
 	}
+	/**
+     * Getter method for ID
+     * @return the itemID
+     */
 	
 	protected String getID()
 	{
 		return itemID;
 	}
-	
+	/**
+     * Getter method for description
+     * @return the itemDescription
+     */
 	protected String getDescription()
 	{
 		return itemDescription;
 	}
-	
+	/**
+     * Getter method for itemEffect
+     * @return the itemEffect
+     */
 	protected String getItemEffect()
 	{
 		return itemEffect;

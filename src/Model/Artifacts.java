@@ -23,6 +23,19 @@ public class Artifacts
 	private int damageResist;
 	protected ArrayList<Artifacts> artifacts;
 	
+	/**
+     * Method: Artifacts()
+     * 
+     * A protected constructor method that accepts values for all the attributes and sets
+     * them.
+     * 
+     * @param artifactName
+     * @param description
+     * @param attack
+     * @param maxAmmo
+     * @param damageResist
+     */
+	
 	public Artifacts(String artifactName, String description, int attack, int maxAmmo, int damageResist)
 	{
 		this.artifactName = artifactName;

@@ -205,6 +205,13 @@ public class Game implements Serializable {
 
 	}
 	
+	/**
+	 * Method: titleMenu()
+	 * 
+	 * The method prints out the menu.
+	 * 
+	 */
+	
 	public static void titleMenu() {
 		
     	
