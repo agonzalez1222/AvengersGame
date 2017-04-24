@@ -37,6 +37,10 @@ public class ControlClass
 			{
 				Game.gameStartText();
 			}
+			if(ui.equalsIgnoreCase("Save") || ui.equalsIgnoreCase("save game"))
+			{
+				Game.saveGame();
+			}
 			
 			return ui;
 		}

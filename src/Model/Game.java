@@ -1,9 +1,12 @@
 package Model;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Scanner;
+import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Class: Game
@@ -24,7 +27,16 @@ public class Game implements Serializable {
 	private static int puzzlesCompleted;
 	private static int currentRoom;
 	private static int currentScore;
-
+	private Player player;
+	private static Game game;
+	private int score;
+	
+	Monster mon = new Monster();
+	ArrayList<Monster> monArray = mon.getList();
+	Items item = new Items();
+	ArrayList<Items> itemArray = item.getList();
+	Artifacts artifact = new Artifacts();
+	ArrayList<Artifacts> artifactArray = artifact.getList();
 	//public string Story. put story in there start game
 	public static void gameStartText(){
 		
@@ -61,7 +73,7 @@ public class Game implements Serializable {
 	//R: The correct game file is loaded with all of the player’s current
 	//progress, inventory and last location.
 	public static void loadGame(){
-
+		
 	}
 
 	//S: The player selects the Open Help option from the main menu.
@@ -143,10 +155,10 @@ public class Game implements Serializable {
 		System.out.println("Enter a name for your save file: " );
 		String save =  input.nextLine();
 		
-		
-	File newFile = new File("C:/Desktop/" + save + ".txt" ); 
+		File newFile = new File(save + ".txt" ); 
 	try {
 		PrintWriter print = new PrintWriter(newFile);
+		System.out.println("You have successfully saved this file.");
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
 		System.out.println("Saving error");
