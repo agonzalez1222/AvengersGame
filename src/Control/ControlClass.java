@@ -1,5 +1,9 @@
 package Control;
+import java.util.Scanner;
 
+import Model.Game;
+
+import java.io.*;
 /**
  * Class: Control Class
  * 
@@ -13,6 +17,27 @@ package Control;
  *
  */
 
-public class ControlClass {
-
+public class ControlClass 
+{
+	public static Scanner input = new Scanner(System.in);
+	public static String getInput() throws IOException
+	{
+		try
+		{
+			String ui = input.nextLine();
+			System.out.println();
+			
+			if(ui.equalsIgnoreCase("help"))
+			{
+				Game.openHelp();
+			}
+			
+			return ui;
+		}
+		catch(Exception e)
+		{
+			System.out.println();
+			throw new IOException();
+		}
+	}
 }
