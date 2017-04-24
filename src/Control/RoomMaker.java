@@ -78,7 +78,7 @@ protected Room[][] room;
 protected Player p1 = new Player();
 protected static int x = 0;
 protected static int y = 4;
-
+protected int z = 0;
 	public RoomMaker()
 	{
 		 
