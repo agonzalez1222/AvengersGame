@@ -23,6 +23,12 @@ public class RoomMaker {
 		public static Monster monster;
 		public boolean isAlive;
 		public static int aliveCounter = 0;
+		protected static Room[][] room;
+		protected Player p1 = new Player();
+		protected static int x = 0;
+		protected static int y = 4;
+		protected int z = 0;
+		protected static Items item = new Items();
 	
 		// Monsters
 		Monster m1 = new Monster(10, (int)(Math.random() * 5 + 1), 0, "Insane Crew Person", "Crew member driven insane by the otherworldly happenings on the ship. It's as if they have seen the other side and come back changed. Their eyes...their eyes are so crazed. So....hollow...", false);
@@ -57,25 +63,8 @@ public class RoomMaker {
 		Items i8 = new Items("I9", "Lab Paper", "A piece of paper found in the pocket of a lab coat. There's something written on it...",  "", 0, 0, true);
 		Items i9 = new Items("I10", "Cryo-Canister", "A container that instantly freezes an area once thrown. Can be used to slow down enemies.",  "Causes a monster to skip it's turn once per use.", 0, 0, false);
 			
-		
-//protected ArrayList<Artifacts> artifact = new ArrayList<Artifacts>();
-//protected Artifacts w1 = artifact.get(0);
-//protected Artifacts w2 = artifact.get(1);
-//protected Artifacts w3 = artifact.get(2);
-//protected Artifacts w4 = artifact.get(3);
-//protected Artifacts w5 = artifact.get(4);
-//protected Artifacts w6 = artifact.get(5);
-//protected Artifacts w7 = artifact.get(6);
-//protected Artifacts w8 = artifact.get(7);
-//protected Artifacts w9 = artifact.get(8);
-//protected Artifacts w10 = artifact.get(9);
 
-protected Room[][] room;
-protected Player p1 = new Player();
-protected static int x = 0;
-protected static int y = 4;
-protected int z = 0;
-protected static Items item = new Items();
+
 	public RoomMaker()
 	{
 		 
@@ -147,17 +136,33 @@ protected static Items item = new Items();
 			Game.titleMenu();
 			startGame();
 		}
+		
+		public static boolean hasMonster()
+	    {
+	    	boolean maybe;
+	    	if(room[x][y].getMonster() != null)
+	    	{
+	    		maybe = true;
+	    		return maybe; 
+	    	}
+	    	else
+	    	{
+	    		maybe = false;
+	    		return maybe;
+	    	}
+	    }
 	
     public void build(Room[][] room, final int WIDTH, final int HEIGHT) {
 
     	// Initialize rooms (a 2D array)
         for (int i = 0; i < WIDTH; i++) {
             for (int j = 0; j < HEIGHT; j++) {
-            	this.room = room;
+            	
                 room[i][j] = new Room(i, "", ""/* item? */, null /* monster */, null /* item */, null /* artifact */);
             
             }
         }
+        	RoomMaker.room = room;
             room[0][4].setNumber(1);
             room[0][4].setName("Engine Room");
             room[0][4].setDescription("You wake up with a throbbing headache."
@@ -449,6 +454,7 @@ protected static Items item = new Items();
         String c1 = "You See: ";
         String m = "";
         
+        fightSequence();
         if (a == null){
         	a = "";
         	a1 = "";
@@ -617,6 +623,8 @@ protected static Items item = new Items();
     }
     public static void fightSequence() {
 		Scanner input = new Scanner(System.in);
+		while(hasMonster() == true)
+		{
 		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
 		String userInput = input.nextLine();
 		if(userInput.equalsIgnoreCase("Attack"))
@@ -658,7 +666,7 @@ protected static Items item = new Items();
 		} else if (monster.getHealth() < 0) {
 			System.out.println("You have slain: " + monster.getName());
 		}
-		input.close();
+		}
 		System.out.println("Hi");
 		} 
     
