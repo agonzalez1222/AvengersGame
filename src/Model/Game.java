@@ -32,8 +32,8 @@ public class Game implements Serializable {
 	private static Game game;
 	private int score;
 	
-	Monster mon = new Monster();
-	ArrayList<Monster> monArray = mon.getList();
+	
+	
 	Items item = new Items();
 	ArrayList<Items> itemArray = item.getList();
 	Artifacts artifact = new Artifacts();

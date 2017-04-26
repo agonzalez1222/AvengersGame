@@ -21,31 +21,29 @@ import java.util.ArrayList;
  */
 
 public class Room {
-	//private String description;
 	private Boolean isPuzzleRoom;
 	private Boolean isBossRoom;
-	//private Monster monster;
-	//private final static Random random = new Random();
-    //private final static Set<Integer> roomsSeen = new HashSet<Integer>();
-   // private final static int NUM_ROOMS = 34;
+	protected Monster monster;
     private int number;
     private String name;
     private String description;
+    protected Items item;
+    protected Artifacts artifacts;
     
     protected Items itemHolder = new Items();
-    protected ArrayList<Items> list2 = itemHolder.getList();
+   protected ArrayList<Items> list2 = itemHolder.getList();
     
-    protected Monster monsterHolder = new Monster();
-    protected ArrayList<Monster> list3 = monsterHolder.getList();
+   
     
     protected Artifacts artifactHolder = new Artifacts();
     protected ArrayList<Artifacts> list4 = artifactHolder.getList();
     
-    public ArrayList<Items> items = new ArrayList<>();
-    
-    public ArrayList<Monster> monster = new ArrayList<>();
+    public ArrayList<Items> itemsArray = new ArrayList<>();
+    public Monster monsterHolder = new Monster();
+    public ArrayList<Monster> monsterArray = monsterHolder.getList();
+    public ArrayList<Monster> test = new ArrayList<>();
 
-    public ArrayList<Artifacts> artifact = new ArrayList<>();
+   public ArrayList<Artifacts> artifact = new ArrayList<>();
 	
 	
 	public static void main(String[] args)
@@ -66,7 +64,25 @@ public class Room {
 //		//this.monster = monster;
 //		
 //	}
+	 public Room(int number, String name, String description,
+	            Items item, Artifacts artifact, Monster monster) {
+//	    	this.number = number;
+//	    	this.name = name;
+//	    	this.description = description;
+//	    	this.item = item;
+//	    	this.artifacts = artifact;
+	    }
 	
+	public void setMonster(Monster monster)
+	{
+        this.monsterHolder = monster;
+        this.test.add(monster);
+    }
+	
+	public Monster getMonster(Monster monster) {
+        
+		return monster;
+    }
 	
 	public static Room newRoomInstance() {
 		return null;
@@ -80,12 +96,13 @@ public class Room {
 		return isPuzzleRoom;
 	}
 	
-	
+	public String getMonsterName()
+	{
+		return this.monsterHolder.getName();
+	}
 	
 
-    public Room(int number, String name, String description,
-            ArrayList<Items> item, ArrayList<Artifacts> artifact, ArrayList<Monster> monster) {
-    }
+   
 
     public void setNumber(int number) {
         this.number = number;
@@ -111,41 +128,58 @@ public class Room {
         return this.description;
     }
 
-    public void setItems(Items item) {
-    	this.itemHolder = item;
-        this.items.add(item);
-    }
+    
 //    public Monster getMonster(Monster)
 //    {
 //    	return this.monster.get(m1);
 //    }
     
-    public void setMonster(Monster monster) {
-        this.monsterHolder = monster;
-    	this.monster.add(monster);
-    }
     
-    public void setArtifact(Artifacts artifact) {
-        this.artifactHolder = artifact;
-    	this.artifact.add(artifact);
-    }
+    
+    
 
     public void deleteItem(Items item) {
-        this.items.remove(item);
+        this.itemsArray.remove(item);
     }
     public void deleteMonster(Monster monster) {
-        this.items.remove(monster);
+        this.itemsArray.remove(monster);
     }
 
     public String getItems() {
-        return this.itemHolder.getName();
+    	
+        return itemHolder.getName();
+    	    	
     }
-    public String getMonster() {
-        return this.monsterHolder.getName();
+    
+    
+    public Items getItemRef(Items items)
+	{
+    	return items;
+	}
+    
+    public void setItems(Items lol) {
+    	this.itemHolder = lol;
+        this.itemsArray.add(itemHolder);
     }
     public String getArtifact() {
+    	
+    	
         return this.artifactHolder.getName();
+    	
+    	
     }
+    public Artifacts getArt(Artifacts artifact)
+	{
+    	return artifact;
+	}
+    
+    public void setArtifact(Artifacts art) {
+        this.artifactHolder = art;
+    	this.artifact.add(art);
+    }
+    
+    
+    
     
     
 }

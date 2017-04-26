@@ -19,7 +19,7 @@ public class Items
 {
 	// Item Variables
 	protected String itemID;
-	protected String itemName;
+	public String itemName;
 	protected String itemDescription;
 	protected String itemEffect;
 	protected int healthRegen;

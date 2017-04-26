@@ -25,10 +25,11 @@ public class ViewClass {
 	
 	public static void main(String[] args) 
 	{
-		
+		RoomMaker make = new RoomMaker();
 	 	Game.intro();
 	 	Game.titleMenu();
-	 	RoomMaker.startGame();	
+	 	
+	 	make.startGame();	
 	 	
 	}
 	 	

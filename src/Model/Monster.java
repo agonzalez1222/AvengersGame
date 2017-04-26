@@ -31,6 +31,11 @@ public class Monster extends Character
 		this.isFrozen = isFrozen;
 	}
 	
+	public Monster()
+	{
+		super(100,2,5);
+	}
+	
 	/**
 	 * 
 	 * 
@@ -39,7 +44,7 @@ public class Monster extends Character
 	protected int damageMonster(Player player) {
 		int playerAtk = player.getAtk();
 		super.health = super.health - playerAtk;
-		int damage = playerAtk - super.health;
+		int damage = playerAtk - super.def;
 		return damage;
 	}
 	
@@ -104,8 +109,4 @@ public class Monster extends Character
 	{
 		this.health = health;
 	}
-	
-	public String getMonster() {
-        return this.monster1.getName();
-    }
 }
