@@ -17,10 +17,9 @@ import java.util.Scanner;
 
 public class RoomMaker {
 		
-		public static Player player;
 		protected final int WIDTH = 40;
 		protected final int HEIGHT = 40;
-		public Monster monster;
+		public Monster monster = new Monster();
 		public Artifacts artifact;
 		public boolean isAlive;
 		public static int aliveCounter = 0;
@@ -30,6 +29,7 @@ public class RoomMaker {
 		protected static int y = 4;
 		protected int z = 0;
 		protected Items itemMaker;
+		protected static int checkCounter = 0;
 	
 		// Monsters
 		Monster m1 = new Monster(10, (int)(Math.random() * 5 + 1), 0, "Insane Crew Person", "Crew member driven insane by the otherworldly happenings on the ship. It's as if they have seen the other side and come back changed. Their eyes...their eyes are so crazed. So....hollow...", false);
@@ -42,6 +42,7 @@ public class RoomMaker {
 		Monster boss = new Monster(100, 30, 0, "Great Old One", "A horrifying, giant, three-eyed slug with metallic spines protruding from its slimy back and pyramid-shaped feet that scrape and screech against the metallic floor.", true);
 		
 		// Artifacts
+		Artifacts emptyArt = new Artifacts("", "", 0, 0, 0);
 		Artifacts w1 = new Artifacts("None", "You need to hurry and find a weapon", 1, 0, 0);
 		Artifacts w2 = new Artifacts("Pipe", "A piece of piping. You're not sure what it belongs to, but it can't be too important.", 2, 1000, 0);
 		Artifacts w3 = new Artifacts("Knife", "A knife found in the Galley. Slightly dull from frequent use.", 6, 1000, 0);
@@ -59,11 +60,15 @@ public class RoomMaker {
 		Items i3 = new Items("I3", "Plasma Rounds", "Ammunition for a plasma pistol", "Increase plasma pistol ammo by 6", 0, 6, false);
 		Items i4 = new Items("I4", "Green Herb", "An edible herb found in the greenhouse. Eat it to restore health.",  "Replenishes Health by 15", 15, 0, false);
 		Items i5 = new Items("I5", "Red Herb", "A vibrant red herb. It's inedible. Perhaps it has some other use?",  "Can be combine with green herb", 0, 0, false);
-		Items i6 = new Items("I6", "Mixed Herbs", "A combination of a green and red herb. Restores a good amount of health.",  "Replenishes Health by 30", 30, 0, false);			Items captainKey = new Items("I7", "Captain's Key Card", "A Card Key the captain used to enter special areas of the ship.",  "", 0, 0, true);
+		Items i6 = new Items("I6", "Mixed Herbs", "A combination of a green and red herb. Restores a good amount of health.",  "Replenishes Health by 30", 30, 0, false);			
+		Items i10 = new Items("I10", "Captain's Key Card", "A Card Key the captain used to enter special areas of the ship.",  "", 0, 0, true);
 		Items i7 = new Items("I7", "Flashlight", "", "", 0, 0, true);
 		Items i8 = new Items("I8", "Lab Paper", "A piece of paper found in the pocket of a lab coat. There's something written on it...",  "", 0, 0, true);
 		Items i9 = new Items("I9", "Cryo-Canister", "A container that instantly freezes an area once thrown. Can be used to slow down enemies.",  "Causes a monster to skip it's turn once per use.", 0, 0, false);
-			
+		Items emptyitem = new Items("", "empty", "", "", 0, 0, false);	
+		ArrayList<Items> makerItemsArray = new ArrayList<>();
+		ArrayList<Artifacts> makerArtArray = new ArrayList<>();
+		
 		
 		
 		
@@ -97,6 +102,18 @@ public class RoomMaker {
 			return ui;
 		}
 		
+		public void createArrayList()
+		{
+			makerItemsArray.add(i1);
+			makerItemsArray.add(i2);
+			makerItemsArray.add(i3);
+			makerItemsArray.add(i4);
+			makerItemsArray.add(i5);
+			makerItemsArray.add(i6);
+			makerItemsArray.add(i7);
+			makerItemsArray.add(i8);
+			makerItemsArray.add(i9);
+		}
 		
 	
     public void build() {
@@ -119,17 +136,21 @@ public class RoomMaker {
    		room[0][4].setDescription("You wake up with a throbbing headache."
    				+ " \nDisoriented and Floating, you look around in the void and you see a dim red light. "
        			+ "\nAs your eyes adjust to the light you see a sign that says Emergency Power. "
-       			+ "\nShould you go for the light and push the Button?");
+       			+ "\nYou could probably find a power switch if you had a light source.");
    		room[0][4].setArtifact(w3);
   		room[0][4].setItems(i7);
    		
+  		 room[0][5].setNumber(35);
+    	 room[0][5].setName("wall");
+    	 room[0][5].setDescription("");
+    		
    		room[1][4].setNumber(2);
    		room[1][4].setName("Food Storage Room");
    		room[1][4].setDescription("You Stumble through the door as your body becomes re acclimated to the artificial gravity."
-   				+ " You look to your right and you see a computer terminal. To your right you see a bunch of dried food goods. "
-   				+ "Across the room in front of you, you see a set of double doors that has Mess Hall written above it. You See M_1. You see W_1");
+   				+ " \nYou look to your right and you see a computer terminal. To your right you see a bunch of dried food goods. "
+   				+ "\nAcross the room in front of you, you see a set of double doors that has Mess Hall written above it.");
    		room[1][4].setMonster(m1);
-   		room[1][4].setArtifact(w1);
+   		room[1][4].setArtifact(w2);
    		
    	
    		room[2][4].setNumber(3);
@@ -141,66 +162,69 @@ public class RoomMaker {
    	
    		room[2][3].setNumber(4);
    		room[2][3].setName("Kitchen");
-   		room[2][3].setDescription("Your step into the Kitchen. The Floors are covered with pots and pans."
-       		+ " You see No other Exits in the room. You Do see M_2. You See W_2");
+   		room[2][3].setDescription("Your step into the Kitchen. The Floors are covered with pots and pans.");
    	
    	
-   		room[1][4].setMonster(m2);
-   		room[1][4].setArtifact(w2);
+   		room[2][3].setMonster(m2);
+   		room[2][3].setArtifact(w2);
    	
    	
    		room[3][4].setNumber(5);
    		room[3][4].setName("Barracks Hall 1");
    		room[3][4].setDescription("You Stare down the long Empty Barracks Hall. "
-       		+ "You see a Stairwell to your north and a wall to the south, to the east you see more hallway");
+       		+ "\nYou see a Stairwell to your north and a wall to the south, to the east you see more hallway");
    	
    	
    		room[4][4].setNumber(6);
    		room[4][4].setName("Barracks Hall 2");
    		room[4][4].setDescription("You Stare down the long Empty Barracks Hall. "
-       		+ "You see Barracks 1 to the north and Barracks 2 to the south, to the east you see more hallway");
+       		+ "\nYou see Barracks 1 to the north and Barracks 2 to the south, to the east you see more hallway");
    	
    	
    		room[5][4].setNumber(7);
    		room[5][4].setName("Barracks Hall 3");
    		room[5][4].setDescription("You Stare down the long Empty Barracks Hall. "
-       		+ "You see the Captain's room to the north and the Officer's room to the south,  Barracks 1, to the east you see more hallway");
+       		+ "\nYou see the Captain's room to the south and the Officer's room to the north,  Barracks 1, to the east you see more hallway");
    	
    	
    		room[5][3].setNumber(8);
    		room[5][3].setName("Captains Room");
-   		room[5][3].setDescription("You Walk into the captain’s room and you are confronted by M_2. ");
-   		room[5][3].setMonster(m2);
-   		room[5][3].setItems(i7);
+   		room[5][3].setDescription("You Walk into the captain’s room. ");
+   		//room[5][3].setMonster(m2);
+   		room[5][3].setItems(i10);
    	
    	
    		room[5][5].setNumber(9);
    		room[5][5].setName("Officers Room");
    		room[5][5].setDescription("You walk into the officer's room. It is quiet and you don’t observe anything.");
-   		room[5][5].setItems(i7);
+   		
    	
    	
-   		room[4][3].setNumber(10);
-       	room[4][3].setName("Barracks 1");
-       	room[4][3].setDescription("To walk into Barak 1. The room is filled with Bunk Beds. A M_1 attacks you. "
-       		+ "There are no items in this room.");
-       	room[4][3].setMonster(m1);
+   		room[3][3].setNumber(10);
+       	room[3][3].setName("Barracks 1");
+       	room[3][3].setDescription("To walk into Barak 1. The room is filled with Bunk Beds."
+       		+ "\nThere are no items in this room.");
+       	room[3][3].setMonster(m1);
    	
    	
    		room[4][5].setNumber(11);
        	room[4][5].setName("Barracks 2");
-       	room[4][5].setDescription("To walk into Barak 2. The room is filled with Bunk Beds. A M_1 attacks you. "
-       		+ "There are no items in this room.");
+       	room[4][5].setDescription("To walk into Barak 2. The room is filled with Bunk Beds."
+       		+ "\nThere are no items in this room.");
        	room[4][5].setMonster(m1);
    	
    	
    		room[3][5].setNumber(12);
-       	room[3][5].setName("Stairs 1");
-       	room[3][5].setDescription("You Walk into the Stairs from Barracks Hall and at the top of the Stairs is a door labeled ForeBay.");
+       	room[3][5].setName("Stairwell entrance");
+       	room[3][5].setDescription("You Walk up to a door that leads up to the stairwell.");
    	
-//       room[0][4].setNumber(13);
-//       room[0][4].setName("Stairs 2");
-//       room[0][4].setDescription("You Walk into the Stairs from Aftbay and at the top of the Stairs is a door labeled Botany.");
+       room[3][6].setNumber(13);
+       room[3][6].setName("Stairwell");
+       room[3][6].setDescription("You Walk up the stairs and you hear a noise in the distance.");
+       
+       room[3][7].setNumber(36);
+       room[3][7].setName("Stairwell 2");
+       room[3][7].setDescription("You Walk up the stairs and you hear a noise in the distance.");
        
        	room[0][8].setNumber(14);
        	room[0][8].setName("Brig");
@@ -348,8 +372,8 @@ public class RoomMaker {
 	 	
 	 	Scanner input = new Scanner(System.in);
 	 	String ui = input.nextLine();
-	 	System.out.println("FUDGE");
-		if(ui.equalsIgnoreCase("start") || ui.equalsIgnoreCase("help menu")){
+	 	
+		if(ui.equalsIgnoreCase("start") || ui.equalsIgnoreCase("start game")){
 	   
 	    	
 	    	
@@ -365,7 +389,7 @@ public class RoomMaker {
 	            System.out.println();
 	            print(room, getX(), getY(), monster);
 	            
-	            movePlayer(p1);
+	            movePlayer();
 	            
 	            print(room ,getX(), getY(), monster);
 	    		
@@ -394,7 +418,7 @@ public class RoomMaker {
         System.out.println();
         print(room, getX(), getY(), monster);
         
-        movePlayer(p1);
+        movePlayer();
         
         print(room ,getX(), getY(), monster);
 		
@@ -433,8 +457,8 @@ public class RoomMaker {
 				String answer2 = input.nextLine();
 				if(answer2.equalsIgnoreCase("Yes"))
 				{
-					this.player.health = this.player.health + 30;
-					System.out.print("Your new health is : " + player.health);
+					p1.health = p1.health + 30;
+					System.out.print("Your new health is : " + p1.health);
 				}
 				if(answer2.equalsIgnoreCase("no"))
 				{
@@ -448,8 +472,8 @@ public class RoomMaker {
 				String answer3 = input.nextLine();
 				if(answer3.equalsIgnoreCase("Yes"))
 				{
-					this.player.health = this.player.health + 15;
-					System.out.println("Your new health is : " + player.health);
+					p1.health = p1.health + 15;
+					System.out.println("Your new health is : " + p1.health);
 				}
 				else
 				{
@@ -469,12 +493,12 @@ public class RoomMaker {
     
     public void useItem(Items item) {
 		System.out.println("What item would you like to use?");
-		System.out.println(player.getInvItems());
-		player.invItems.add(Items.getItems(0));
+		System.out.println(p1.getInvItems());
+		p1.invItems.add(Items.getItems(0));
 
-		player.currentWeapon = w1;
-		player.currentArmor = w8;
-		player.invItems = new ArrayList<>();
+		p1.currentWeapon = w1;
+		p1.currentArmor = w8;
+		p1.invItems = new ArrayList<>();
 
 	}
         
@@ -503,48 +527,52 @@ public class RoomMaker {
         itemMaker = room[x][y].getItemRef(itemMaker);
         String a = room[x][y].getItems();
         String a1 = "You see : ";
-        String a2 = " |";
+        String a2 = " | ";
+        String a3 = " Pickup item (p)";
         monster = room[x][y].getMonster(monster);
         String b = room[x][y].getMonsterName();
         String b1 = " Has Appeared | ";
         artifact = room[x][y].getArt(artifact);
         String c = room[x][y].getArtifact();
         String c1 = "You See: ";
+        String c2 = " Pickup Weapon (q)";
         String m = "";
         
-        fightSequence();
-        if (a == null){
+        
+        if (a == null || a == "empty"){
         	a = "";
         	a1 = "";
         	a2 = "";
+        	a3 = "";
         }
         
         if (b == null){
         	b = "";
         	b1 = "";
         }
-        if (c == null){
+        if (c == null || c == ""){
         	c = "";
         	c1 = "";
+        	c2 = "";
         }
         
         if (a == "" && a1 == "" && b == "" && b1 == "" && c == "" && c1 == "" ){
         	m = "There's nothing too see here";
         }
         
-        System.out.println(a1 + a + a2 + b + b1 +  c1  +  c  + m);
+        System.out.println(a1 + a + a3 + a2 + b + b1 +  c1  +  c + c2 + m);
         
         System.out.println("Your Coordinates are: ("+ x + "," + y + ")");
      //   System.out.println(monsterExists(m1));
         
-        if(hasMonster() == true){
-    		aliveCounter ++;
+        if(b.equals(room[x][y].getMonsterName())){
+        	System.out.println(b);
+    		fightSequence();
     	}
-    	else if (hasMonster() == false)
-    		aliveCounter --;
+    	
         
         // This counter is to check for monster in room -1 mean no monster 1 means monster exists.
-        System.out.println(aliveCounter);
+       // System.out.println(aliveCounter);
      //   this.x = x;
       //  this.y = y;
     }
@@ -595,29 +623,47 @@ public class RoomMaker {
     	room[x][y].deleteMonster(monster);
     }
    
-    private boolean roomExists(int x, int y) {
-		if(x >= 0 && y >= 0)
+    private boolean roomExists( int x, int y) {
+		if(x >= 0 && y >= 0 )
 		{
 			return true;
 		}
-		else
-		{
+		else {
 			return false;
 		}
-    	
-		
 	 // return true;
     
 }
+    private boolean roomDoesntExist (int x, int y){
+    	if(x == 5 && y == 7|| x == 2 && y == 6 ||x == 4 && y == 3||x == 1 && y == 3|| x == 2 && y == 2 || x ==0 && y ==5 || x ==0 && y == 3 || x ==1 && y == 3 || x == 1 && y == 5 || x == 2 && y == 5 || x == 3 && y == 2 || x == 4 && y == 2 || x == 4 && y == 6 || x == 5 && y == 6 || x == 6 && y == 5 || x == 6 && y == 4 || x == 6 && y == 3 || x == 5 && y == 2)
+    	{
+    		return false;
+    	}
+    	else{
+    		return true;
+    	}
+    }
+    private boolean checkcount (){
+    	if (checkCounter == 0 ){
+    		return false;
+    	}
+    	else {
+    		return true;
+    	}
+    }
     
-    public  void movePlayer(Player player) throws IOException {
-        while(!player.isFighting())
+    public  void movePlayer() throws IOException {
+    	
+        while(!p1.isFighting())
         {
-      boolean northPossible = roomExists(x, y + 1);
-      boolean southPossible = roomExists(x, y - 1);
-      boolean eastPossible = roomExists(x + 1, y);
-      boolean westPossible = roomExists(x - 1, y);
-      	System.out.println("Type help or menu for assistance.");
+      boolean northPossible = roomExists(x, y + 1) && roomDoesntExist(x , y +1);
+      boolean southPossible = roomExists(x, y - 1) && roomDoesntExist(x , y -1);
+      boolean eastPossible = roomExists(x + 1, y)  && roomDoesntExist(x+1 , y ) && checkcount();
+      boolean westPossible = roomExists( x - 1, y) && roomDoesntExist(x - 1 , y);
+      
+      
+      
+      	System.out.println("Type help or menu for assistance. | Type (i) to view inventory. | Type (map) to view map. | Type (score) to view current score. "); 
         System.out.print("Where would you like to go :");
         
         if (northPossible) {
@@ -632,31 +678,65 @@ public class RoomMaker {
         if (westPossible) {
             System.out.print(" West (w)");
        }
+     //   System.out.print(" Pickup item (p)");
+        
         System.out.print(" ? ");
         Scanner input = new Scanner(System.in);
         String direction = input.nextLine();
         if (direction.equalsIgnoreCase("n") && northPossible) {
             y++;
+            Player.currentScore -= 10;
         } else if (direction.equalsIgnoreCase("s") && southPossible) {
            y--;
+           Player.currentScore -= 10;
         } else if (direction.equalsIgnoreCase("e") && eastPossible) {
             x++;
+            Player.currentScore -= 10;
         } else if (direction.equalsIgnoreCase("w") && westPossible) {
              x--;
+             Player.currentScore -= 10;
         } else if (direction.equalsIgnoreCase("menu") || direction.equalsIgnoreCase("help") ) {
             Game.openHelp();
             
         } else if (direction.equalsIgnoreCase("map")) {
        	 MapView.ViewMap();
+        } else if (direction.equalsIgnoreCase("score")) {
+        	viewScore();
+        } else if (direction.equalsIgnoreCase("p")){
+        	pickUpItem();
+        	room[0][4].setItems(emptyitem);
+        	room[5][3].setItems(emptyitem);
+        	checkCounter ++;
+        	room[0][4].setDescription("You Turn on the flashlight and now you can see the button, You press the button."
+        			+ "\nYou shield your eyes as you hear a slight hum from the backup Generator."
+        			+ "\n You see Massive reactor engines.");
+        	//System.out.println(makerItemsArray.get(0).getName());
         }
+        	else if(direction.equalsIgnoreCase("q"))
+        	{
+        		pickUpArt();
+        		room[0][4].setArtifact(emptyArt);
+        	
+        	} 
+        
+        	else if (direction.equalsIgnoreCase("i")){
+//        	System.out.println(makerItemsArray.get(0).getName());
+//        	System.out.println(makerItemsArray.get(1).getName());
+        	for(int i = 0; i < makerItemsArray.size(); i++)
+        	{
+        		System.out.println("Your Inventory Contains: \n" + makerItemsArray.get(i).getName() + "\n" + makerArtArray.get(i).getName() );
+        	}
+        	
+        }
+        
         else
         {
-        	System.out.println("Not recognized");
+        	System.out.println("You Hit A Wall!");
         }
        // currentRoom = getRoom(x, y);
       // currentRoom.enter(player);
-        System.out.println(x);
-        System.out.println(y);
+//        System.out.println(x);
+//        System.out.println(y);
         progress();
         //build();
         //input.close();
@@ -665,74 +745,143 @@ public class RoomMaker {
     }
   
     
-    public void testFight(){
-    	
-    	//while (room[x][y].isThere(monster) == true)
-    		
-    		
-    		
-    
+    public void viewScore(){
+    	System.out.println();
+    	System.out.println("Your current score is: " + Player.currentScore);
     }
+    
     public void fightSequence() {
 		Scanner input = new Scanner(System.in);
-		while(hasMonster() == true)
-		{
+		
 		System.out.println("What would you like to do? \nAttack, Run, or Use Item?");
 		String userInput = input.nextLine();
+		while (p1.isAlive() && monster.isAlive()) {
 		if(userInput.equalsIgnoreCase("Attack"))
 		{
-			System.out.println("You have chosen to attack: " + (monster.getName()) + "for " + (damageMonster(player)) + " damage");
+			System.out.println(monster.getHealth());
+			System.out.println("You have chosen to attack: " + "for " + (damageMonster()) + " damage");
 				if (monster.isAlive() == true) {
 					System.out.println("The monster strikes you back and deals " + damagePlayer(monster) + " damage");
-				} else if (player.isAlive() == false) {
-					System.out.println("You Died.");
-					System.exit(0);
-				} else if (monster.isAlive() && monster.getIsFrozen()) {
 					
-					System.out.println(monster.getName() + " has been slain.");
+					fightSequence();
 				}
-				System.exit(0);
+				
+				if (p1.isAlive() == false) {
+					System.out.println("You Died.");
+					
+					Game.intro();
+					Game.titleMenu();
+					startGame();
+				}
+				} if (!monster.isAlive()) {
+					System.out.println(room[x][y].getMonsterName() + " has been slain.");
+					
+					try
+					{
+					movePlayer();
+					}
+					catch(IOException e)
+					{
+						e.getMessage();
+					}
+				}
+				break;
 		}
 		
 		if(userInput.equalsIgnoreCase("Run"))
 		{
-			Player.escapeRoll();
-			if (Player.escapeRoll() > 5) {
+			//p1.escapeRoll();
+//			if (p1.escapeRoll() > 5) {
 				System.out.println("You managed to escape.");
 				// Add code to exit the fight here.
-				
-			}
+				try
+				{
+				movePlayer();
+				}
+				catch(IOException e)
+				{
+					e.getMessage();
+				}
+			//}
 		}
 		
 		if(userInput.equalsIgnoreCase("Use Item"))
 		{
-			player.useHealthRegenItem(itemMaker);
-		} else {	
-			System.out.println("That action was not recognized, please try to enter another option");	
-			//Player.Fight();
+			createArrayList();
+			
+			
+		}
+		else {	
+			System.out.println("That action was not recognized, please try to enter another option");
+			if(!monster.isAlive())
+			{
+				try
+				{
+				movePlayer();
+				}
+				catch(IOException e)
+				{
+					e.getMessage();
+				}
+				
+			}
+			else
+			{
+				fightSequence();
+			}
 		}
 		
-		if (player.getHealth() < 0) {
+		if (p1.getHealth() < 0) {
 			System.out.println("You died.");
 			// System.exit(0);
 		} else if (monster.getHealth() < 0) {
 			System.out.println("You have slain: " + monster.getName());
+			
 		}
-		}
+		
 		System.out.println("Hi");
-		} 
+		}
     
-    protected static int damagePlayer(Monster monster) {
-		int monsterAtk = monster.getAtk();
-		int health = player.getHealth();
+    public void pickUpItem()
+    {
+    	System.out.println("You picked up: " + room[0][4].getItems());
+    	
+    	
+    	if (room[0][4].getName().equalsIgnoreCase("Engine Room")){
+    		makerItemsArray.add(room[0][4].getItemRef(i7));
+    	}
+    }
+    	public void pickUpArt()
+        {
+        	System.out.println("You picked up: " + room[0][4].getArtifact());
+        	
+        	
+        	if (room[0][4].getName().equalsIgnoreCase("Engine Room")){
+        		makerArtArray.add(room[0][4].getArt(w3));
+        	}
+//    	if (room[5][3].getName().equalsIgnoreCase("Captains Room")){
+//    		makerItemsArray.add(room[5][3].getItemRef(i10));
+//    	}
+    	//System.out.println(makerItemsArray.get(0).getName());
+    	
+    }
+		 
+    
+    protected int damagePlayer(Monster monster) {
+		int monsterAtk = (int)(Math.random() * 5 + 1);
+		int health = p1.getHealth();
 		health = health - monsterAtk;
-		int damage = monsterAtk - player.getDef();
-		player.setHealth(health);
+		int damage = p1.getDef() - monsterAtk;
+		if (damage < 0) {
+			damage = 0;
+			p1.setHealth(health);	
+		}
+		p1.setHealth(health);
 		return damage;
 	}
     
-    protected int damageMonster(Player player) {
-		int playerAtk = player.getAtk();
+    protected int damageMonster() {
+    	int playerAtk = p1.getAtk();
 		int mHealth = monster.getHealth();
 		mHealth = mHealth - playerAtk;
 		monster.setHealth(mHealth);
@@ -742,7 +891,7 @@ public class RoomMaker {
 
     public void battle()
     {
-    	while(player.isAlive() && monster.isAlive())
+    	while(p1.isAlive() && monster.isAlive())
     	{
     		if(aliveCounter >= 0)
     		{

@@ -27,7 +27,7 @@ public class Player extends Character {
 	// Player variables
 	public ArrayList<Items> invItems;
 	ArrayList<Artifacts> equipment;
-	private int currentScore = 1000;
+	public static int currentScore = 1000;
 	public Artifacts currentWeapon;
 	public Artifacts currentArmor;
 	static Random rand = new Random();
@@ -37,12 +37,13 @@ public class Player extends Character {
 	protected Monster m1;
 	private int currentX = 0;
 	private int currentY = 4;
+	public RoomMaker rm;
 	
 	public Player() {
 		super(100, 1, 5);
 
-		//currentWeapon = artifacts.get(0);
-		//currentArmor = artifacts.get(7);
+//		currentWeapon = rm.w1;
+//		currentArmor = rm.w8;
 		invItems = new ArrayList<>();
 	}
 	
@@ -72,7 +73,7 @@ public class Player extends Character {
 	}
 	
 	// Random number generator used for escaping battles
-	public static int escapeRoll() {
+	public int escapeRoll() {
 		int diceRoll = rand.nextInt((10 - 1) + 1) + 1;
 		return diceRoll;
 	}
@@ -80,12 +81,6 @@ public class Player extends Character {
 	public void setHealth(int health)
 	{
 		this.health = health;
-	}
-	
-	
-	public void PlayerMove() {
-		// Code for player movement goes here
-		currentScore -= 10;
 	}
 	
 	/**

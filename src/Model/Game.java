@@ -88,16 +88,16 @@ public class Game implements Serializable {
 		System.out.println("");
 		String goal = "Goal: Reach the bridge and send a distress signal.";
 
-		String score = "Score: Score starts at 1000. Each move/step made reduces the score by a "
-				+ "certain amount. The fewer moves made, the higher the score."; 
+		String score = "Score: Score starts at 1000. \nEach move/step made reduces the score by a "
+				+ "\ncertain amount. The fewer moves made, the higher the score."; 
 
 		String stats = "Stats: Player starts with 100 HP, 5 defense from wearing the "
-				+ "shirt armor, and 1 attack. Armor increases defense. Defense decreases "
-				+ "damage taken from monsters (example: monster hits for+ 20 damage, but player "
-				+ "is wearing shirt so it only does 15 damage). Weapons have an attack stat that "
-				+ "directly equals how much HP monsters lose when hit by the player.";
+				+ "\nshirt armor, and 1 attack. Armor increases defense. Defense decreases "
+				+ "\ndamage taken from monsters (example: monster hits for+ 20 damage, but player "
+				+ "\nis wearing shirt so it only does 15 damage). Weapons have an attack stat that "
+				+ "\ndirectly equals how much HP monsters lose when hit by the player.";
 		
-		String commands = "Open Map" + "Inventory" + "Score" + "load"+ "save";
+		String commands = "Inputs are: " + "Map | " + "Inventory | " + "Score | " + "load | "+ "save";
 		
 		System.out.println(goal);
 		System.out.println(score);
@@ -109,8 +109,8 @@ public class Game implements Serializable {
 		
 		System.out.print("Goal: Reach the bridge and send a distress signal to escape the horrors within the ship.");
 		System.out.println("Score: Score starts at 1000. Each move/step made reduces the score by a "
-				+ "certain amount. The fewer moves made, the higher the score.");
-		System.out.println("");
+				+ "\ncertain amount. The fewer moves made, the higher the score.");
+		System.out.println("||||||||||||||||||||||||||||||||||||||||| End |||||||||||||||||||||||||||||||||||||||||");
 
 //		String stats = "Stats: Player starts with 100 HP, 5 defense from wearing the "
 //				+ "shirt armor, and 1 attack. Armor increases defense. Defense decreases "
@@ -129,12 +129,12 @@ public class Game implements Serializable {
 	 * @player 
 	 */
 
-	public static void viewInventory(Player player){
-		System.out.println("You open your bag and search through your belongings.");
+//	public static void viewInventory(Player player){
+	//	System.out.println("You open your bag and search through your belongings.");
 		//System.out.println(player.invItems.get());
 		// for loop here or get ArrayList differently later
-	}
-	
+	//}
+	//
 	/**
 	 * Method: viewMap()
 	 * 

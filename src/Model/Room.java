@@ -72,7 +72,13 @@ public class Room {
 //	    	this.item = item;
 //	    	this.artifacts = artifact;
 	    }
-	
+//	 public void addToInv(Items item) {
+//			for (Items i: itemsArray) {
+//				itemsArray.add(i);
+//			}
+//		}
+	 
+	 
 	public void setMonster(Monster monster)
 	{
         this.monsterHolder = monster;
@@ -142,7 +148,7 @@ public class Room {
         this.itemsArray.remove(item);
     }
     public void deleteMonster(Monster monster) {
-        this.itemsArray.remove(monster);
+        this.monsterArray.remove(monster);
     }
 
     public String getItems() {
@@ -178,8 +184,16 @@ public class Room {
     	this.artifact.add(art);
     }
     
+    public Items getArrayItem(int i)
+    {
+    	return this.itemsArray.get(i);
+    }
     
-    
+    public void addItems(Items item)
+    {
+    	this.itemHolder = item;
+    	itemsArray.add(itemHolder);
+    }
     
     
 }

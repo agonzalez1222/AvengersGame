@@ -51,15 +51,15 @@ public class MonsterPlayerOperations
 				System.exit(0);
 		}
 		
-		if(userInput.equalsIgnoreCase("Run"))
-		{
-			Player.escapeRoll();
-			if (Player.escapeRoll() > 5) {
-				System.out.println("You managed to escape.");
-				// Add code to exit the fight here.
-				
-			}
-		}
+//		if(userInput.equalsIgnoreCase("Run"))
+//		{
+//			//Player.escapeRoll();
+//			//if (Player.escapeRoll() > 5) {
+//				System.out.println("You managed to escape.");
+//				// Add code to exit the fight here.
+//				
+//			}
+//		}
 		
 		if(userInput.equalsIgnoreCase("Use Item"))
 		{
